@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/LuisSolòrzano/Documents/Netbeans/listas_de_compras-final/src/Principal.java</file>
-            <file>file:/C:/Users/LuisSolòrzano/Documents/Netbeans/listas_de_compras-final/src/Iniciar_sesion.java</file>
-            <file>file:/C:/Users/LuisSolòrzano/Documents/Netbeans/listas_de_compras-final/src/presentacion.java</file>
-            <file>file:/C:/Users/LuisSolòrzano/Documents/Netbeans/listas_de_compras-final/src/Archivo.java</file>
-            <file>file:/C:/Users/LuisSolòrzano/Documents/Netbeans/listas_de_compras-final/src/welcome.java</file>
+            <file>file:/C:/Users/LuisSolòrzano/Documents/Netbeans/listas_de_compras/src/Formularios/Registrar.java</file>
+            <file>file:/C:/Users/LuisSolòrzano/Documents/Netbeans/listas_de_compras/src/Formularios/Ayuda.java</file>
+            <file>file:/C:/Users/LuisSolòrzano/Documents/Netbeans/listas_de_compras/src/Formularios/Iniciar_sesion.java</file>
+            <file>file:/C:/Users/LuisSolòrzano/Documents/Netbeans/listas_de_compras/src/Formularios/Presentacion.java</file>
+            <file>file:/C:/Users/LuisSolòrzano/Documents/Netbeans/listas_de_compras/src/Formularios/Nueva_lista_productos.java</file>
+            <file>file:/C:/Users/LuisSolòrzano/Documents/Netbeans/listas_de_compras/src/Formularios/Principal_productos.java</file>
         </group>
     </open-files>
 </project-private>
