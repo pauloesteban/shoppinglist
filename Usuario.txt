@@ -1,0 +1,15 @@
+JEFF;HERRERA;098765432;hombre;29/10/2016;1234;
+luis;solorzano;234566;hombre;29/10/2016;11111;
+luis;solorzano;234566;hombre;29/10/2016;1111;
+RICARD;;;null;29/10/2016;1234;
+hola ;;098765432;hombre;29/10/2016;1234;
+hola ;;098765432;hombre;29/10/2016;1234;
+hola ;;098765432;hombre;29/10/2016;1234;
+hola ;;098765432;hombre;29/10/2016;1234;
+hola ;;098765432;hombre;29/10/2016;1234;
+hola;herre;jeff;hombre;29/10/2016;1234;
+;;;null;29/10/2016;;
+;;;null;29/10/2016;;
+hola;como ;aalvaro;mujer;29/10/2016;baby;
+lklk;lkll;ff;hombre;29/10/2016;1234;
+andres;chavez;aalvaro;hombre;31/10/2016;borrego<3;
