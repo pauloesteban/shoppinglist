@@ -92,6 +92,8 @@ public class welcome extends javax.swing.JFrame {
 
         jLabel6.setText("Fecha de nacimiento:");
 
+        txtfecha.setText("jFormattedTextField1");
+
         jLabel7.setText("Contraseña:");
 
         jLabel8.setText("Confirmar contraseña:");
@@ -125,25 +127,26 @@ public class welcome extends javax.swing.JFrame {
                                         .addComponent(rdbhombre)
                                         .addGap(18, 18, 18)
                                         .addComponent(rdbmujer)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 187, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtfecha, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtcontraseña2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtcontraseña)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
+                            .addComponent(txtfecha)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel6)
-                                    .addComponent(jLabel8)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(bntregistrar)))
-                        .addGap(0, 220, Short.MAX_VALUE)))
+                                    .addComponent(jLabel8))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(bntregistrar)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtcontraseña2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtcontraseña))))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
