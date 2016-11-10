@@ -58,11 +58,11 @@ public class Iniciar_sesion extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(242, 134, 12));
         jLabel1.setText("Iniciar Sesión");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(0, 204, 0));
         jLabel2.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel2.setForeground(new java.awt.Color(0, 153, 51));
         jLabel2.setText("Usuario:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
@@ -95,11 +95,13 @@ public class Iniciar_sesion extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
         getContentPane().add(lblr, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 55, -1, -1));
+
+        lblmensage.setText(".....");
         getContentPane().add(lblmensage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
         getContentPane().add(txtcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 280, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\matrix\\Desktop\\fondo.jpg")); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 310));
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\LuisSolorzano\\Pictures\\ff.jpg")); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -10, 390, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
