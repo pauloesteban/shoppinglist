@@ -3,11 +3,8 @@
 package Formularios;
 
 import java.awt.Color;
-import java.awt.Image;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-
 
 /**
  *
@@ -24,15 +21,12 @@ hilo ejecutar = new hilo();
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(this);
-        
-       
-        
         Presentacion.this.getRootPane().setOpaque(false);        
         Presentacion.this.getContentPane ().setBackground (new Color (0, 0, 0, 0));
         Presentacion.this.setBackground (new Color (0, 0, 0, 0)); 
        
     }
-  
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,10 +105,6 @@ hilo ejecutar = new hilo();
         java.awt.EventQueue.invokeLater(() -> {
             new Presentacion().setVisible(true);
         });
-    }
-
-    private void setIconImage(ImageIcon imageIcon) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private class hilo extends Thread{
