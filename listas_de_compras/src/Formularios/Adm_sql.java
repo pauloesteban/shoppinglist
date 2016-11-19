@@ -68,19 +68,20 @@ class Adm_sql {
     }
    
      
-    public void Registrarproducto(int codigo, String producto,double precio,int cant,FileInputStream foto,int l){
+    public void Registrarproducto(int cod, int codigo, String producto,double precio,int cant,FileInputStream foto,int l){
         try{
             ConexionBD con = new ConexionBD();
             cn=con.conexion();
             
-            String sql="INSERT INTO tb_productos(CODIGO,PRODUCTO,PRECIO,CANTIDAD,IMAGEN) VALUES "+ "(?,?,?,?,?);";                    
+            String sql="INSERT INTO tb_productos(CODIGO,PRODUCTO,PRECIO,CANTIDAD,IMAGEN,ID_CAT) VALUES "+ "(?,?,?,?,?,?);";                    
             
             PreparedStatement pst = cn.prepareStatement(sql);
-                pst.setInt(1, codigo);
+                pst.setInt(1, cod);
                 pst.setString(2, producto);
                 pst.setDouble(3, precio);
                 pst.setInt(4, cant);
                 pst.setBinaryStream (5,foto,l);
+                pst.setInt(6, codigo);
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "SE HA REGISTRADO UN NUEVO PRODUCTO");
                                                                  
@@ -90,6 +91,54 @@ class Adm_sql {
         }
     }
     
+    public Object[][] llenartabla(String cod){
+        
+        int filas=0;
+        Object[][] datos =null;
+        
+         try {
+              ConexionBD con = new ConexionBD();
+            cn=con.conexion();
+            String sql= "SELECT * FROM tb_productos WHERE ID_CAT='"+cod+"'";
+            PreparedStatement pst = cn.prepareStatement(sql);
+            ResultSet res = pst.executeQuery();
+                while(res.next()){
+                    //u=res.getString("NOMBRES")+"  "+ res.getString("APELLIDOS");
+                   filas++;
+                   
+                }
+                while(res.next()){
+                    
+                   datos = new Object[filas][5];
+                for (int i = 0; i <filas; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        if (j==0) {
+                            datos[i][j]=res.getString("CODIGO");
+                        }
+                        if (j==1) {
+                            datos[i][j]=res.getString("PRODUCTO");
+                        }
+                        if (j==2) {
+                            datos[i][j]=res.getString("PRECIO");
+                        }
+                        if (j==3) {
+                             datos[i][j]=res.getString("CANTIDAD");
+                        }
+                        if (j==4) {
+                            datos[i][j]="Eliminar";
+                        }
+                        
+                    }
+                 
+             }
+                }
+                 cn.close();
+           
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+        return datos;
+    }
     
     public int consultarlogin(String usuario,String contraseña ){
          
@@ -188,11 +237,72 @@ class Adm_sql {
          return nombreArrayList;
     }
     
+    public ArrayList<String> leerproductos(){
+         
+         ConexionBD con = new ConexionBD();
+         ArrayList<String> nombreArrayList = new ArrayList<String>();
+            cn=con.conexion();
+            int resultado=0;
+         String sql= "SELECT * FROM tb_productos";
+         
+         try {
+            PreparedStatement pst = cn.prepareStatement(sql);
+            ResultSet res = pst.executeQuery();
+            //int i = 0;
+                while(res.next()){
+//                    usu_id = res.getInt("tm_idusuario");
+//                    usu_login = res.getString("tm_login");
+//                    usu_password = res.getString("tm_password");
+//                    data[i][0] = usu_id;
+//                    data[i][1] = usu_login;
+//                    data[i][2] = usu_password;
+                    nombreArrayList.add(res.getString("PRODUCTO"));
+                     //usuario=res.getString("NOMBRES").toString();
+                     //resultado=1;
+                   
+                }
+                cn.close();
+           
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+        finally{
+       
+        }
+         return nombreArrayList;
+    }
+    
+     public ArrayList<String> leerproductos2(String cod){
+         
+         ConexionBD con = new ConexionBD();
+         ArrayList<String> nombreArrayList = new ArrayList<String>();
+            cn=con.conexion();
+            int resultado=0;
+         String sql= "SELECT * FROM tb_productos WHERE ID_CAT = '"+cod+"'";
+         
+         try {
+            PreparedStatement pst = cn.prepareStatement(sql);
+            ResultSet res = pst.executeQuery();
+            //int i = 0;
+                while(res.next()){
+//                    
+                    nombreArrayList.add(res.getString("PRODUCTO")+";"+res.getString("PRECIO")+";"+res.getString("CODIGO"));
+                }
+                cn.close();
+           
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+        finally{
+       
+        }
+         return nombreArrayList;
+    }
      
      private Image data;
     //metodo  que dado un parametro "id" realiza una consulta y devuelve como resultado
 // una imagen
- public Image getfoto(String id){         
+  public Image getfoto(String id){         
      ConexionBD con = new ConexionBD();
             cn=con.conexion();
      try{    
@@ -219,7 +329,7 @@ class Adm_sql {
     }        
     return data;     
  }
- 
+  
   public ArrayList<Image> leerimagenes(){         
      ConexionBD con = new ConexionBD();
             cn=con.conexion();
@@ -227,6 +337,33 @@ class Adm_sql {
      try{    
          PreparedStatement pstm = cn.prepareStatement("SELECT * FROM tb_categoria");
          //pstm.setInt(1, id);
+         ResultSet res = pstm.executeQuery();
+         int i = 0;
+         while(res.next()){
+            //se lee la cadena de bytes de la base de datos
+            byte[] b = res.getBytes("IMAGEN");
+            // esta cadena de bytes sera convertida en una imagen
+            lista.add( ConvertirImagen(b));            
+            i++;
+         }
+         res.close();
+         cn.close();
+          } catch (IOException ex) {
+            //Logger.getLogger(fotoclass.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(SQLException e){
+         System.out.println(e);
+    }        
+    return lista;     
+ }
+  
+  
+  public ArrayList<Image> imagproductos(String id){         
+     ConexionBD con = new ConexionBD();
+            cn=con.conexion();
+      ArrayList<Image>   lista = new ArrayList<Image>();   
+     try{    
+         String sql= "SELECT * FROM tb_productos WHERE CODIGO = '"+id+"'";
+         PreparedStatement pstm = cn.prepareStatement(sql);
          ResultSet res = pstm.executeQuery();
          int i = 0;
          while(res.next()){

@@ -2,6 +2,10 @@ package Formularios;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -30,14 +34,18 @@ public class Principal_productos extends javax.swing.JFrame {
     return retValue;
     }
     public String usuario="";
-    
+    Adm_sql sql;
     public Principal_productos() {
         initComponents();
          this.setLocationRelativeTo(null);
         setResizable(false);
         setTitle("iMarket");
         lblusuario.setText(usuario);
-       
+        sql=new Adm_sql();
+        Adm_sql producto=new Adm_sql();
+        Autocomplete a=new Autocomplete();
+        a.setupAutoComplete(jTextField1, producto.leerproductos());
+       ocultar();
     }
     
  
@@ -50,6 +58,7 @@ public class Principal_productos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton15 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblusuario = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -68,30 +77,30 @@ public class Principal_productos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        lblimg1 = new javax.swing.JLabel();
+        lblimg2 = new javax.swing.JLabel();
+        lblimg3 = new javax.swing.JLabel();
+        lblimg4 = new javax.swing.JLabel();
+        lblimg5 = new javax.swing.JLabel();
+        lblimg6 = new javax.swing.JLabel();
+        lblnom1 = new javax.swing.JLabel();
+        lblprecio1 = new javax.swing.JLabel();
+        lblnom5 = new javax.swing.JLabel();
+        lblnom3 = new javax.swing.JLabel();
+        lblnom4 = new javax.swing.JLabel();
+        lblnom2 = new javax.swing.JLabel();
+        lblnom6 = new javax.swing.JLabel();
+        lblprecio5 = new javax.swing.JLabel();
+        lblprecio4 = new javax.swing.JLabel();
+        lblprecio3 = new javax.swing.JLabel();
+        lblprecio2 = new javax.swing.JLabel();
+        lblprecio6 = new javax.swing.JLabel();
+        btn2 = new javax.swing.JButton();
+        btn3 = new javax.swing.JButton();
+        btn1 = new javax.swing.JButton();
+        btn4 = new javax.swing.JButton();
+        btn5 = new javax.swing.JButton();
+        btn6 = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -104,6 +113,9 @@ public class Principal_productos extends javax.swing.JFrame {
         setIconImage(geticonimage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton15.setText("Guardar producto a la lista");
+        getContentPane().add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 430, 410, -1));
+
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -112,10 +124,20 @@ public class Principal_productos extends javax.swing.JFrame {
         jPanel1.add(lblusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 180, 30));
 
         jButton2.setText("Carnes y Embutidos");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 200, -1));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 123, 200, 40));
 
         jButton3.setText("Ferreteria");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 200, -1));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 200, 40));
 
         jButton4.setText("Frutas y Verduras");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -123,10 +145,15 @@ public class Principal_productos extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 200, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 173, 200, 40));
 
         jButton6.setText("Bebidas");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 200, -1));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 223, 200, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ferre.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
@@ -163,6 +190,11 @@ public class Principal_productos extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 270, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 580, 60));
@@ -170,82 +202,87 @@ public class Principal_productos extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 153, 153));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/taladro.jpg"))); // NOI18N
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 24, -1, -1));
+        lblimg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/taladro.jpg"))); // NOI18N
+        jPanel3.add(lblimg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 24, -1, -1));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/llavetubo.jpg"))); // NOI18N
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 11, 54, -1));
+        lblimg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/llavetubo.jpg"))); // NOI18N
+        jPanel3.add(lblimg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 54, -1));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pintura.jpg"))); // NOI18N
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 11, -1, -1));
+        lblimg3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pintura.jpg"))); // NOI18N
+        jPanel3.add(lblimg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 11, -1, -1));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/foco.jpg"))); // NOI18N
-        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 157, -1, -1));
+        lblimg4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/foco.jpg"))); // NOI18N
+        jPanel3.add(lblimg4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/martillo.jpg"))); // NOI18N
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 157, -1, -1));
+        lblimg5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/martillo.jpg"))); // NOI18N
+        jPanel3.add(lblimg5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 157, -1, -1));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/desarmadores.jpg"))); // NOI18N
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 162, -1, 45));
+        lblimg6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/desarmadores.jpg"))); // NOI18N
+        jPanel3.add(lblimg6, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 162, -1, 45));
 
-        jLabel15.setText("Descripcion");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 69, -1, -1));
+        lblnom1.setText("Descripcion");
+        jPanel3.add(lblnom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 69, -1, -1));
 
-        jLabel16.setText("Precio");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 89, -1, -1));
+        lblprecio1.setText("Precio");
+        jPanel3.add(lblprecio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 89, -1, -1));
 
-        jLabel17.setText("Descripcion");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 215, -1, -1));
+        lblnom5.setText("Descripcion");
+        jPanel3.add(lblnom5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 215, -1, -1));
 
-        jLabel18.setText("Descripcion");
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 69, -1, -1));
+        lblnom3.setText("Descripcion");
+        jPanel3.add(lblnom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 69, -1, -1));
 
-        jLabel19.setText("Descripcion");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 215, -1, -1));
+        lblnom4.setText("Descripcion");
+        jPanel3.add(lblnom4, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 215, -1, -1));
 
-        jLabel20.setText("Descripcion");
-        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 69, -1, -1));
+        lblnom2.setText("Descripcion");
+        jPanel3.add(lblnom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 69, -1, -1));
 
-        jLabel21.setText("Descripcion");
-        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 213, -1, -1));
+        lblnom6.setText("Descripcion");
+        jPanel3.add(lblnom6, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 213, -1, -1));
 
-        jLabel22.setText("Precio");
-        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 235, -1, -1));
+        lblprecio5.setText("Precio");
+        jPanel3.add(lblprecio5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 235, -1, -1));
 
-        jLabel23.setText("Precio");
-        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 235, -1, -1));
+        lblprecio4.setText("Precio");
+        jPanel3.add(lblprecio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 235, -1, -1));
 
-        jLabel24.setText("Precio");
-        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 89, -1, -1));
+        lblprecio3.setText("Precio");
+        jPanel3.add(lblprecio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 89, -1, -1));
 
-        jLabel25.setText("Precio");
-        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 89, -1, -1));
+        lblprecio2.setText("Precio");
+        jPanel3.add(lblprecio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 89, -1, -1));
 
-        jLabel26.setText("Precio");
-        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 233, -1, -1));
+        lblprecio6.setText("Precio");
+        jPanel3.add(lblprecio6, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 233, -1, -1));
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        jPanel3.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 109, 43, -1));
+        btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        jPanel3.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 109, 43, -1));
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        jPanel3.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 109, 43, -1));
+        btn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        jPanel3.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 109, 43, -1));
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        jPanel3.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 109, 43, -1));
+        btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 109, 43, -1));
 
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        jPanel3.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 258, 43, -1));
+        btn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        jPanel3.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 258, 43, -1));
 
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        jPanel3.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 258, 43, -1));
+        btn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        jPanel3.add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 258, 43, -1));
 
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        jPanel3.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 258, 43, -1));
+        btn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        jPanel3.add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 258, 43, -1));
 
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/gg.jpg"))); // NOI18N
-        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 330));
+        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 310));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 410, 330));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 410, 310));
 
         jButton1.setText("Ayuda");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -286,7 +323,42 @@ public class Principal_productos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        String codigo="3333";
+        ocultar();
+        String[]vector;
+        ArrayList<String> lista= sql.leerproductos2("3333");
+        ArrayList<Image> listaimg= sql.imagproductos("3333");
+
+        vector=lista.get(0).split(";");
+        lblnom1.setText(vector[0]);
+        lblprecio1.setText(vector[1]);
+        h(lblimg1,vector[2]);
+        
+        vector=lista.get(1).split(";");
+        lblnom2.setText(vector[0]);
+        lblprecio2.setText(vector[1]);
+        h(lblimg2,vector[2]);
+        
+        vector=lista.get(2).split(";");
+        lblnom3.setText(vector[0]);
+        lblprecio3.setText(vector[1]);
+        h(lblimg3,vector[2]);
+        
+        vector=lista.get(3).split(";");
+        lblnom4.setText(vector[0]);
+        lblprecio4.setText(vector[1]);
+        h(lblimg4,vector[2]);
+        
+        vector=lista.get(4).split(";");
+        lblnom5.setText(vector[0]);
+        lblprecio5.setText(vector[1]);
+        h(lblimg5,vector[2]);
+        
+        vector=lista.get(5).split(";");
+        lblnom6.setText(vector[0]);
+        lblprecio6.setText(vector[1]);
+        h(lblimg6,vector[2]);
+        mostrar();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -299,7 +371,7 @@ public class Principal_productos extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         Nueva_lista_productos j =new Nueva_lista_productos();
-     j.show();
+       j.show();
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -313,6 +385,223 @@ public class Principal_productos extends javax.swing.JFrame {
         this.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         mostrar();
+        try {
+            String codigo="1111";
+        String[]vector;
+        ArrayList<String> lista= sql.leerproductos2("1111");
+        ArrayList<Image> listaimg= sql.imagproductos("1111");
+
+        vector=lista.get(0).split(";");
+        lblnom1.setText(vector[0]);
+        lblprecio1.setText(vector[1]);
+        h(lblimg1,vector[2]);
+        
+        
+        
+        vector=lista.get(1).split(";");
+        lblnom2.setText(vector[0]);
+        lblprecio2.setText(vector[1]);
+        h(lblimg2,vector[2]);
+        
+        vector=lista.get(2).split(";");
+        lblnom3.setText(vector[0]);
+        lblprecio3.setText(vector[1]);
+        h(lblimg3,vector[2]);
+        
+        vector=lista.get(3).split(";");
+        lblnom4.setText(vector[0]);
+        lblprecio4.setText(vector[1]);
+        h(lblimg4,vector[2]);
+        
+        vector=lista.get(4).split(";");
+        lblnom5.setText(vector[0]);
+        lblprecio5.setText(vector[1]);
+        h(lblimg5,vector[2]);
+        
+        vector=lista.get(5).split(";");
+        lblnom6.setText(vector[0]);
+        lblprecio6.setText(vector[1]);
+        h(lblimg6,vector[2]);
+        
+       
+
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    public void h(JLabel j,String c){
+        try {
+            ArrayList<Image> listaimg= sql.imagproductos(c); 
+            Image foto=null;
+            Icon ico=null;
+            foto=listaimg.get(0);
+            ico=new ImageIcon(foto.getScaledInstance(j.getWidth(),  j.getHeight(), Image.SCALE_DEFAULT));
+            j.setIcon(ico);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+            
+            //w.updateUI();
+    }
+    
+    public void ocultar(){
+        lblimg1.setVisible(false);
+        lblimg2.setVisible(false);
+        lblimg3.setVisible(false);
+        lblimg4.setVisible(false);
+        lblimg5.setVisible(false);
+        lblimg6.setVisible(false);
+        lblnom1.setVisible(false);
+        lblnom2.setVisible(false);
+        lblnom3.setVisible(false);
+        lblnom4.setVisible(false);
+        lblnom5.setVisible(false);
+        lblnom6.setVisible(false);
+        lblimg2.setVisible(false);
+        lblimg3.setVisible(false);
+        lblimg4.setVisible(false);
+        lblimg5.setVisible(false);
+        lblimg6.setVisible(false);
+        lblprecio1.setVisible(false);
+        lblprecio2.setVisible(false);
+        lblprecio3.setVisible(false);
+        lblprecio4.setVisible(false);
+        lblprecio5.setVisible(false);
+        lblprecio6.setVisible(false);
+        btn1.setVisible(false);
+        btn2.setVisible(false);
+        btn3.setVisible(false);
+        btn4.setVisible(false);
+        btn5.setVisible(false);
+        btn6.setVisible(false);
+        
+    }
+    
+    public void mostrar(){
+        lblimg1.setVisible(true);
+        lblimg2.setVisible(true);
+        lblimg3.setVisible(true);
+        lblimg4.setVisible(true);
+        lblimg5.setVisible(true);
+        lblimg6.setVisible(true);
+        lblnom1.setVisible(true);
+        lblnom2.setVisible(true);
+        lblnom3.setVisible(true);
+        lblnom4.setVisible(true);
+        lblnom5.setVisible(true);
+        lblnom6.setVisible(true);
+        lblimg2.setVisible(true);
+        lblimg3.setVisible(true);
+        lblimg4.setVisible(true);
+        lblimg5.setVisible(true);
+        lblimg6.setVisible(true);
+        lblprecio1.setVisible(true);
+        lblprecio2.setVisible(true);
+        lblprecio3.setVisible(true);
+        lblprecio4.setVisible(true);
+        lblprecio5.setVisible(true);
+        lblprecio6.setVisible(true);
+        btn1.setVisible(true);
+        btn2.setVisible(true);
+        btn3.setVisible(true);
+        btn4.setVisible(true);
+        btn5.setVisible(true);
+        btn6.setVisible(true);
+        
+    }
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        ocultar();
+        String codigo="2222";
+        String[]vector;
+        ArrayList<String> lista= sql.leerproductos2("2222");
+        ArrayList<Image> listaimg= sql.imagproductos("2222");
+
+        vector=lista.get(0).split(";");
+        lblnom1.setText(vector[0]);
+        lblprecio1.setText(vector[1]);
+        h(lblimg1,vector[2]);
+        
+        vector=lista.get(1).split(";");
+        lblnom2.setText(vector[0]);
+        lblprecio2.setText(vector[1]);
+        h(lblimg2,vector[2]);
+        
+        vector=lista.get(2).split(";");
+        lblnom3.setText(vector[0]);
+        lblprecio3.setText(vector[1]);
+        h(lblimg3,vector[2]);
+        
+        vector=lista.get(3).split(";");
+        lblnom4.setText(vector[0]);
+        lblprecio4.setText(vector[1]);
+        h(lblimg4,vector[2]);
+        
+        vector=lista.get(4).split(";");
+        lblnom5.setText(vector[0]);
+        lblprecio5.setText(vector[1]);
+        h(lblimg5,vector[2]);
+        
+        vector=lista.get(5).split(";");
+        lblnom6.setText(vector[0]);
+        lblprecio6.setText(vector[1]);
+        h(lblimg6,vector[2]);
+        mostrar();
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String codigo="4444";
+        ocultar();
+       
+        String[]vector;
+        ArrayList<String> lista= sql.leerproductos2("4444");
+        ArrayList<Image> listaimg= sql.imagproductos("4444");
+
+        vector=lista.get(0).split(";");
+        lblnom1.setText(vector[0]);
+        lblprecio1.setText(vector[1]);
+        h(lblimg1,vector[2]);
+        
+        vector=lista.get(1).split(";");
+        lblnom2.setText(vector[0]);
+        lblprecio2.setText(vector[1]);
+        h(lblimg2,vector[2]);
+        
+        vector=lista.get(2).split(";");
+        lblnom3.setText(vector[0]);
+        lblprecio3.setText(vector[1]);
+        h(lblimg3,vector[2]);
+        
+        vector=lista.get(3).split(";");
+        lblnom4.setText(vector[0]);
+        lblprecio4.setText(vector[1]);
+        h(lblimg4,vector[2]);
+        
+        vector=lista.get(4).split(";");
+        lblnom5.setText(vector[0]);
+        lblprecio5.setText(vector[1]);
+        h(lblimg5,vector[2]);
+        
+        vector=lista.get(5).split(";");
+        lblnom6.setText(vector[0]);
+        lblprecio6.setText(vector[1]);
+        h(lblimg6,vector[2]);
+        mostrar();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,38 +640,22 @@ public class Principal_productos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn1;
+    private javax.swing.JButton btn2;
+    private javax.swing.JButton btn3;
+    private javax.swing.JButton btn4;
+    private javax.swing.JButton btn5;
+    private javax.swing.JButton btn6;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
@@ -391,13 +664,30 @@ public class Principal_productos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblimg1;
+    private javax.swing.JLabel lblimg2;
+    private javax.swing.JLabel lblimg3;
+    private javax.swing.JLabel lblimg4;
+    private javax.swing.JLabel lblimg5;
+    private javax.swing.JLabel lblimg6;
+    private javax.swing.JLabel lblnom1;
+    private javax.swing.JLabel lblnom2;
+    private javax.swing.JLabel lblnom3;
+    private javax.swing.JLabel lblnom4;
+    private javax.swing.JLabel lblnom5;
+    private javax.swing.JLabel lblnom6;
+    private javax.swing.JLabel lblprecio1;
+    private javax.swing.JLabel lblprecio2;
+    private javax.swing.JLabel lblprecio3;
+    private javax.swing.JLabel lblprecio4;
+    private javax.swing.JLabel lblprecio5;
+    private javax.swing.JLabel lblprecio6;
     public javax.swing.JLabel lblusuario;
     // End of variables declaration//GEN-END:variables
 }

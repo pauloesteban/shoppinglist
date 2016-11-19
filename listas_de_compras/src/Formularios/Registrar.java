@@ -3,6 +3,7 @@ package Formularios;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -101,6 +102,12 @@ public class Registrar extends javax.swing.JFrame {
 
         jLabel2.setText("Nombres:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        txtnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnombreKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 160, -1));
 
         jLabel3.setText("Apellidos:");
@@ -111,7 +118,19 @@ public class Registrar extends javax.swing.JFrame {
 
         jLabel5.setText("Sexo:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+
+        txtapellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtapellidoKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 160, -1));
+
+        txtusuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtusuarioKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 250, -1));
 
         rdbmujer.setText("Mujer");
@@ -290,7 +309,27 @@ public class Registrar extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
+        sololetras(evt);
+    }//GEN-LAST:event_txtnombreKeyTyped
+
+    private void txtapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapellidoKeyTyped
+        sololetras(evt);
+    }//GEN-LAST:event_txtapellidoKeyTyped
+
+    private void txtusuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtusuarioKeyTyped
+        
+    }//GEN-LAST:event_txtusuarioKeyTyped
     
+    private void sololetras(java.awt.event.KeyEvent evt){
+        char c = evt.getKeyChar();
+    
+         if((c<'a' || c>'z') && (c<'A' || c>'Z')&& (c!=(char)KeyEvent.VK_SPACE))
+          {
+             evt.consume();
+           } 
+    }
     
     private void guardar(){
         //ar=new Archivo();

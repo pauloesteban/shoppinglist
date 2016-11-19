@@ -182,6 +182,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
               if (n==1) {
             String u=sql.leerusuarios1(txtusu.getText(), txtcon.getText());
             Principal_productos p=new Principal_productos();
+            
             Image foto=sql.getfoto(txtusu.getText());
             Icon ico=new ImageIcon(foto.getScaledInstance(p.jLabel7.getWidth(),  p.jLabel7.getHeight(), Image.SCALE_DEFAULT));
             p.jLabel7.setIcon(ico);

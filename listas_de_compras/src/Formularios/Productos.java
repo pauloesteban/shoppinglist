@@ -5,17 +5,25 @@
  */
 package Formularios;
 
+import java.awt.Component;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -44,6 +52,8 @@ public class Productos extends javax.swing.JFrame {
         setResizable(false);
         setTitle("iMarket");
         
+        jPanel2.setVisible(false);
+        
         
         sql=new Adm_sql();
   
@@ -55,7 +65,7 @@ public class Productos extends javax.swing.JFrame {
         foto(lblfoto4,lista.get(3));
         foto(lblfoto6,lista.get(4));
         foto(lblfoto7,lista.get(5));
-        txtcodigo.setEnabled(false);
+        //txtcodigo.setEnabled(false);
         
     }
     
@@ -74,25 +84,26 @@ public class Productos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btncancelar = new javax.swing.JButton();
+        btnregistrar1 = new javax.swing.JButton();
+        lblmensaje = new javax.swing.JLabel();
+        txtcantidad = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        txtprecio = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtproducto = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        lblfoto = new javax.swing.JLabel();
+        txtcodigo = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        txtcodigo = new javax.swing.JTextField();
-        txtprecio = new javax.swing.JTextField();
-        txtproducto = new javax.swing.JTextField();
-        txtcantidad = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        btncancelar = new javax.swing.JButton();
-        lblmensaje = new javax.swing.JLabel();
-        btnregistrar1 = new javax.swing.JButton();
         lbltitulo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        lblfoto = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -109,19 +120,110 @@ public class Productos extends javax.swing.JFrame {
         lblfoto6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 255));
         setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Productos");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 90, 30));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btncancelar.setText("Cancelar");
+        btncancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 247, -1, -1));
+
+        btnregistrar1.setText("Registrar");
+        btnregistrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregistrar1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnregistrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 247, -1, -1));
+
+        lblmensaje.setText("jLabel11");
+        jPanel2.add(lblmensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 90, 10));
+
+        txtcantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcantidadActionPerformed(evt);
+            }
+        });
+        txtcantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcantidadKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txtcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 270, -1));
+
+        jLabel10.setText("Cantidad:");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 10));
+
+        jButton1.setText("buscar foto");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, -1, -1));
+
+        txtprecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtprecioActionPerformed(evt);
+            }
+        });
+        txtprecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtprecioKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 270, -1));
+
+        jLabel9.setText("Precio:");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+        txtproducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtproductoKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txtproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 160, -1));
+
+        jLabel8.setText("Producto:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        lblfoto.setText("      Foto");
+        lblfoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(lblfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 90, 70));
+
+        txtcodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcodigoActionPerformed(evt);
+            }
+        });
+        txtcodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcodigoKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 130, -1));
+
+        jLabel12.setText("Código:");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
         jLabel6.setText("Agregar Productos");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 130, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 130, 30));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 300, 290));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Productos");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 90, 30));
 
         jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
         jLabel7.setText("Categorías");
@@ -132,80 +234,15 @@ public class Productos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Producto", "Precio", "Cantidad", "Eliminar"
+
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 480, 520));
-
-        txtcodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcodigoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 130, 20));
-
-        txtprecio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtprecioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, 270, 20));
-        getContentPane().add(txtproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 160, -1));
-
-        txtcantidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcantidadActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 580, 270, 20));
-
-        jLabel8.setText("Producto:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
-
-        jLabel9.setText("Precio:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, -1, -1));
-
-        jLabel10.setText("Cantidad:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, -1, -1));
-
-        jLabel12.setText("Código:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, -1));
-
-        btncancelar.setText("Cancelar");
-        btncancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncancelarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 630, -1, 30));
-
-        lblmensaje.setText("jLabel11");
-        getContentPane().add(lblmensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, 90, -1));
-
-        btnregistrar1.setText("Registrar");
-        btnregistrar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnregistrar1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnregistrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, -1, 30));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 480, 550));
 
         lbltitulo.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
         getContentPane().add(lbltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 180, 20));
-
-        jButton1.setText("buscar foto");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, -1, -1));
-
-        lblfoto.setText("      Foto");
-        lblfoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(lblfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 90, 70));
 
         jButton2.setText("Regresar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -294,7 +331,8 @@ public class Productos extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 480, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/productos.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 670));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 680));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 300, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -302,38 +340,156 @@ public class Productos extends javax.swing.JFrame {
     private void txtprecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprecioActionPerformed
         
     }//GEN-LAST:event_txtprecioActionPerformed
+    
+    private void setTabla(JTable jTable1,String cod) {
+//        Calendar c1 = GregorianCalendar.getInstance();
+//        c1.set(1980, 11, 23);
+//        Date fecha1 = c1.getTime();
+//        c1.set(1987, 07, 11);
+//        Date fecha2 = c1.getTime();
+//        c1.set(1971, 02, 01);
+//        Date fecha3 = c1.getTime();
 
+        // Esta lista contiene los nombres que se mostrarán en el encabezado de cada columna de la grilla
+        String[] columnas = new String[]{
+            "Código",
+            "Producto",
+            "Precio",
+            "Cantidad",
+            //"Hijos",
+            "Eliminar"};
+
+        // Estos son los tipos de datos de cada columna de la lista
+        final Class[] tiposColumnas = new Class[]{
+            java.lang.String.class,
+            java.lang.String.class,
+            java.lang.String.class,
+            
+//            Date.class,
+            //int.class,
+            JButton.class // <- noten que aquí se especifica que la última columna es un botón
+        };
+        //sql=new Adm_sql();
+        // Agrego los registros que contendrá la grilla.
+        // Observen que el último campo es un botón
+        //Object[][] datos = sql.llenartabla(cod);
+        
+        Object[][] datos = new Object[][]{
+            {"hola", "Víctor", "Su casa","jjj", new JButton("Clic aquí")},
+            //{false, "Fernanda", "calle sin nombre #501", fecha2, 0, new JButton("Clic aquí")},
+            //{true, "Julian", "Orilla del rio #014", fecha3, 0, new JButton("Clic aquí")}
+        };
+
+        
+       //Object [] datos = new Object[4];
+//       DefaultTableModel datos = new DefaultTableModel();
+        // Defino el TableModel y le indico los datos y nombres de columnas
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                datos,
+                columnas) {
+            // Esta variable nos permite conocer de antemano los tipos de datos de cada columna, dentro del TableModel
+            Class[] tipos = tiposColumnas;
+
+            @Override
+            public Class getColumnClass(int columnIndex) {
+                // Este método es invocado por el CellRenderer para saber que dibujar en la celda,
+                // observen que estamos retornando la clase que definimos de antemano.
+                return tipos[columnIndex];
+            }
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                // Sobrescribimos este método para evitar que la columna que contiene los botones sea editada.
+                return !(this.getColumnClass(column).equals(JButton.class));
+            }
+        });
+
+        // El objetivo de la siguiente línea es indicar el CellRenderer que será utilizado para dibujar el botón
+        jTable1.setDefaultRenderer(JButton.class, new TableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable jtable, Object objeto, boolean estaSeleccionado, boolean tieneElFoco, int fila, int columna) {
+                /**
+                 * Observen que todo lo que hacemos en éste método es retornar el objeto que se va a dibujar en la 
+                 * celda. Esto significa que se dibujará en la celda el objeto que devuelva el TableModel. También 
+                 * significa que este renderer nos permitiría dibujar cualquier objeto gráfico en la grilla, pues 
+                 * retorna el objeto tal y como lo recibe.
+                 */
+                return (Component) objeto;
+            }
+        });
+
+        /**
+         * Por último, agregamos un listener que nos permita saber cuando fue pulsada la celda que contiene el botón.
+         * Noten que estamos capturando el clic sobre JTable, no el clic sobre el JButton. Esto también implica que en 
+         * lugar de poner un botón en la celda, simplemente pudimos definir un CellRenderer que hiciera parecer que la 
+         * celda contiene un botón. Es posible capturar el clic del botón, pero a mi parecer el efecto es el mismo y 
+         * hacerlo de esta forma es más "simple"
+         */
+        jTable1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int fila = jTable1.rowAtPoint(e.getPoint());
+                int columna = jTable1.columnAtPoint(e.getPoint());
+
+                /**
+                 * Preguntamos si hicimos clic sobre la celda que contiene el botón, si tuviéramos más de un botón 
+                 * por fila tendríamos que además preguntar por el contenido del botón o el nombre de la columna
+                 */
+                if (jTable1.getModel().getColumnClass(columna).equals(JButton.class)) {
+                    /**
+                     * Aquí pueden poner lo que quieran, para efectos de este ejemplo, voy a mostrar
+                     * en un cuadro de dialogo todos los campos de la fila que no sean un botón.
+                     */
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < jTable1.getModel().getColumnCount(); i++) {
+                        if (!jTable1.getModel().getColumnClass(i).equals(JButton.class)) {
+                            sb.append("\n").append(jTable1.getModel().getColumnName(i)).append(": ").append(jTable1.getModel().getValueAt(fila, i));
+                        }
+                    }
+                    JOptionPane.showMessageDialog(null, "Seleccionada la fila " + fila + sb.toString());
+                }
+            }
+        });
+    }
+
+
+    
     private void btnregistrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrar1ActionPerformed
         sql=new Adm_sql();
         try {
             
              if (num==1111) {
-            sql.Registrarproducto(1111, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
+            sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),1111, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
             limpiar();
         }
         else {
             if (num==2222){
-                  sql.Registrarproducto(2222, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
+                  sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),2222, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
                   limpiar();
             }
             else{
                 if (num==3333){
-                  sql.Registrarproducto(3333, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
+                  sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),3333, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
                   limpiar();
                 }
                 else{
                     if (num==4444){
-                       sql.Registrarproducto(4444, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
+                       sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),4444, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
                        limpiar();
                     }
                     else{
                         if (num==5555){
-                           sql.Registrarproducto(5555, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
+                           sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),5555, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
                            limpiar();
                        }
                         else{
-                            sql.Registrarproducto(6666, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
-                            limpiar();
+                            if (num==6666) {
+                                sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),6666, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
+                                limpiar();
+                            }
+                            else{
+                                 JOptionPane.showMessageDialog(null, "Selecciona una categoria");
+                            }
                         }
                     }
                 }
@@ -383,39 +539,55 @@ public class Productos extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         num=6666;
         lbltitulo.setText("Teconologia");
-        txtcodigo.setText("6666");
+        //txtcodigo.setText("6666");
+        jPanel2.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
            num=1111;
            lbltitulo.setText("Ferrerateria");
-           txtcodigo.setText("1111");
+           jPanel2.setVisible(true);
+          // setTabla(jTable1,"1111");
+           //txtcodigo.setText("1111");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
           num=2222;
           lbltitulo.setText("Carnes y enbutidos");
-          txtcodigo.setText("2222");
+          jPanel2.setVisible(true);
+          //txtcodigo.setText("2222");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
           num=3333;
           lbltitulo.setText("Frutas y verduras");
-          txtcodigo.setText("3333");
+          jPanel2.setVisible(true);
+          //txtcodigo.setText("3333");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         num=4444;
         lbltitulo.setText("Bebidas");
-        txtcodigo.setText("4444");
+        jPanel2.setVisible(true);
+        //txtcodigo.setText("4444");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         num=5555;
         lbltitulo.setText("Jugueteria");
-        txtcodigo.setText("5555");
+        jPanel2.setVisible(true);
+        //txtcodigo.setText("5555");
     }//GEN-LAST:event_jButton8ActionPerformed
-
+    
+    private void solonumeros(java.awt.event.KeyEvent evt){
+        char c = evt.getKeyChar();
+    
+         if(((c < '0') || (c > '9')) && (c!= KeyEvent.VK_BACK_SPACE) && (c !='.'))
+          {
+             evt.consume();
+          } 
+    }
+    
     private void txtcantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcantidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcantidadActionPerformed
@@ -428,12 +600,42 @@ public class Productos extends javax.swing.JFrame {
         limpiar();
     }//GEN-LAST:event_btncancelarActionPerformed
 
+    private void txtcodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcodigoKeyTyped
+        solonumeros(evt);
+    }//GEN-LAST:event_txtcodigoKeyTyped
+
+    private void txtproductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtproductoKeyTyped
+        sololetras(evt);
+    }//GEN-LAST:event_txtproductoKeyTyped
+
+    private void txtprecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtprecioKeyTyped
+        solonumeros(evt);
+    }//GEN-LAST:event_txtprecioKeyTyped
+
+    private void txtcantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcantidadKeyTyped
+        solonumeros(evt);
+    }//GEN-LAST:event_txtcantidadKeyTyped
+    
+    private void sololetras(java.awt.event.KeyEvent evt){
+        char c = evt.getKeyChar();
+    
+         if((c<'a' || c>'z') && (c<'A' || c>'Z')&& (c!=(char)KeyEvent.VK_SPACE))
+          {
+             evt.consume();
+           } 
+    }
+    
     public void limpiar(){
         try {
             txtcodigo.setText("");
         txtproducto.setText("");
         txtprecio.setText("");
         txtcantidad.setText("");
+        
+        lblfoto.setIcon(null);
+
+    // **IMPORTANT** to call revalidate() to cause JLabel to resize and be repainted.
+      lblfoto.revalidate();
         
         } catch (Exception e) {
         }
@@ -495,6 +697,8 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblfoto;
