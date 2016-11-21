@@ -119,8 +119,9 @@ public class Productos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         lblfoto6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 255));
@@ -196,9 +197,9 @@ public class Productos extends javax.swing.JFrame {
         jLabel8.setText("Producto:");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        lblfoto.setText("      Foto");
+        lblfoto.setText("          Foto");
         lblfoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(lblfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 90, 70));
+        jPanel2.add(lblfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 80, 70));
 
         txtcodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,15 +220,15 @@ public class Productos extends javax.swing.JFrame {
         jLabel6.setText("Agregar Productos");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 130, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 300, 290));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 290, 290));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Productos");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 90, 30));
 
-        jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
         jLabel7.setText("Categorías");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 70, 30));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 70, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -320,6 +321,7 @@ public class Productos extends javax.swing.JFrame {
         lblfoto4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(lblfoto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 40, 40));
 
+        jLabel3.setBackground(new java.awt.Color(204, 204, 255));
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 290, 350));
 
@@ -330,9 +332,12 @@ public class Productos extends javax.swing.JFrame {
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 480, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/productos.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 680));
+        jPanel5.setBackground(new java.awt.Color(204, 255, 204));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 290, 350));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 300, -1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -690,7 +695,6 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -699,6 +703,8 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblfoto;

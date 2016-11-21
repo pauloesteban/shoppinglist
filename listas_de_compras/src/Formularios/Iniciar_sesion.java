@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -45,6 +46,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
         this.setLocationRelativeTo(null);
         setResizable(false);
         setTitle("iMarket");
+         jButton5.setVisible(false);
     }
 
 
@@ -53,6 +55,8 @@ public class Iniciar_sesion extends javax.swing.JFrame
     private void initComponents() {
 
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         lblmensage = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -71,10 +75,20 @@ public class Iniciar_sesion extends javax.swing.JFrame
 
         jButton3.setText("jButton3");
 
+        jButton4.setText("jButton4");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(geticonimage());
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton5.setText("¿Has olvidado tu contraseña?");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
 
         lblmensage.setToolTipText("");
         getContentPane().add(lblmensage, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 230, 20));
@@ -87,19 +101,24 @@ public class Iniciar_sesion extends javax.swing.JFrame
         jLabel2.setBackground(new java.awt.Color(0, 204, 0));
         jLabel2.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
         jLabel2.setText("Usuario:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(0, 204, 0));
         jLabel3.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
         jLabel3.setText("Contraseña:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
 
         txtusu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtusuActionPerformed(evt);
             }
         });
-        getContentPane().add(txtusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 280, 30));
+        txtusu.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtusuKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 280, 30));
 
         jButton1.setText("Iniciar sesión");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +131,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
                 jButton1KeyPressed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
         jButton2.setText("Registrarse");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +139,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
         getContentPane().add(lblr, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 55, -1, -1));
 
         txtcon.addActionListener(new java.awt.event.ActionListener() {
@@ -128,13 +147,13 @@ public class Iniciar_sesion extends javax.swing.JFrame
                 txtconActionPerformed(evt);
             }
         });
-        getContentPane().add(txtcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 280, 30));
+        getContentPane().add(txtcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 280, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/hh.jpg"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 90, 30));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 90, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/hh.jpg"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 70, 30));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 70, 30));
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/Sin título-1.jpg"))); // NOI18N
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -143,17 +162,17 @@ public class Iniciar_sesion extends javax.swing.JFrame
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 50, 50));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 50, 50));
 
         jLabel7.setText("Ayuda");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 40, 30));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 40, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/mar.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 290, 60));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 290, 60));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/jeans.jpg"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 340));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -165,6 +184,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
     private void txtusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtusuActionPerformed
@@ -192,6 +212,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
             this.setVisible(false);
              } else {
             lblmensage.setText("Datos incorrectos");
+            jButton5.setVisible(true);
            }
         }
       //String usu=sql.usuario;
@@ -215,6 +236,25 @@ public class Iniciar_sesion extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1KeyPressed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        Recuperar_contraseña hola=new Recuperar_contraseña();
+        hola.show();
+       
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void txtusuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtusuKeyTyped
+        sololetrasnumeros (evt);// TODO add your handling code here:
+    }//GEN-LAST:event_txtusuKeyTyped
+    private void sololetrasnumeros(java.awt.event.KeyEvent evt){
+        char c = evt.getKeyChar();
+    
+         if((c<'a' || c>'z') && (c<'A' || c>'Z')&& (c< '0' || c> '9') &&  (c!=(char)KeyEvent.VK_SPACE))
+          {
+             evt.consume();
+           } 
+    }
+    
       public static ArrayList<String> leerarchivo(String archivo) {
       String cadena;
       ArrayList<String> preguntas=new ArrayList<String>();
@@ -272,6 +312,8 @@ public class Iniciar_sesion extends javax.swing.JFrame
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
