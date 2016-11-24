@@ -8,6 +8,9 @@ package Formularios;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
 
 /**
  *
@@ -47,7 +50,7 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -99,8 +102,18 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
         jLabel4.setText("Confirmar contraseña");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 220, 20));
 
-        jButton1.setText("Aceptar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+        btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
+        btnAceptar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnAceptarKeyPressed(evt);
+            }
+        });
+        jPanel1.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +157,19 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
         sololetrasnumeros(evt);
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        Iniciar_sesion hola=new Iniciar_sesion();
+       hola.show();
+       this.setVisible(false); // TODO add your handling code here:
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void btnAceptarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAceptarKeyPressed
+       Iniciar_sesion hola=new Iniciar_sesion();
+       hola.show();
+       this.setVisible(false);        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnAceptarKeyPressed
     private void sololetrasnumeros(java.awt.event.KeyEvent evt){
         char c = evt.getKeyChar();
     
@@ -153,6 +179,7 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
            } 
     }
     
+
 
     
     /**
@@ -191,7 +218,7 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAceptar;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

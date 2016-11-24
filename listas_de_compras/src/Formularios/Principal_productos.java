@@ -75,7 +75,6 @@ public class Principal_productos extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -106,7 +105,9 @@ public class Principal_productos extends javax.swing.JFrame {
         btn6 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jButton15 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 204, 204));
@@ -196,14 +197,6 @@ public class Principal_productos extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 580, 60));
 
-        jButton1.setText("Ayuda");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, -1, -1));
-
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carr.jpg"))); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,10 +223,10 @@ public class Principal_productos extends javax.swing.JFrame {
         jPanel3.add(lblimg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 24, -1, -1));
 
         lblimg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/llavetubo.jpg"))); // NOI18N
-        jPanel3.add(lblimg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 54, -1));
+        jPanel3.add(lblimg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 54, -1));
 
         lblimg3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pintura.jpg"))); // NOI18N
-        jPanel3.add(lblimg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 11, -1, -1));
+        jPanel3.add(lblimg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
 
         lblimg4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/foco.jpg"))); // NOI18N
         jPanel3.add(lblimg4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
@@ -303,23 +296,34 @@ public class Principal_productos extends javax.swing.JFrame {
         btn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
         jPanel3.add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 258, 43, -1));
 
-        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 410, 310));
-
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sigui.jpg"))); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, 30, 30));
+        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 40, 30));
 
         jLabel2.setText("Siguiente");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 280, -1, -1));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, -1, -1));
+
+        jLabel9.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 380, 300));
+
+        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 460, 330));
 
         jButton15.setText("Guardar producto a la lista");
-        jPanel4.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 410, -1));
+        jPanel4.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 450, -1));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 470));
+        jButton1.setText("Ayuda");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, -1, -1));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -665,6 +669,7 @@ public class Principal_productos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

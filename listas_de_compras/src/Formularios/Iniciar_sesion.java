@@ -165,6 +165,12 @@ public class Iniciar_sesion extends javax.swing.JFrame
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 50, 50));
 
         jLabel7.setText("Ayuda");
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 40, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/mar.jpg"))); // NOI18N
@@ -246,6 +252,12 @@ public class Iniciar_sesion extends javax.swing.JFrame
     private void txtusuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtusuKeyTyped
         sololetrasnumeros (evt);// TODO add your handling code here:
     }//GEN-LAST:event_txtusuKeyTyped
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        Ayuda hola=new Ayuda();
+        hola.show();
+        this.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MouseClicked
     private void sololetrasnumeros(java.awt.event.KeyEvent evt){
         char c = evt.getKeyChar();
     

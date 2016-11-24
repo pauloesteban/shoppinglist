@@ -550,7 +550,7 @@ public class Productos extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
            num=1111;
-           lbltitulo.setText("Ferrerateria");
+           lbltitulo.setText("Ferreteria");
            jPanel2.setVisible(true);
           // setTabla(jTable1,"1111");
            //txtcodigo.setText("1111");
