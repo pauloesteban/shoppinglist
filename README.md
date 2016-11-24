@@ -10,7 +10,8 @@ GUI para una lista de compras
 Paulo Chiliguano
 
 ### TODO
+- Generación automática de código de producto
+- Recuperación de contraseña con pregunta secreta
 - Validación de campos de ingreso
-- Recuperación de contraseña
 - Filtro en buscador
-- Diseño con guía de colores Pantone
+- Imagen inicial con transparencia
