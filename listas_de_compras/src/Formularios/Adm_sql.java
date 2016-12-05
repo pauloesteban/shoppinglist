@@ -40,12 +40,12 @@ class Adm_sql {
          usuario="";
      }
      
-    public void RegistrarCliente(String Nombre, String Apellido,String usuario,String sexo,String fecha,String contraseña,FileInputStream foto,int l){
+    public void RegistrarCliente(String Nombre, String Apellido,String usuario,String sexo,String fecha,String contraseña,FileInputStream foto,int l,String pregunta,String respuesta){
         try{
             ConexionBD con = new ConexionBD();
             cn=con.conexion();
             
-            String sql="INSERT INTO tb_usuario(NOMBRES,APELLIDOS,USUARIO,SEXO,FECHA_NAC,CONTRASEÑA,IMAGEN) VALUES "+ "(?,?,?,?,?,?,?);";                    
+            String sql="INSERT INTO tb_usuario(NOMBRES,APELLIDOS,USUARIO,SEXO,FECHA_NAC,CONTRASEÑA,IMAGEN,PREGUNTA,RESPUESTA) VALUES "+ "(?,?,?,?,?,?,?,?,?);";                    
             
             PreparedStatement pst = cn.prepareStatement(sql);
                 pst.setString(1, Nombre);
@@ -58,6 +58,8 @@ class Adm_sql {
 //                pst.setBlob(7, foto,l);
                 //pst.setBlob(7, foto, l);
                 pst.setBinaryStream (7,foto,l);
+                pst.setString(8, pregunta);
+                pst.setString(9, respuesta);
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "SE HA REGISTRADO UN NUEVO CLIENTE");
                                                                  
@@ -173,6 +175,58 @@ class Adm_sql {
          return resultado;
     }
     
+    public String consul_usu(String usu){
+         ConexionBD con = new ConexionBD();
+            cn=con.conexion();
+            int resultado=0;
+         String sql= "SELECT * FROM tb_usuario WHERE USUARIO = '" + usu + "'";
+         String u="";
+         try {
+            PreparedStatement pst = cn.prepareStatement(sql);
+            ResultSet res = pst.executeQuery();
+            int i = 0;
+                while(res.next()){
+                   u=res.getString("PREGUNTA")+";"+ res.getString("RESPUESTA");
+                     
+                     resultado=1;
+                    
+                }
+                cn.close();
+           
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+        finally{
+       
+        }
+         return u;
+    }
+    
+    
+   public void actua_contraseña(String usu,String contra){
+       ConexionBD con = new ConexionBD();
+            cn=con.conexion();
+         String sSQL = "UPDATE tb_usuario " +"SET CONTRASEÑA = ?" +"WHERE USUARIO = '"+ usu + "'";
+          try {
+            PreparedStatement pst = cn.prepareStatement(sSQL);
+            pst.setString(1, contra);
+            int n = pst.executeUpdate();
+            if(n > 0)
+            {
+              JOptionPane.showMessageDialog(null, "Contraseña actualizada con exito");
+
+             }
+            else{
+                JOptionPane.showMessageDialog(null, "Error al cambiar la contraseña");
+            }
+            
+                cn.close();
+           
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+   } 
+    
     public String leerusuarios1(String usuario,String contraseña){
          
          ConexionBD con = new ConexionBD();
@@ -236,6 +290,57 @@ class Adm_sql {
         }
          return nombreArrayList;
     }
+     
+    public void modproducto(int cant,String codigo,int cat){
+        ConexionBD con = new ConexionBD();
+            cn=con.conexion();
+         String sSQL = "UPDATE tb_productos " +"SET CANTIDAD = ?" +" WHERE CODIGO = '"+ codigo + "' AND ID_CAT = '" + cat + "'";
+          try {
+            PreparedStatement pst = cn.prepareStatement(sSQL);
+            pst.setInt(1, cant);
+            int n = pst.executeUpdate();
+            if(n > 0)
+            {
+              JOptionPane.showMessageDialog(null, "Producto actualizado con exito");
+
+             }
+            else{
+                JOptionPane.showMessageDialog(null, "Error al actulizar el producto");
+            }
+            
+                cn.close();
+           
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+    } 
+     
+    public String consultarproducto(String codigo,int cate){
+        ConexionBD con = new ConexionBD();
+            cn=con.conexion();
+            int resultado=0;
+         String sql= "SELECT * FROM tb_productos WHERE CODIGO = '" + codigo + "' AND ID_CAT = '" + cate + "'";
+         String u="";
+         try {
+            PreparedStatement pst = cn.prepareStatement(sql);
+            ResultSet res = pst.executeQuery();
+            int i = 0;
+                while(res.next()){
+                   u=res.getString("PRODUCTO")+";"+ res.getString("PRECIO")+";"+res.getString("CANTIDAD");
+                     
+                     resultado=1;
+                    
+                }
+                cn.close();
+           
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+        finally{
+       
+        }
+         return u;
+    } 
     
     public ArrayList<String> leerproductos(){
          

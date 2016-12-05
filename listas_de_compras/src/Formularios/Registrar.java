@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import static java.sql.JDBCType.DATE;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -131,7 +132,7 @@ public class Registrar extends javax.swing.JFrame {
                 txtusuarioKeyTyped(evt);
             }
         });
-        jPanel1.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 250, -1));
+        jPanel1.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 280, -1));
 
         rdbmujer.setText("Mujer");
         rdbmujer.addActionListener(new java.awt.event.ActionListener() {
@@ -159,7 +160,7 @@ public class Registrar extends javax.swing.JFrame {
         jLabel8.setText("Confirmar contraseña:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, 20));
 
-        bntregistrar.setText("Registrarse");
+        bntregistrar.setText("Siguiente");
         bntregistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntregistrarActionPerformed(evt);
@@ -219,7 +220,7 @@ public class Registrar extends javax.swing.JFrame {
     private void bntregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntregistrarActionPerformed
          sql=new Adm_sql();
          boolean b;  
-        
+        String pre=pregunta();
         try {
              b=verificar();
             if (b) {
@@ -228,10 +229,18 @@ public class Registrar extends javax.swing.JFrame {
             } else {
                 if (txtcontraseña.getText().equals(txtcontraseña2.getText())) {
                 if (!"".equals(txtapellido.getText())&&!"".equals(txtcontraseña.getText())&&!"".equals(txtusuario.getText())&&!"".equals(sexo)&&longitud!=0&&!"".equals(txtnombre.getText())) {
-                sql.RegistrarCliente(txtnombre.getText(), txtapellido.getText(), txtusuario.getText(), sexo, "06/05/20" , txtcontraseña.getText(), this.fis,this.longitud);
-                 Iniciar_sesion s=new Iniciar_sesion();
-                 s.show();
-                 this.setVisible(false);
+                   String name = JOptionPane.showInputDialog(this, pre);
+                    if (null==name) {
+                        JOptionPane.showMessageDialog(null, "Deben de ingresar una respuesta para mayor seguridad");
+                    }
+                    else{
+                        
+                        sql.RegistrarCliente(txtnombre.getText(), txtapellido.getText(), txtusuario.getText(), sexo, "06/05/20" , txtcontraseña.getText(), this.fis,this.longitud,pre,name);
+                        Iniciar_sesion s=new Iniciar_sesion();
+                        s.show();
+                        this.setVisible(false);
+                    }
+                 
             } else {
                 JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos");
             }
@@ -247,7 +256,22 @@ public class Registrar extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_bntregistrarActionPerformed
-
+    
+    public String pregunta(){
+        String pregunta="";
+        Random r=new Random();
+        String[]vector=new String[4];
+        vector[0]="Nombre de tu primer mascota?";
+        vector[1]="Nombre de tu primer amigo de la infancia?";
+        vector[2]="color favorito?";
+        vector[3]="Equipo favorito?";
+        for (int i = 0; i < vector.length; i++) {
+            pregunta=vector[r.nextInt(3)];
+        }
+        return pregunta;
+    }
+    
+    
     public boolean verificar(){
         sql=new Adm_sql();
         boolean b=false;

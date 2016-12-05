@@ -16,11 +16,16 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
@@ -38,8 +43,8 @@ public class Productos extends javax.swing.JFrame {
     Adm_sql sql;
      int longitud;
      private FileInputStream fis;
-     int codigo,num=0;
-     
+     int codigo,num=0,canttotal=0,n1=0;
+     boolean mod=false;
         public Image geticonimage()
     {
      Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("nuevas imagenes/pp.jpg"));
@@ -54,6 +59,14 @@ public class Productos extends javax.swing.JFrame {
         
         jPanel2.setVisible(false);
         
+        InputMap map = new InputMap();
+ 
+        map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false), "pressed");
+        map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true), "released");
+ 
+        btnregistrar1.setInputMap(0, map);
+        
+        
         
         sql=new Adm_sql();
   
@@ -65,6 +78,7 @@ public class Productos extends javax.swing.JFrame {
         foto(lblfoto4,lista.get(3));
         foto(lblfoto6,lista.get(4));
         foto(lblfoto7,lista.get(5));
+        setJTexFieldChanged(this.txtcodigo);
         //txtcodigo.setEnabled(false);
         
     }
@@ -74,6 +88,96 @@ public class Productos extends javax.swing.JFrame {
             l.setIcon(ico);
             l.updateUI();
     }
+    
+    
+    private void setJTexFieldChanged(JTextField txt){
+        DocumentListener documentListener = new DocumentListener() {
+ 
+        @Override
+        public void changedUpdate(DocumentEvent documentEvent) {
+            printIt(documentEvent,txt);
+        }
+ 
+        @Override
+        public void insertUpdate(DocumentEvent documentEvent) {
+            printIt(documentEvent,txt);
+        }
+ 
+        @Override
+        public void removeUpdate(DocumentEvent documentEvent) {
+            printIt(documentEvent,txt);
+        }
+        };
+        txt.getDocument().addDocumentListener(documentListener);
+ 
+    }
+    private void printIt(DocumentEvent documentEvent,JTextField txt ) {
+        DocumentEvent.EventType type = documentEvent.getType();
+ 
+        if (type.equals(DocumentEvent.EventType.CHANGE))
+        {
+ 
+        }
+        else if (type.equals(DocumentEvent.EventType.INSERT))
+        {
+            txtEjemploJTextFieldChanged(txt);
+        }
+        else if (type.equals(DocumentEvent.EventType.REMOVE))
+        {
+            txtEjemploJTextFieldChanged(txt);
+        }
+    }
+    private void txtEjemploJTextFieldChanged(JTextField txt){
+        
+        cambiar(txt);
+    }
+    public void cambiar(JTextField txt){
+        txtproducto.setText("");
+            txtprecio.setText("");
+            txtcantidad.setText("");
+        try {
+        String cadena=sql.consultarproducto(txt.getText(),num);
+        String[] vector=cadena.split(";");
+        if (null!=cadena) {
+            mod=true;
+            //canttotal=Integer.valueOf(vector[2])+Integer.valueOf(txtcantidad.getText());
+            btnregistrar1.setText("Modificar");
+            txtproducto.setEditable(false);
+            txtprecio.setEditable(false);
+            txtproducto.setText(vector[0]);
+            txtprecio.setText(vector[1]);
+            n1=Integer.parseInt(vector[2]);
+            txtcantidad.setText(" "+n1);
+           
+//            JOptionPane.showMessageDialog(null, " "+canttotal);
+            
+        }
+        else{
+            mod=false;
+            btnregistrar1.setText("Registrar");
+            canttotal=0;
+            txtproducto.setEditable(true);
+            txtprecio.setEditable(true);
+            txtproducto.setText("");
+            txtprecio.setText("");
+            txtcantidad.setText("");
+        }
+        } catch (Exception e) {
+        }
+        
+        
+        
+    }
+ 
+
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -142,6 +246,11 @@ public class Productos extends javax.swing.JFrame {
         btnregistrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnregistrar1ActionPerformed(evt);
+            }
+        });
+        btnregistrar1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnregistrar1KeyPressed(evt);
             }
         });
         jPanel2.add(btnregistrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 247, -1, -1));
@@ -461,7 +570,15 @@ public class Productos extends javax.swing.JFrame {
     
     private void btnregistrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrar1ActionPerformed
         sql=new Adm_sql();
-        try {
+        if (mod) {
+            String sq=txtcantidad.getText();
+            int m=Integer.parseInt(sq.trim(),16);
+            canttotal=m+n1;
+            sql.modproducto(canttotal, txtcodigo.getText(), num);
+            limpiar();
+        }
+        else{
+             try {
             
              if (num==1111) {
             sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),1111, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
@@ -506,6 +623,8 @@ public class Productos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, " " + e.getMessage());
         }
        
+        }
+       
           
     }//GEN-LAST:event_btnregistrar1ActionPerformed
 
@@ -543,44 +662,74 @@ public class Productos extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         num=6666;
+        btnregistrar1.setText("Registrar");
         lbltitulo.setText("Teconologia");
         //txtcodigo.setText("6666");
         jPanel2.setVisible(true);
+        txtcodigo.setText("");
+           txtproducto.setText("");
+            txtprecio.setText("");
+            txtcantidad.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
            num=1111;
+           btnregistrar1.setText("Registrar");
            lbltitulo.setText("Ferreteria");
            jPanel2.setVisible(true);
+           txtcodigo.setText("");
+           txtproducto.setText("");
+            txtprecio.setText("");
+            txtcantidad.setText("");
           // setTabla(jTable1,"1111");
            //txtcodigo.setText("1111");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
           num=2222;
+          btnregistrar1.setText("Registrar");
           lbltitulo.setText("Carnes y enbutidos");
           jPanel2.setVisible(true);
+          txtcodigo.setText("");
+           txtproducto.setText("");
+            txtprecio.setText("");
+            txtcantidad.setText("");
           //txtcodigo.setText("2222");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
           num=3333;
+          btnregistrar1.setText("Registrar");
           lbltitulo.setText("Frutas y verduras");
           jPanel2.setVisible(true);
           //txtcodigo.setText("3333");
+          txtcodigo.setText("");
+           txtproducto.setText("");
+            txtprecio.setText("");
+            txtcantidad.setText("");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         num=4444;
+        btnregistrar1.setText("Registrar");
         lbltitulo.setText("Bebidas");
         jPanel2.setVisible(true);
+        txtcodigo.setText("");
+           txtproducto.setText("");
+            txtprecio.setText("");
+            txtcantidad.setText("");
         //txtcodigo.setText("4444");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         num=5555;
+        btnregistrar1.setText("Registrar");
         lbltitulo.setText("Jugueteria");
         jPanel2.setVisible(true);
+        txtcodigo.setText("");
+           txtproducto.setText("");
+            txtprecio.setText("");
+            txtcantidad.setText("");
         //txtcodigo.setText("5555");
     }//GEN-LAST:event_jButton8ActionPerformed
     
@@ -620,6 +769,12 @@ public class Productos extends javax.swing.JFrame {
     private void txtcantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcantidadKeyTyped
         solonumeros(evt);
     }//GEN-LAST:event_txtcantidadKeyTyped
+
+    private void btnregistrar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnregistrar1KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+              btnregistrar1ActionPerformed(null);
+          }
+    }//GEN-LAST:event_btnregistrar1KeyPressed
     
     private void sololetras(java.awt.event.KeyEvent evt){
         char c = evt.getKeyChar();

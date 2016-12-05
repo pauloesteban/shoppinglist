@@ -24,6 +24,7 @@ hilo ejecutar = new hilo();
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(this);
+        com.sun.awt.AWTUtilities.setWindowOpacity(this, 0.7f);
         
        
         
@@ -117,9 +118,16 @@ hilo ejecutar = new hilo();
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+
+
     private class hilo extends Thread{
+
+      
     @Override
     public void run(){
+   
+      
+        
         try {while(true){
             auxiliar++;
             barra.setValue(auxiliar);

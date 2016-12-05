@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -42,9 +45,10 @@ public class Principal_productos extends javax.swing.JFrame {
         setTitle("iMarket");
         lblusuario.setText(usuario);
         sql=new Adm_sql();
+        setJTexFieldChanged(txtflitro);
         Adm_sql producto=new Adm_sql();
         Autocomplete a=new Autocomplete();
-        a.setupAutoComplete(jTextField1, producto.leerproductos());
+        a.setupAutoComplete(txtflitro, producto.leerproductos());
        ocultar();
     }
     
@@ -74,7 +78,7 @@ public class Principal_productos extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtflitro = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -183,17 +187,17 @@ public class Principal_productos extends javax.swing.JFrame {
         jLabel1.setText("Ferreteria");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 30));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtflitro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtflitroActionPerformed(evt);
             }
         });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtflitro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField1KeyTyped(evt);
+                txtflitroKeyTyped(evt);
             }
         });
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 270, 40));
+        jPanel2.add(txtflitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 270, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 580, 60));
 
@@ -366,10 +370,246 @@ public class Principal_productos extends javax.swing.JFrame {
         h(lblimg6,vector[2]);
         mostrar();
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    
+    
+    private void setJTexFieldChanged(JTextField txt){
+        DocumentListener documentListener = new DocumentListener() {
+ 
+        @Override
+        public void changedUpdate(DocumentEvent documentEvent) {
+            printIt(documentEvent,txt);
+        }
+ 
+        @Override
+        public void insertUpdate(DocumentEvent documentEvent) {
+            printIt(documentEvent,txt);
+        }
+ 
+        @Override
+        public void removeUpdate(DocumentEvent documentEvent) {
+            printIt(documentEvent,txt);
+        }
+        };
+        txt.getDocument().addDocumentListener(documentListener);
+ 
+    }
+    private void printIt(DocumentEvent documentEvent,JTextField txt ) {
+        DocumentEvent.EventType type = documentEvent.getType();
+ 
+        if (type.equals(DocumentEvent.EventType.CHANGE))
+        {
+ 
+        }
+        else if (type.equals(DocumentEvent.EventType.INSERT))
+        {
+            txtEjemploJTextFieldChanged(txt);
+        }
+        else if (type.equals(DocumentEvent.EventType.REMOVE))
+        {
+            txtEjemploJTextFieldChanged(txt);
+        }
+    }
+    private void txtEjemploJTextFieldChanged(JTextField txt){
+        filtro(txt);
+    }
+    
+    private void filtro(JTextField txt){
+        //mostrar();
+        if (txt.getText() == null ? lblnom1.getText() == null : txt.getText().equals(lblnom1.getText())) {
+            lblnom2.setVisible(false);
+            lblprecio2.setVisible(false);
+            lblimg2.setVisible(false);
+            btn2.setVisible(false);
+            //lblimg2.revalidate();
+            
+            lblnom3.setVisible(false);
+            lblprecio3.setVisible(false);
+            lblimg3.setVisible(false);
+             btn3.setVisible(false);
+            //lblimg3.revalidate();
+            
+            lblnom4.setVisible(false);
+            lblprecio4.setVisible(false);
+            lblimg4.setVisible(false);
+             btn4.setVisible(false);
+            
+            lblnom5.setVisible(false);
+            lblprecio5.setVisible(false);
+            lblimg5.setVisible(false);
+             btn5.setVisible(false);
+            
+            lblnom6.setVisible(false);
+            lblprecio6.setVisible(false);
+            lblimg6.setVisible(false);
+             btn6.setVisible(false);
+            //lblimg4.revalidate();
+        }
+        else{
+            if (txt.getText() == null ? lblnom2.getText() == null : txt.getText().equals(lblnom2.getText())) {
+            lblnom1.setVisible(false);
+            lblprecio1.setVisible(false);
+            lblimg1.setVisible(false);
+            btn1.setVisible(false);
+            //lblimg2.revalidate();
+            
+            lblnom3.setVisible(false);
+            lblprecio3.setVisible(false);
+            lblimg3.setVisible(false);
+             btn3.setVisible(false);
+            //lblimg3.revalidate();
+            
+            lblnom4.setVisible(false);
+            lblprecio4.setVisible(false);
+            lblimg4.setVisible(false);
+             btn4.setVisible(false);
+            
+            lblnom5.setVisible(false);
+            lblprecio5.setVisible(false);
+            lblimg5.setVisible(false);
+             btn5.setVisible(false);
+            
+            lblnom6.setVisible(false);
+            lblprecio6.setVisible(false);
+            lblimg6.setVisible(false);
+             btn6.setVisible(false);
+            //lblimg4.revalidate();
+        }
+            else{
+                if (txt.getText() == null ? lblnom3.getText() == null : txt.getText().equals(lblnom3.getText())) {
+            lblnom1.setVisible(false);
+            lblprecio1.setVisible(false);
+            lblimg1.setVisible(false);
+            btn1.setVisible(false);
+            //lblimg2.revalidate();
+            
+            lblnom2.setVisible(false);
+            lblprecio2.setVisible(false);
+            lblimg2.setVisible(false);
+             btn2.setVisible(false);
+            //lblimg3.revalidate();
+            
+            lblnom4.setVisible(false);
+            lblprecio4.setVisible(false);
+            lblimg4.setVisible(false);
+             btn4.setVisible(false);
+            
+            lblnom5.setVisible(false);
+            lblprecio5.setVisible(false);
+            lblimg5.setVisible(false);
+             btn5.setVisible(false);
+            
+            lblnom6.setVisible(false);
+            lblprecio6.setVisible(false);
+            lblimg6.setVisible(false);
+             btn6.setVisible(false);
+            //lblimg4.revalidate();
+        }
+                else{
+                    if (txt.getText() == null ? lblnom4.getText() == null : txt.getText().equals(lblnom4.getText())) {
+            lblnom1.setVisible(false);
+            lblprecio1.setVisible(false);
+            lblimg1.setVisible(false);
+            btn1.setVisible(false);
+            //lblimg2.revalidate();
+            
+            lblnom3.setVisible(false);
+            lblprecio3.setVisible(false);
+            lblimg3.setVisible(false);
+             btn3.setVisible(false);
+            //lblimg3.revalidate();
+            
+            lblnom2.setVisible(false);
+            lblprecio2.setVisible(false);
+            lblimg2.setVisible(false);
+             btn2.setVisible(false);
+            
+            lblnom5.setVisible(false);
+            lblprecio5.setVisible(false);
+            lblimg5.setVisible(false);
+             btn5.setVisible(false);
+            
+            lblnom6.setVisible(false);
+            lblprecio6.setVisible(false);
+            lblimg6.setVisible(false);
+             btn6.setVisible(false);
+            //lblimg4.revalidate();
+        }
+                    else{
+                        if (txt.getText() == null ? lblnom5.getText() == null : txt.getText().equals(lblnom5.getText())) {
+            lblnom1.setVisible(false);
+            lblprecio1.setVisible(false);
+            lblimg1.setVisible(false);
+            btn1.setVisible(false);
+            //lblimg2.revalidate();
+            
+            lblnom3.setVisible(false);
+            lblprecio3.setVisible(false);
+            lblimg3.setVisible(false);
+             btn3.setVisible(false);
+            //lblimg3.revalidate();
+            
+            lblnom4.setVisible(false);
+            lblprecio4.setVisible(false);
+            lblimg4.setVisible(false);
+             btn4.setVisible(false);
+            
+            lblnom2.setVisible(false);
+            lblprecio2.setVisible(false);
+            lblimg2.setVisible(false);
+             btn2.setVisible(false);
+            
+            lblnom6.setVisible(false);
+            lblprecio6.setVisible(false);
+            lblimg6.setVisible(false);
+             btn6.setVisible(false);
+            //lblimg4.revalidate();
+        }
+                        else{
+                            if (txt.getText() == null ? lblnom6.getText() == null : txt.getText().equals(lblnom6.getText())) {
+            lblnom1.setVisible(false);
+            lblprecio1.setVisible(false);
+            lblimg1.setVisible(false);
+            btn1.setVisible(false);
+            //lblimg2.revalidate();
+            
+            lblnom3.setVisible(false);
+            lblprecio3.setVisible(false);
+            lblimg3.setVisible(false);
+             btn3.setVisible(false);
+            //lblimg3.revalidate();
+            
+            lblnom4.setVisible(false);
+            lblprecio4.setVisible(false);
+            lblimg4.setVisible(false);
+             btn4.setVisible(false);
+            
+            lblnom5.setVisible(false);
+            lblprecio5.setVisible(false);
+            lblimg5.setVisible(false);
+             btn5.setVisible(false);
+            
+            lblnom2.setVisible(false);
+            lblprecio2.setVisible(false);
+            lblimg2.setVisible(false);
+             btn2.setVisible(false);
+            //lblimg4.revalidate();
+        }
+                            else{
+                                mostrar(); 
+                            }
+                        }
+                    }
+                    
+                }
+               
+            }
+        }
+    }
+    
+    
+    private void txtflitroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtflitroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtflitroActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -392,9 +632,9 @@ public class Principal_productos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton14ActionPerformed
 
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+    private void txtflitroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtflitroKeyTyped
         
-    }//GEN-LAST:event_jTextField1KeyTyped
+    }//GEN-LAST:event_txtflitroKeyTyped
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
@@ -676,7 +916,6 @@ public class Principal_productos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblimg1;
     private javax.swing.JLabel lblimg2;
     private javax.swing.JLabel lblimg3;
@@ -696,5 +935,6 @@ public class Principal_productos extends javax.swing.JFrame {
     private javax.swing.JLabel lblprecio5;
     private javax.swing.JLabel lblprecio6;
     public javax.swing.JLabel lblusuario;
+    private javax.swing.JTextField txtflitro;
     // End of variables declaration//GEN-END:variables
 }

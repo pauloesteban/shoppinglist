@@ -11,6 +11,7 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class Iniciar_sesion extends javax.swing.JFrame 
 {
@@ -197,7 +198,8 @@ public class Iniciar_sesion extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       int n;
-      sql=new Adm_sql();
+        if (!"".equals(txtusu.getText())&&!"".equals(txtcon.getText())) {
+            sql=new Adm_sql();
         if ((txtusu.getText() == null ? usuario == null : txtusu.getText().equals(usuario)) && (txtcon.getText() == null ? contraseña == null : txtcon.getText().equals(contraseña))) {
             Agregar_productos hola=new Agregar_productos(); 
             hola.show();
@@ -220,7 +222,12 @@ public class Iniciar_sesion extends javax.swing.JFrame
             lblmensage.setText("Datos incorrectos");
             jButton5.setVisible(true);
            }
+          }
         }
+        else {
+            lblmensage.setText("Ingresa los datos");
+           }
+      
       //String usu=sql.usuario;
       
   
@@ -243,10 +250,30 @@ public class Iniciar_sesion extends javax.swing.JFrame
     }//GEN-LAST:event_jButton1KeyPressed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Recuperar_contraseña hola=new Recuperar_contraseña();
-        hola.show();
+        String pre="";
+        if (!"".equals(txtusu.getText())) {
+            
+            pre=sql.consul_usu(txtusu.getText());
+            if (null==pre) {
+                JOptionPane.showMessageDialog(null, "El usuario que ingresaste no existe");
+            }
+            else{
+                String[]vector=pre.split(";");
+                String name = JOptionPane.showInputDialog(this, vector[0]);
+               if (name == null ? vector[1] == null : name.equals(vector[1])) {
+                Recuperar_contraseña hola=new Recuperar_contraseña();
+                hola.usu=txtusu.getText();
+                hola.show();
        
-// TODO add your handling code here:
+              }
+               else{
+                 name = JOptionPane.showInputDialog(this, vector[0]);
+              }
+            }
+            
+            
+        }
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void txtusuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtusuKeyTyped
