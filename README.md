@@ -2,16 +2,21 @@
 GUI para una lista de compras
 
 ### Integrantes:
-- BRIONES BRAVO JHON KEVIN - Scrum Team
-- ESPINOZA MARTINEZ ALVARO DANIEL - Scrum Master
-- SOLORZANO CASTRO LUIS ENRIQUE - Product Owner
+- Luis Solórzano - Product Owner
+- José Guillén
+- Jordy Zambrano
+- Renzo Cocha
+- Jesús Salazar
 
 ### Académico:
 Paulo Chiliguano
 
 ### TODO
+Por hacer:
+- Funcionalidad de la lista de compras
+- Buscador y filtros
 - Generación automática de código de producto
-- Recuperación de contraseña con pregunta secreta
-- Validación de campos de ingreso
-- Filtro en buscador
-- Imagen inicial con transparencia
+- Resaltar botón Registrarse
+- Hacer llamativa la opción de olvido de contraseña
+- Imagen inicial sin transparencia
+- Imagen de fondo con transparencia para ventana de registro
