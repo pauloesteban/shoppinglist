@@ -3,7 +3,7 @@ GUI para una lista de compras
 
 ### Integrantes:
 - Luis Solórzano - Product Owner
-- José Guillén
+- José Guillén - Scrum Master
 - Jordy Zambrano
 - Renzo Cocha
 - Jesús Salazar
