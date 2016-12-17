@@ -178,7 +178,9 @@ public class Iniciar_sesion extends javax.swing.JFrame
         jLabel8.setText("jLabel8");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 290, 60));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/jeans.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/new.jpg"))); // NOI18N
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel9.setDebugGraphicsOptions(javax.swing.DebugGraphics.FLASH_OPTION);
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 340));
 
         pack();
