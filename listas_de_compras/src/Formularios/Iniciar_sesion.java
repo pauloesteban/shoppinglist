@@ -83,14 +83,18 @@ public class Iniciar_sesion extends javax.swing.JFrame
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 0, 0));
         jButton5.setText("¿Has olvidado tu contraseña?");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 293, 230, 30));
 
+        lblmensage.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblmensage.setForeground(new java.awt.Color(255, 0, 0));
         lblmensage.setToolTipText("");
         getContentPane().add(lblmensage, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 230, 20));
 
