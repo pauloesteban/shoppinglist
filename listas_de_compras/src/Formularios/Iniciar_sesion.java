@@ -83,14 +83,18 @@ public class Iniciar_sesion extends javax.swing.JFrame
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 0, 0));
         jButton5.setText("¿Has olvidado tu contraseña?");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 293, 230, 30));
 
+        lblmensage.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblmensage.setForeground(new java.awt.Color(255, 0, 0));
         lblmensage.setToolTipText("");
         getContentPane().add(lblmensage, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 230, 20));
 
@@ -121,6 +125,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
         });
         getContentPane().add(txtusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 280, 30));
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Iniciar sesión");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,15 +137,16 @@ public class Iniciar_sesion extends javax.swing.JFrame
                 jButton1KeyPressed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 120, 30));
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Registrarse");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 110, 30));
         getContentPane().add(lblr, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 55, -1, -1));
 
         txtcon.addActionListener(new java.awt.event.ActionListener() {
@@ -178,7 +184,9 @@ public class Iniciar_sesion extends javax.swing.JFrame
         jLabel8.setText("jLabel8");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 290, 60));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/jeans.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/new.jpg"))); // NOI18N
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel9.setDebugGraphicsOptions(javax.swing.DebugGraphics.FLASH_OPTION);
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 340));
 
         pack();
