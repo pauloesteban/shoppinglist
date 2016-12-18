@@ -2,10 +2,13 @@ package Formularios;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -37,7 +40,11 @@ public class Principal_productos extends javax.swing.JFrame {
     return retValue;
     }
     public String usuario="";
+    public String id="";
     Adm_sql sql;
+    Date fecha;
+    String f2="";
+    ArrayList<String>lista;
     public Principal_productos() {
         initComponents();
          this.setLocationRelativeTo(null);
@@ -49,6 +56,17 @@ public class Principal_productos extends javax.swing.JFrame {
         Adm_sql producto=new Adm_sql();
         Autocomplete a=new Autocomplete();
         a.setupAutoComplete(txtflitro, producto.leerproductos());
+        lista=new ArrayList<String>();
+        lblid1.setVisible(false);
+        lblid2.setVisible(false);
+        lblid3.setVisible(false);
+        lblid4.setVisible(false);
+        lblid5.setVisible(false);
+        lblid6.setVisible(false);
+        fecha=new Date();
+        SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+        f2=formateador.format(fecha);
+        System.out.print(id);
        ocultar();
     }
     
@@ -101,6 +119,7 @@ public class Principal_productos extends javax.swing.JFrame {
         lblprecio3 = new javax.swing.JLabel();
         lblprecio2 = new javax.swing.JLabel();
         lblprecio6 = new javax.swing.JLabel();
+        lblid2 = new javax.swing.JLabel();
         btn2 = new javax.swing.JButton();
         btn3 = new javax.swing.JButton();
         btn1 = new javax.swing.JButton();
@@ -109,6 +128,11 @@ public class Principal_productos extends javax.swing.JFrame {
         btn6 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        lblid1 = new javax.swing.JLabel();
+        lblid3 = new javax.swing.JLabel();
+        lblid4 = new javax.swing.JLabel();
+        lblid5 = new javax.swing.JLabel();
+        lblid6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton15 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -277,10 +301,23 @@ public class Principal_productos extends javax.swing.JFrame {
         lblprecio6.setText("Precio");
         jPanel3.add(lblprecio6, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 233, -1, -1));
 
+        lblid2.setText("jLabel11");
+        jPanel3.add(lblid2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, 10));
+
         btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
         jPanel3.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 109, 43, -1));
 
         btn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
         jPanel3.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 109, 43, -1));
 
         btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
@@ -289,15 +326,30 @@ public class Principal_productos extends javax.swing.JFrame {
                 btn1ActionPerformed(evt);
             }
         });
-        jPanel3.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 109, 43, -1));
+        jPanel3.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 109, 60, -1));
 
         btn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
         jPanel3.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 258, 43, -1));
 
         btn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
         jPanel3.add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 258, 43, -1));
 
         btn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
         jPanel3.add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 258, 43, -1));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sigui.jpg"))); // NOI18N
@@ -311,8 +363,23 @@ public class Principal_productos extends javax.swing.JFrame {
         jLabel2.setText("Siguiente");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, -1, -1));
 
+        lblid1.setText("jLabel10");
+        jPanel3.add(lblid1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 40, -1));
+
+        lblid3.setText("jLabel12");
+        jPanel3.add(lblid3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, -1, -1));
+
+        lblid4.setText("jLabel13");
+        jPanel3.add(lblid4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
+
+        lblid5.setText("jLabel14");
+        jPanel3.add(lblid5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
+
+        lblid6.setText("jLabel15");
+        jPanel3.add(lblid6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, -1, -1));
+
         jLabel9.setBorder(new javax.swing.border.MatteBorder(null));
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 380, 300));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 380, 300));
 
         jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 460, 330));
 
@@ -616,9 +683,62 @@ public class Principal_productos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        Nueva_lista_productos j =new Nueva_lista_productos();
-       j.show();
-        this.setVisible(false);        // TODO add your handling code here:
+        try {
+            String[]vector;
+             Nueva_lista_productos j =new Nueva_lista_productos();
+             this.setVisible(false); 
+        j.show();
+       j.lista=this.lista;
+       j.lblusuario.setText(lblusuario.getText());
+       //JOptionPane.showMessageDialog(null, id);
+       j.usuario=id;
+       Image foto=sql.getfoto(id);
+            Icon ico=new ImageIcon(foto.getScaledInstance(j.lblfoto.getWidth(),  j.lblfoto.getHeight(), Image.SCALE_DEFAULT));
+            j.lblfoto.setIcon(ico);
+            j.lblfoto.updateUI();
+       lista=sql.consultarlista(id, f2);
+         String cadena=sql.leerproductos3(lista.get(0));
+         vector=cadena.split(";");
+         j.lblpro1.setText(vector[0]);
+         j.lblprecio1.setText(vector[1]);
+         h(j.lblfoto1,vector[2]);
+         
+         cadena=sql.leerproductos3(lista.get(1));
+         vector=cadena.split(";");
+         j.lblpro2.setText(vector[0]);
+         j.lblprecio2.setText(vector[1]);
+         h(j.lblfoto2,vector[2]);
+         
+         cadena=sql.leerproductos3(lista.get(2));
+         vector=cadena.split(";");
+         j.lblpro3.setText(vector[0]);
+         j.lblprecio3.setText(vector[1]);
+         h(j.lblfoto3,vector[2]);
+         
+          cadena=sql.leerproductos3(lista.get(3));
+         vector=cadena.split(";");
+         j.lblpro4.setText(vector[0]);
+         j.lblprecio4.setText(vector[1]);
+         h(j.lblfoto4,vector[2]);
+         
+         cadena=sql.leerproductos3(lista.get(4));
+         vector=cadena.split(";");
+         j.lblpro5.setText(vector[0]);
+         j.lblprecio5.setText(vector[1]);
+         h(j.lblfoto5,vector[2]);
+         
+         cadena=sql.leerproductos3(lista.get(5));
+         vector=cadena.split(";");
+         j.lblpro6.setText(vector[0]);
+         j.lblprecio6.setText(vector[1]);
+         h(j.lblfoto6,vector[2]);
+
+       
+        
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+           // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -637,7 +757,16 @@ public class Principal_productos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtflitroKeyTyped
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        // TODO add your handling code here:
+//          lista.add(" "+id+";"+" "+lblid1+";"+" "+f2);
+         
+         try {
+             
+             int idnum2=Integer.parseInt(lblid1.getText(),16);
+            //sql.llenartablalista(Integer.parseInt(id,16), Integer.parseInt(lblid1.getText(),16),f2);
+            sql.llenartablalista(id, idnum2,f2);
+        } catch (Exception e) {
+            System.out.print(e);
+        }
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -652,6 +781,7 @@ public class Principal_productos extends javax.swing.JFrame {
         lblnom1.setText(vector[0]);
         lblprecio1.setText(vector[1]);
         h(lblimg1,vector[2]);
+        lblid1.setText(vector[2]);
         
         
         
@@ -659,26 +789,31 @@ public class Principal_productos extends javax.swing.JFrame {
         lblnom2.setText(vector[0]);
         lblprecio2.setText(vector[1]);
         h(lblimg2,vector[2]);
+        lblid2.setText(vector[2]);
         
         vector=lista.get(2).split(";");
         lblnom3.setText(vector[0]);
         lblprecio3.setText(vector[1]);
         h(lblimg3,vector[2]);
+        lblid3.setText(vector[2]);
         
         vector=lista.get(3).split(";");
         lblnom4.setText(vector[0]);
         lblprecio4.setText(vector[1]);
         h(lblimg4,vector[2]);
+        lblid4.setText(vector[2]);
         
         vector=lista.get(4).split(";");
         lblnom5.setText(vector[0]);
         lblprecio5.setText(vector[1]);
         h(lblimg5,vector[2]);
+        lblid5.setText(vector[2]);
         
         vector=lista.get(5).split(";");
         lblnom6.setText(vector[0]);
         lblprecio6.setText(vector[1]);
         h(lblimg6,vector[2]);
+        lblid6.setText(vector[2]);
         
        
 
@@ -849,6 +984,69 @@ public class Principal_productos extends javax.swing.JFrame {
         mostrar();
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+         //lista.add(" "+id+";"+" "+lblid2+";"+" "+f2);
+         try {
+             
+             int idnum2=Integer.parseInt(lblid2.getText(),16);
+            //sql.llenartablalista(Integer.parseInt(id,16), Integer.parseInt(lblid1.getText(),16),f2);
+            sql.llenartablalista(id, idnum2,f2);
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+//        lista.add(" "+id+";"+" "+lblid3+";"+" "+f2);
+
+         try {
+             
+             int idnum2=Integer.parseInt(lblid3.getText(),16);
+            //sql.llenartablalista(Integer.parseInt(id,16), Integer.parseInt(lblid1.getText(),16),f2);
+            sql.llenartablalista(id, idnum2,f2);
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+//        lista.add(" "+id+";"+" "+lblid4+";"+" "+f2);
+
+          try {
+             
+             int idnum2=Integer.parseInt(lblid4.getText(),16);
+            //sql.llenartablalista(Integer.parseInt(id,16), Integer.parseInt(lblid1.getText(),16),f2);
+            sql.llenartablalista(id, idnum2,f2);
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+//        lista.add(" "+id+";"+" "+lblid5+";"+" "+f2);
+         try {
+             
+             int idnum2=Integer.parseInt(lblid5.getText(),16);
+            //sql.llenartablalista(Integer.parseInt(id,16), Integer.parseInt(lblid1.getText(),16),f2);
+            sql.llenartablalista(id, idnum2,f2);
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+//        lista.add(" "+id+";"+" "+lblid6+";"+" "+f2);
+
+         try {
+             
+             int idnum2=Integer.parseInt(lblid6.getText(),16);
+            //sql.llenartablalista(Integer.parseInt(id,16), Integer.parseInt(lblid1.getText(),16),f2);
+            sql.llenartablalista(id, idnum2,f2);
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+    }//GEN-LAST:event_btn6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -916,6 +1114,12 @@ public class Principal_productos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lblid1;
+    private javax.swing.JLabel lblid2;
+    private javax.swing.JLabel lblid3;
+    private javax.swing.JLabel lblid4;
+    private javax.swing.JLabel lblid5;
+    private javax.swing.JLabel lblid6;
     private javax.swing.JLabel lblimg1;
     private javax.swing.JLabel lblimg2;
     private javax.swing.JLabel lblimg3;

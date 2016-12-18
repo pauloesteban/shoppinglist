@@ -240,7 +240,7 @@ class Adm_sql {
             PreparedStatement pst = cn.prepareStatement(sql);
             ResultSet res = pst.executeQuery();
                 while(res.next()){
-                    u=res.getString("NOMBRES")+"  "+ res.getString("APELLIDOS");
+                    u=res.getString("NOMBRES")+"  "+ res.getString("APELLIDOS")+";"+""+res.getString("USUARIO");
                    
                 }
                 cn.close();
@@ -403,7 +403,113 @@ class Adm_sql {
         }
          return nombreArrayList;
     }
+    
+     public String leerproductos3(String cod){
+         ConexionBD con = new ConexionBD();
+//         ArrayList<String> nombreArrayList = new ArrayList<String>();
+            cn=con.conexion();
+            int resultado=0;
+            String u="";
+         String sql= "SELECT * FROM tb_productos WHERE CODIGO = '"+cod+"'";
+         
+         try {
+            PreparedStatement pst = cn.prepareStatement(sql);
+            ResultSet res = pst.executeQuery();
+            //int i = 0;
+                while(res.next()){
+//                    u=
+                    u=res.getString("PRODUCTO")+";"+res.getString("PRECIO")+";"+res.getString("CODIGO");
+                    //nombreArrayList.add(res.getString("PRODUCTO")+";"+res.getString("PRECIO")+";"+res.getString("CODIGO"));
+                }
+                cn.close();
+           
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+        finally{
+       
+        }
+         return u;
+     }
      
+     
+    public String leerpro(String cod){
+         ConexionBD con = new ConexionBD();
+         ArrayList<String> nombreArrayList = new ArrayList<String>();
+            cn=con.conexion();
+            int resultado=0;
+            String p="";
+         String sql= "SELECT * FROM tb_productos WHERE ID_CAT = '"+cod+"'";
+         
+         try {
+            PreparedStatement pst = cn.prepareStatement(sql);
+            ResultSet res = pst.executeQuery();
+            //int i = 0;
+                while(res.next()){
+                    p=res.getString("PRODUCTO")+";"+res.getString("PRECIO")+";"+res.getString("CODIGO");
+                    //nombreArrayList.add(res.getString("PRODUCTO")+";"+res.getString("PRECIO")+";"+res.getString("CODIGO"));
+                }
+                cn.close();
+           
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+        finally{
+       
+        }
+        return p; 
+    } 
+     
+    public ArrayList<String> consultarlista(String usuario,String fecha){
+        ConexionBD con = new ConexionBD();
+            cn=con.conexion();
+            int resultado=0;
+         String sql= "SELECT * FROM tb_listausu WHERE USUARIO = '" + usuario + "' AND FECHA = '" + fecha + "'";
+         ArrayList<String>lista=new ArrayList<String>();
+         try {
+            PreparedStatement pst = cn.prepareStatement(sql);
+            ResultSet res = pst.executeQuery();
+            int i = 0;
+                while(res.next()){
+                   //u=res.getString("ID_PRODUCT");
+                     
+                     lista.add(res.getString("ID_PRODUCT"));
+                     resultado=1;
+                    
+                }
+                cn.close();
+           
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+        finally{
+       
+        }
+         return lista;
+    }
+    
+    public void llenartablalista(String id , int idpro,String fecha){
+         try{
+            ConexionBD con = new ConexionBD();
+            cn=con.conexion();
+            
+            String sql="INSERT INTO tb_listausu(USUARIO,ID_PRODUCT,FECHA) VALUES "+ "(?,?,?);";                    
+            
+            PreparedStatement pst = cn.prepareStatement(sql);
+                pst.setString(1, id);
+                pst.setInt(2, idpro);
+                pst.setString(3,fecha);
+//                pst.setInt(4, cant);
+//                pst.setBinaryStream (5,foto,l);
+//                pst.setInt(6, codigo);
+                pst.executeUpdate();
+                //JOptionPane.showMessageDialog(null, "SE HA REGISTRADO UN NUEVO PRODUCTO");
+                                                                 
+            cn.close();
+        }catch (SQLException ex){
+            JOptionPane.showMessageDialog(null, " " + ex.getMessage());
+        }
+    }
      private Image data;
     //metodo  que dado un parametro "id" realiza una consulta y devuelve como resultado
 // una imagen

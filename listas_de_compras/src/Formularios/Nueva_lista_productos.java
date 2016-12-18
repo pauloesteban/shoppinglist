@@ -2,6 +2,13 @@ package Formularios;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,17 +28,66 @@ public class Nueva_lista_productos extends javax.swing.JFrame {
     return retValue;
     }
 
-    /**
-     * Creates new form carrito
-     */
+    public ArrayList<String>lista;
+    Adm_sql sql;
+    String f2="";
+    public String usuario;
+//    ArrayList<String>lista;
     public Nueva_lista_productos() 
     {
         initComponents();
-        this.setLocationRelativeTo(null);
+        try {
+             this.setLocationRelativeTo(null);
         setResizable(false);
         setTitle("iMarket");
+        Date fecha=new Date();
+        String[]vector;
+        SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+         f2=formateador.format(fecha);
+         
+         
+         
+         
+//         sql=new Adm_sql();
+         //lista=new ArrayList<String>();
+         //JOptionPane.showMessageDialog(null, usuario);
+//         lista=sql.consultarlista(usuario, f2);
+//         String cadena=sql.leerproductos3(lista.get(0));
+//         vector=cadena.split(";");
+//         lblpro1.setText(vector[0]);
+//         lblprecio1.setText(vector[1]);
+         
+//        String[]vector;
+//        String[]vector2;
+//        //lista=new ArrayList<String>();
+//        vector=lista.get(0).split(";");
+//        vector2= sql.leerpro(vector[1]).split(";");
+//        lblpro1.setText(vector2[0]);
+//        lblprecio1.setText(vector2[1]);
+//        h(lblfoto1,vector[2]);
+        //lista=new ArrayList<String>();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+       
+        
     }
-
+    
+     public void h(JLabel j,String c){
+        try {
+            ArrayList<Image> listaimg= sql.imagproductos(c); 
+            Image foto=null;
+            Icon ico=null;
+            foto=listaimg.get(0);
+            ico=new ImageIcon(foto.getScaledInstance(j.getWidth(),  j.getHeight(), Image.SCALE_DEFAULT));
+            j.setIcon(ico);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+            
+            //w.updateUI();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,32 +98,32 @@ public class Nueva_lista_productos extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblfoto3 = new javax.swing.JLabel();
+        lblfoto2 = new javax.swing.JLabel();
+        lblfoto1 = new javax.swing.JLabel();
+        btn2 = new javax.swing.JButton();
+        lblpro3 = new javax.swing.JLabel();
+        lblprecio3 = new javax.swing.JLabel();
+        lblpro2 = new javax.swing.JLabel();
+        lblprecio2 = new javax.swing.JLabel();
+        btn3 = new javax.swing.JButton();
+        lblpro1 = new javax.swing.JLabel();
+        lblprecio1 = new javax.swing.JLabel();
+        btn1 = new javax.swing.JButton();
+        lblfoto6 = new javax.swing.JLabel();
+        lblfoto5 = new javax.swing.JLabel();
+        lblfoto4 = new javax.swing.JLabel();
+        lblpro6 = new javax.swing.JLabel();
+        lblprecio6 = new javax.swing.JLabel();
+        bnt6 = new javax.swing.JButton();
+        lblpro5 = new javax.swing.JLabel();
+        lblprecio5 = new javax.swing.JLabel();
+        bnt5 = new javax.swing.JButton();
+        lblpro4 = new javax.swing.JLabel();
+        lblprecio4 = new javax.swing.JLabel();
+        btn4 = new javax.swing.JButton();
+        lblusuario = new javax.swing.JLabel();
+        lblfoto = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
@@ -91,113 +147,113 @@ public class Nueva_lista_productos extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/embu.jpg"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 70, -1, -1));
+        lblfoto3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/embu.jpg"))); // NOI18N
+        jPanel1.add(lblfoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 70, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/foco.jpg"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 70, -1, -1));
+        lblfoto2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/foco.jpg"))); // NOI18N
+        jPanel1.add(lblfoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 70, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pollito.jpg"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        lblfoto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pollito.jpg"))); // NOI18N
+        jPanel1.add(lblfoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.jpg"))); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.jpg"))); // NOI18N
+        btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btn2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 190, 28, -1));
+        jPanel1.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 190, 28, -1));
 
-        jLabel12.setText("jLabel12");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 136, 52, -1));
+        lblpro3.setText("jLabel12");
+        jPanel1.add(lblpro3, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 136, 52, -1));
 
-        jLabel15.setText("jLabel15");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 161, 52, -1));
+        lblprecio3.setText("jLabel15");
+        jPanel1.add(lblprecio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 161, 52, -1));
 
-        jLabel11.setText("jLabel11");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 140, 52, -1));
+        lblpro2.setText("jLabel11");
+        jPanel1.add(lblpro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 140, 52, -1));
 
-        jLabel14.setText("jLabel14");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 165, 52, -1));
+        lblprecio2.setText("jLabel14");
+        jPanel1.add(lblprecio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 165, 52, -1));
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.jpg"))); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.jpg"))); // NOI18N
+        btn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btn3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 186, 28, -1));
+        jPanel1.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 186, 28, -1));
 
-        jLabel10.setText("jLabel10");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 52, -1));
+        lblpro1.setText("jLabel10");
+        jPanel1.add(lblpro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 52, -1));
 
-        jLabel13.setText("jLabel13");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 165, 52, -1));
+        lblprecio1.setText("jLabel13");
+        jPanel1.add(lblprecio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 165, 52, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.jpg"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.jpg"))); // NOI18N
+        btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 28, -1));
+        jPanel1.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 28, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lagosta.jpg"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 258, -1, -1));
+        lblfoto6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lagosta.jpg"))); // NOI18N
+        jPanel1.add(lblfoto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 258, -1, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vinito.jpg"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 258, -1, -1));
+        lblfoto5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vinito.jpg"))); // NOI18N
+        jPanel1.add(lblfoto5, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 258, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pancito.jpg"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 258, -1, -1));
+        lblfoto4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pancito.jpg"))); // NOI18N
+        jPanel1.add(lblfoto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 258, -1, -1));
 
-        jLabel18.setText("jLabel18");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 321, 52, -1));
+        lblpro6.setText("jLabel18");
+        jPanel1.add(lblpro6, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 321, 52, -1));
 
-        jLabel21.setText("jLabel21");
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 341, 52, -1));
+        lblprecio6.setText("jLabel21");
+        jPanel1.add(lblprecio6, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 341, 52, -1));
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.jpg"))); // NOI18N
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        bnt6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.jpg"))); // NOI18N
+        bnt6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                bnt6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 366, 28, -1));
+        jPanel1.add(bnt6, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 366, 28, -1));
 
-        jLabel17.setText("jLabel17");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 321, 52, -1));
+        lblpro5.setText("jLabel17");
+        jPanel1.add(lblpro5, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 321, 52, -1));
 
-        jLabel20.setText("jLabel20");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 341, 52, -1));
+        lblprecio5.setText("jLabel20");
+        jPanel1.add(lblprecio5, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 341, 52, -1));
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.jpg"))); // NOI18N
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        bnt5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.jpg"))); // NOI18N
+        bnt5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                bnt5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 366, 28, -1));
+        jPanel1.add(bnt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 366, 28, -1));
 
-        jLabel16.setText("jLabel16");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 321, 52, -1));
+        lblpro4.setText("jLabel16");
+        jPanel1.add(lblpro4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 321, 52, -1));
 
-        jLabel19.setText("jLabel19");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 341, 52, -1));
+        lblprecio4.setText("jLabel19");
+        jPanel1.add(lblprecio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 341, 52, -1));
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.jpg"))); // NOI18N
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.jpg"))); // NOI18N
+        btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btn4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 366, 28, -1));
+        jPanel1.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 366, 28, -1));
 
-        jLabel2.setText("Alvaro Emiliano");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 142, 34));
+        lblusuario.setText("Alvaro Emiliano");
+        jPanel1.add(lblusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 142, 34));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario.jpg"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 34));
+        lblfoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario.jpg"))); // NOI18N
+        jPanel1.add(lblfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 34));
 
         jLabel1.setText("Lista de Compras");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 4, 111, 34));
@@ -260,29 +316,29 @@ public class Nueva_lista_productos extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn1ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btn3ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btn2ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btn4ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void bnt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnt5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_bnt5ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void bnt6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnt6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_bnt6ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -331,45 +387,45 @@ public class Nueva_lista_productos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bnt5;
+    private javax.swing.JButton bnt6;
+    private javax.swing.JButton btn1;
+    private javax.swing.JButton btn2;
+    private javax.swing.JButton btn3;
+    private javax.swing.JButton btn4;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField1;
+    public javax.swing.JLabel lblfoto;
+    public javax.swing.JLabel lblfoto1;
+    public javax.swing.JLabel lblfoto2;
+    public javax.swing.JLabel lblfoto3;
+    public javax.swing.JLabel lblfoto4;
+    public javax.swing.JLabel lblfoto5;
+    public javax.swing.JLabel lblfoto6;
+    public javax.swing.JLabel lblprecio1;
+    public javax.swing.JLabel lblprecio2;
+    public javax.swing.JLabel lblprecio3;
+    public javax.swing.JLabel lblprecio4;
+    public javax.swing.JLabel lblprecio5;
+    public javax.swing.JLabel lblprecio6;
+    public javax.swing.JLabel lblpro1;
+    public javax.swing.JLabel lblpro2;
+    public javax.swing.JLabel lblpro3;
+    public javax.swing.JLabel lblpro4;
+    public javax.swing.JLabel lblpro5;
+    public javax.swing.JLabel lblpro6;
+    public javax.swing.JLabel lblusuario;
     private java.awt.Scrollbar scrollbar1;
     // End of variables declaration//GEN-END:variables
 }
