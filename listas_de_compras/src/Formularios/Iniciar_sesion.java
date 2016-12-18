@@ -83,18 +83,14 @@ public class Iniciar_sesion extends javax.swing.JFrame
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 0, 0));
         jButton5.setText("¿Has olvidado tu contraseña?");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 293, 230, 30));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
 
-        lblmensage.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblmensage.setForeground(new java.awt.Color(255, 0, 0));
         lblmensage.setToolTipText("");
         getContentPane().add(lblmensage, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 230, 20));
 
@@ -182,9 +178,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
         jLabel8.setText("jLabel8");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 290, 60));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/new.jpg"))); // NOI18N
-        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel9.setDebugGraphicsOptions(javax.swing.DebugGraphics.FLASH_OPTION);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/jeans.jpg"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 340));
 
         pack();
