@@ -93,10 +93,17 @@ public class Iniciar_sesion extends javax.swing.JFrame
                 jButton5ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, -1, -1));
 
         lblmensage.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblmensage.setForeground(new java.awt.Color(255, 51, 51));
+=======
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 293, 230, 30));
+
+        lblmensage.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblmensage.setForeground(new java.awt.Color(255, 0, 0));
+>>>>>>> origin/master
         lblmensage.setToolTipText("");
         getContentPane().add(lblmensage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 160, 20));
 
@@ -139,7 +146,11 @@ public class Iniciar_sesion extends javax.swing.JFrame
                 jButton1KeyPressed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 130, 30));
+=======
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 120, 30));
+>>>>>>> origin/master
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Registrarse");
@@ -148,7 +159,11 @@ public class Iniciar_sesion extends javax.swing.JFrame
                 jButton2ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
+=======
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 110, 30));
+>>>>>>> origin/master
         getContentPane().add(lblr, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 55, -1, -1));
 
         txtcon.addActionListener(new java.awt.event.ActionListener() {
@@ -186,8 +201,15 @@ public class Iniciar_sesion extends javax.swing.JFrame
         jLabel8.setText("jLabel8");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 290, 60));
 
+<<<<<<< HEAD
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/new.jpg"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 340));
+=======
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/new.jpg"))); // NOI18N
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel9.setDebugGraphicsOptions(javax.swing.DebugGraphics.FLASH_OPTION);
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 340));
+>>>>>>> origin/master
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
