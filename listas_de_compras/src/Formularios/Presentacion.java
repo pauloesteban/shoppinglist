@@ -24,11 +24,7 @@ hilo ejecutar = new hilo();
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(this);
-<<<<<<< HEAD
         //com.sun.awt.AWTUtilities.setWindowOpacity(this, 0.7f);
-=======
-      
->>>>>>> origin/master
         
        
         
