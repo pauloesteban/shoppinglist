@@ -1,0 +1,14 @@
+# Introducción
+* En el presente informe damos a conocer los avances que se han realizado durante la semana dando una pequeña descripción de cada función
+  actualizada
+  ![](https://scontent.fuio1-1.fna.fbcdn.net/v/t34.0-12/16128793_697090927128737_1591999687_n.jpg?oh=b23107a76c9dcaeabbc2c0eabef0c1af&oe=587FCDF8)
+## Características del avance
+### 1 OPCION BUSQUEDA DEL PRODUCTO
+* La opción búsqueda del producto se modificó para que el usuario la vea como primera opción y así le ahorre el trabajo de estar buscando
+  por secciones
+  ![](https://scontent.fuio1-1.fna.fbcdn.net/v/t34.0-12/16128793_697090927128737_1591999687_n.jpg?oh=b23107a76c9dcaeabbc2c0eabef0c1af&oe=587FCDF8)
+### 2 PANTALLA DE REGISTRO
+* La pantalla de registro tenía un problema que cuando se registraba mientras no se ubique la foto no dejaba registrarse se arregló para
+  que la foto se opcional para el usuario ya que en ciertas ocasiones los usuarios no le dan mucha importancia a la imagen de perfil
+### 3 GENERAR CODIGO DE PRODUCTO
+* Esta opción se modificó para que genere los códigos de un producto que el usuario haya seleccionado 
