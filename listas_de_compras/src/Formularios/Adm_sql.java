@@ -291,6 +291,41 @@ class Adm_sql {
          return nombreArrayList;
     }
      
+      public ArrayList<String> leerusuarios12(){
+         
+         ConexionBD con = new ConexionBD();
+         ArrayList<String> nombreArrayList = new ArrayList<String>();
+            cn=con.conexion();
+            int resultado=0;
+         String sql= "SELECT * FROM tb_usuario";
+         
+         try {
+            PreparedStatement pst = cn.prepareStatement(sql);
+            ResultSet res = pst.executeQuery();
+            //int i = 0;
+                while(res.next()){
+//                    usu_id = res.getInt("tm_idusuario");
+//                    usu_login = res.getString("tm_login");
+//                    usu_password = res.getString("tm_password");
+//                    data[i][0] = usu_id;
+//                    data[i][1] = usu_login;
+//                    data[i][2] = usu_password;
+                    nombreArrayList.add(res.getString("USUARIO"));
+                     //usuario=res.getString("NOMBRES").toString();
+                     //resultado=1;
+                   
+                }
+                cn.close();
+           
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+        finally{
+       
+        }
+         return nombreArrayList;
+    }
+     
     public void modproducto(int cant,String codigo,int cat){
         ConexionBD con = new ConexionBD();
             cn=con.conexion();
@@ -516,6 +551,7 @@ class Adm_sql {
   public Image getfoto(String id){         
      ConexionBD con = new ConexionBD();
             cn=con.conexion();
+            boolean b1=false;
      try{    
          PreparedStatement pstm = cn.prepareStatement("SELECT " +
             " IMAGEN " +
@@ -527,18 +563,31 @@ class Adm_sql {
          while(res.next()){
             //se lee la cadena de bytes de la base de datos
             byte[] b = res.getBytes("IMAGEN");
+             if (b==null) {
+                 b1=true;
+                 break;
+             }
+             else{
+                 data = ConvertirImagen(b);
+             }
             // esta cadena de bytes sera convertida en una imagen
-            data = ConvertirImagen(b);            
+                        
             i++;
          }
          res.close();
          cn.close();
           } catch (IOException ex) {
-            //Logger.getLogger(fotoclass.class.getName()).log(Level.SEVERE, null, ex);
+           //Logger.getLogger(fotoclass.class.getName()).log(Level.SEVERE, null, ex);
         }catch(SQLException e){
-         System.out.println(e);
-    }        
-    return data;     
+//         System.out.println(e.getMessage());
+    }    
+     if(b1){
+         return null;
+     }
+     else{
+         return data;
+     }
+         
  }
   
   public ArrayList<Image> leerimagenes(){         

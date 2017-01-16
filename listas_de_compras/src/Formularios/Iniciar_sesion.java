@@ -59,6 +59,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
 
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         lblmensage = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -73,12 +74,14 @@ public class Iniciar_sesion extends javax.swing.JFrame
         jLabel6 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         jButton3.setText("jButton3");
 
         jButton4.setText("jButton4");
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/mar.jpg"))); // NOI18N
+        jLabel8.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(geticonimage());
@@ -98,7 +101,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
         lblmensage.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblmensage.setForeground(new java.awt.Color(255, 51, 51));
         lblmensage.setToolTipText("");
-        getContentPane().add(lblmensage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 160, 20));
+        getContentPane().add(lblmensage, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 160, 20));
 
         jLabel1.setBackground(java.awt.Color.red);
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
@@ -182,10 +185,6 @@ public class Iniciar_sesion extends javax.swing.JFrame
         });
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 40, 30));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/mar.jpg"))); // NOI18N
-        jLabel8.setText("jLabel8");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 290, 60));
-
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/new.jpg"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 340));
 
@@ -214,26 +213,49 @@ public class Iniciar_sesion extends javax.swing.JFrame
             this.setVisible(false);
         }
         else{
-             String[]vector;
+            Principal_productos p=new Principal_productos();
+            String[]vector=null;
+            try {
+                 
               n = sql.consultarlogin(txtusu.getText(), txtcon.getText());
               if (n==1) {
             String u=sql.leerusuarios1(txtusu.getText(), txtcon.getText());
-            Principal_productos p=new Principal_productos();
+            
             
             Image foto=sql.getfoto(txtusu.getText());
-            Icon ico=new ImageIcon(foto.getScaledInstance(p.jLabel7.getWidth(),  p.jLabel7.getHeight(), Image.SCALE_DEFAULT));
-            p.jLabel7.setIcon(ico);
-            p.jLabel7.updateUI();
+                  if (foto==null) {
+//                      p.jLabel7.setIcon(null);
+//                      p.jLabel7.updateUI();
+               System.out.println("hola");
+                       vector=u.split(";");
+                      p.id=vector[1];
+                     p.lblusuario.setText(vector[0]);
+                     p.show();
+                     this.setVisible(false);
+                      
+                  }
+                  else{
+                      
+                      Icon ico=new ImageIcon(foto.getScaledInstance(p.jLabel7.getWidth(),  p.jLabel7.getHeight(), Image.SCALE_DEFAULT));
+                      p.jLabel7.setIcon(ico);
+                      p.jLabel7.updateUI();
             
-            vector=u.split(";");
-            p.id=vector[1];
-            p.lblusuario.setText(vector[0]);
-            p.show();
-            this.setVisible(false);
+                       vector=u.split(";");
+                      p.id=vector[1];
+                     p.lblusuario.setText(vector[0]);
+                     p.show();
+                     this.setVisible(false);
+                  }
+            
              } else {
             lblmensage.setText("Datos incorrectos");
             jButton5.setVisible(true);
            }
+            } catch (Exception e) {
+               System.out.println(e.getMessage());
+            }
+              
+              
           }
         }
         else {

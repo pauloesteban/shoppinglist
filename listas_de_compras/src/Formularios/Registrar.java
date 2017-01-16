@@ -195,6 +195,7 @@ public class Registrar extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, -1, -1));
 
+        lblfoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/aaaaa.png"))); // NOI18N
         lblfoto.setText("           Foto");
         lblfoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(lblfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 90, 80));
@@ -228,7 +229,7 @@ public class Registrar extends javax.swing.JFrame {
                 
             } else {
                 if (txtcontraseña.getText().equals(txtcontraseña2.getText())) {
-                if (!"".equals(txtapellido.getText())&&!"".equals(txtcontraseña.getText())&&!"".equals(txtusuario.getText())&&!"".equals(sexo)&&longitud!=0&&!"".equals(txtnombre.getText())) {
+                if (!"".equals(txtapellido.getText())&&!"".equals(txtcontraseña.getText())&&!"".equals(txtusuario.getText())&&!"".equals(sexo)&&!"".equals(txtnombre.getText())) {
                    String name = JOptionPane.showInputDialog(this, pre);
                     if (null==name) {
                         JOptionPane.showMessageDialog(null, "Deben de ingresar una respuesta para mayor seguridad");
@@ -275,11 +276,12 @@ public class Registrar extends javax.swing.JFrame {
     public boolean verificar(){
         sql=new Adm_sql();
         boolean b=false;
-        ArrayList<String> nombreArrayList=sql.leerusuarios();
+        ArrayList<String> nombreArrayList=sql.leerusuarios12();
           for (int i = 0; i < nombreArrayList.size(); i++) {
               if (nombreArrayList.get(i) == null ? txtusuario.getText() == null : nombreArrayList.get(i).equals(txtusuario.getText())) {
-                  b=true;
+                  b= true;
               }
+              
          }
           return b;
     }
