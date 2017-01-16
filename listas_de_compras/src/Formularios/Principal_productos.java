@@ -2,10 +2,13 @@ package Formularios;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -37,7 +40,11 @@ public class Principal_productos extends javax.swing.JFrame {
     return retValue;
     }
     public String usuario="";
+    public String id="";
     Adm_sql sql;
+    Date fecha;
+    String f2="";
+    ArrayList<String>lista;
     public Principal_productos() {
         initComponents();
          this.setLocationRelativeTo(null);
@@ -49,6 +56,17 @@ public class Principal_productos extends javax.swing.JFrame {
         Adm_sql producto=new Adm_sql();
         Autocomplete a=new Autocomplete();
         a.setupAutoComplete(txtflitro, producto.leerproductos());
+        lista=new ArrayList<String>();
+        lblid1.setVisible(false);
+        lblid2.setVisible(false);
+        lblid3.setVisible(false);
+        lblid4.setVisible(false);
+        lblid5.setVisible(false);
+        lblid6.setVisible(false);
+        fecha=new Date();
+        SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+        f2=formateador.format(fecha);
+        System.out.print(id);
        ocultar();
     }
     
@@ -83,33 +101,46 @@ public class Principal_productos extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jpanelcont1 = new javax.swing.JPanel();
         lblimg1 = new javax.swing.JLabel();
-        lblimg2 = new javax.swing.JLabel();
-        lblimg3 = new javax.swing.JLabel();
-        lblimg4 = new javax.swing.JLabel();
-        lblimg5 = new javax.swing.JLabel();
-        lblimg6 = new javax.swing.JLabel();
         lblnom1 = new javax.swing.JLabel();
         lblprecio1 = new javax.swing.JLabel();
-        lblnom5 = new javax.swing.JLabel();
-        lblnom3 = new javax.swing.JLabel();
-        lblnom4 = new javax.swing.JLabel();
-        lblnom2 = new javax.swing.JLabel();
-        lblnom6 = new javax.swing.JLabel();
-        lblprecio5 = new javax.swing.JLabel();
-        lblprecio4 = new javax.swing.JLabel();
-        lblprecio3 = new javax.swing.JLabel();
-        lblprecio2 = new javax.swing.JLabel();
-        lblprecio6 = new javax.swing.JLabel();
-        btn2 = new javax.swing.JButton();
-        btn3 = new javax.swing.JButton();
+        lblid1 = new javax.swing.JLabel();
         btn1 = new javax.swing.JButton();
-        btn4 = new javax.swing.JButton();
-        btn5 = new javax.swing.JButton();
+        jpanelcont6 = new javax.swing.JPanel();
+        lblimg6 = new javax.swing.JLabel();
+        lblnom6 = new javax.swing.JLabel();
+        lblprecio6 = new javax.swing.JLabel();
+        lblid6 = new javax.swing.JLabel();
         btn6 = new javax.swing.JButton();
+        jpanelcont5 = new javax.swing.JPanel();
+        lblimg5 = new javax.swing.JLabel();
+        lblnom5 = new javax.swing.JLabel();
+        lblprecio5 = new javax.swing.JLabel();
+        lblid5 = new javax.swing.JLabel();
+        btn5 = new javax.swing.JButton();
+        jpanelcont4 = new javax.swing.JPanel();
+        lblimg4 = new javax.swing.JLabel();
+        lblnom4 = new javax.swing.JLabel();
+        lblprecio4 = new javax.swing.JLabel();
+        lblid4 = new javax.swing.JLabel();
+        btn4 = new javax.swing.JButton();
+        jpanelcont3 = new javax.swing.JPanel();
+        lblimg3 = new javax.swing.JLabel();
+        lblnom3 = new javax.swing.JLabel();
+        lblprecio3 = new javax.swing.JLabel();
+        lblid3 = new javax.swing.JLabel();
+        btn3 = new javax.swing.JButton();
+        jpanelcont2 = new javax.swing.JPanel();
+        lblimg2 = new javax.swing.JLabel();
+        lblnom2 = new javax.swing.JLabel();
+        lblprecio2 = new javax.swing.JLabel();
+        lblid2 = new javax.swing.JLabel();
+        btn2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jpanelcont7 = new javax.swing.JPanel();
         jButton15 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -224,64 +255,16 @@ public class Principal_productos extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblimg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/taladro.jpg"))); // NOI18N
-        jPanel3.add(lblimg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 24, -1, -1));
-
-        lblimg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/llavetubo.jpg"))); // NOI18N
-        jPanel3.add(lblimg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 54, -1));
-
-        lblimg3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pintura.jpg"))); // NOI18N
-        jPanel3.add(lblimg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
-
-        lblimg4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/foco.jpg"))); // NOI18N
-        jPanel3.add(lblimg4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
-
-        lblimg5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/martillo.jpg"))); // NOI18N
-        jPanel3.add(lblimg5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 157, -1, -1));
-
-        lblimg6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/desarmadores.jpg"))); // NOI18N
-        jPanel3.add(lblimg6, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 162, -1, 45));
+        jpanelcont1.add(lblimg1);
 
         lblnom1.setText("Descripcion");
-        jPanel3.add(lblnom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 69, -1, -1));
+        jpanelcont1.add(lblnom1);
 
         lblprecio1.setText("Precio");
-        jPanel3.add(lblprecio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 89, -1, -1));
+        jpanelcont1.add(lblprecio1);
 
-        lblnom5.setText("Descripcion");
-        jPanel3.add(lblnom5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 215, -1, -1));
-
-        lblnom3.setText("Descripcion");
-        jPanel3.add(lblnom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 69, -1, -1));
-
-        lblnom4.setText("Descripcion");
-        jPanel3.add(lblnom4, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 215, -1, -1));
-
-        lblnom2.setText("Descripcion");
-        jPanel3.add(lblnom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 69, -1, -1));
-
-        lblnom6.setText("Descripcion");
-        jPanel3.add(lblnom6, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 213, -1, -1));
-
-        lblprecio5.setText("Precio");
-        jPanel3.add(lblprecio5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 235, -1, -1));
-
-        lblprecio4.setText("Precio");
-        jPanel3.add(lblprecio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 235, -1, -1));
-
-        lblprecio3.setText("Precio");
-        jPanel3.add(lblprecio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 89, -1, -1));
-
-        lblprecio2.setText("Precio");
-        jPanel3.add(lblprecio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 89, -1, -1));
-
-        lblprecio6.setText("Precio");
-        jPanel3.add(lblprecio6, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 233, -1, -1));
-
-        btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        jPanel3.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 109, 43, -1));
-
-        btn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        jPanel3.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 109, 43, -1));
+        lblid1.setText("jLabel10");
+        jpanelcont1.add(lblid1);
 
         btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
         btn1.addActionListener(new java.awt.event.ActionListener() {
@@ -289,16 +272,119 @@ public class Principal_productos extends javax.swing.JFrame {
                 btn1ActionPerformed(evt);
             }
         });
-        jPanel3.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 109, 43, -1));
+        jpanelcont1.add(btn1);
 
-        btn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        jPanel3.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 258, 43, -1));
+        jPanel3.add(jpanelcont1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 130));
 
-        btn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        jPanel3.add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 258, 43, -1));
+        lblimg6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/desarmadores.jpg"))); // NOI18N
+        jpanelcont6.add(lblimg6);
+
+        lblnom6.setText("Descripcion");
+        jpanelcont6.add(lblnom6);
+
+        lblprecio6.setText("Precio");
+        jpanelcont6.add(lblprecio6);
+
+        lblid6.setText("jLabel15");
+        jpanelcont6.add(lblid6);
 
         btn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        jPanel3.add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 258, 43, -1));
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
+        jpanelcont6.add(btn6);
+
+        jPanel3.add(jpanelcont6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 100, 130));
+
+        lblimg5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/martillo.jpg"))); // NOI18N
+        jpanelcont5.add(lblimg5);
+
+        lblnom5.setText("Descripcion");
+        jpanelcont5.add(lblnom5);
+
+        lblprecio5.setText("Precio");
+        jpanelcont5.add(lblprecio5);
+
+        lblid5.setText("jLabel14");
+        jpanelcont5.add(lblid5);
+
+        btn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
+        jpanelcont5.add(btn5);
+
+        jPanel3.add(jpanelcont5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 90, 140));
+
+        lblimg4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/foco.jpg"))); // NOI18N
+        jpanelcont4.add(lblimg4);
+
+        lblnom4.setText("Descripcion");
+        jpanelcont4.add(lblnom4);
+
+        lblprecio4.setText("Precio");
+        jpanelcont4.add(lblprecio4);
+
+        lblid4.setText("jLabel13");
+        jpanelcont4.add(lblid4);
+
+        btn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
+        jpanelcont4.add(btn4);
+
+        jPanel3.add(jpanelcont4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 90, 140));
+
+        lblimg3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pintura.jpg"))); // NOI18N
+        jpanelcont3.add(lblimg3);
+
+        lblnom3.setText("Descripcion");
+        jpanelcont3.add(lblnom3);
+
+        lblprecio3.setText("Precio");
+        jpanelcont3.add(lblprecio3);
+
+        lblid3.setText("jLabel12");
+        jpanelcont3.add(lblid3);
+
+        btn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
+        jpanelcont3.add(btn3);
+
+        jPanel3.add(jpanelcont3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 100, 130));
+
+        lblimg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/llavetubo.jpg"))); // NOI18N
+        jpanelcont2.add(lblimg2);
+
+        lblnom2.setText("Descripcion");
+        jpanelcont2.add(lblnom2);
+
+        lblprecio2.setText("Precio");
+        jpanelcont2.add(lblprecio2);
+
+        lblid2.setText("jLabel11");
+        jpanelcont2.add(lblid2);
+
+        btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
+        jpanelcont2.add(btn2);
+
+        jPanel3.add(jpanelcont2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 90, 140));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sigui.jpg"))); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -312,9 +398,10 @@ public class Principal_productos extends javax.swing.JFrame {
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, -1, -1));
 
         jLabel9.setBorder(new javax.swing.border.MatteBorder(null));
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 380, 300));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 380, 310));
+        jPanel3.add(jpanelcont7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 130));
 
-        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 460, 330));
+        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 460, 330));
 
         jButton15.setText("Guardar producto a la lista");
         jPanel4.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 450, -1));
@@ -412,189 +499,205 @@ public class Principal_productos extends javax.swing.JFrame {
     private void txtEjemploJTextFieldChanged(JTextField txt){
         filtro(txt);
     }
-    
+    int avi=0;
     private void filtro(JTextField txt){
         //mostrar();
         if (txt.getText() == null ? lblnom1.getText() == null : txt.getText().equals(lblnom1.getText())) {
-            lblnom2.setVisible(false);
-            lblprecio2.setVisible(false);
-            lblimg2.setVisible(false);
-            btn2.setVisible(false);
-            //lblimg2.revalidate();
+            avi=1;
+            jpanelcont2.setVisible(false);
             
-            lblnom3.setVisible(false);
-            lblprecio3.setVisible(false);
-            lblimg3.setVisible(false);
-             btn3.setVisible(false);
-            //lblimg3.revalidate();
+            jpanelcont1.setVisible(false);
+            jpanelcont7.add(lblimg1);
+             jpanelcont7.add(lblnom1);
+            jpanelcont7.add(lblprecio1);
+            jpanelcont7.add(btn1);
+            jpanelcont7.setVisible(true);
             
-            lblnom4.setVisible(false);
-            lblprecio4.setVisible(false);
-            lblimg4.setVisible(false);
-             btn4.setVisible(false);
             
-            lblnom5.setVisible(false);
-            lblprecio5.setVisible(false);
-            lblimg5.setVisible(false);
-             btn5.setVisible(false);
+             jpanelcont3.setVisible(false);
+           
+            jpanelcont4.setVisible(false);
+             
+//          
+             jpanelcont5.setVisible(false);
             
-            lblnom6.setVisible(false);
-            lblprecio6.setVisible(false);
-            lblimg6.setVisible(false);
-             btn6.setVisible(false);
-            //lblimg4.revalidate();
+              jpanelcont6.setVisible(false);
+            
         }
         else{
             if (txt.getText() == null ? lblnom2.getText() == null : txt.getText().equals(lblnom2.getText())) {
-            lblnom1.setVisible(false);
-            lblprecio1.setVisible(false);
-            lblimg1.setVisible(false);
-            btn1.setVisible(false);
-            //lblimg2.revalidate();
+            avi=2;
+            jpanelcont1.setVisible(false);
             
-            lblnom3.setVisible(false);
-            lblprecio3.setVisible(false);
-            lblimg3.setVisible(false);
-             btn3.setVisible(false);
-            //lblimg3.revalidate();
+            jpanelcont2.setVisible(false);
+            jpanelcont7.add(lblimg2);
+             jpanelcont7.add(lblnom2);
+            jpanelcont7.add(lblprecio2);
+            jpanelcont7.add(btn2);
+            jpanelcont7.setVisible(true);
             
-            lblnom4.setVisible(false);
-            lblprecio4.setVisible(false);
-            lblimg4.setVisible(false);
-             btn4.setVisible(false);
+//            
+            jpanelcont3.setVisible(false);
             
-            lblnom5.setVisible(false);
-            lblprecio5.setVisible(false);
-            lblimg5.setVisible(false);
-             btn5.setVisible(false);
+//           
+             jpanelcont4.setVisible(false);
             
-            lblnom6.setVisible(false);
-            lblprecio6.setVisible(false);
-            lblimg6.setVisible(false);
-             btn6.setVisible(false);
+//           
+              jpanelcont5.setVisible(false);            
+
+//            
+              jpanelcont6.setVisible(false);
             //lblimg4.revalidate();
         }
             else{
                 if (txt.getText() == null ? lblnom3.getText() == null : txt.getText().equals(lblnom3.getText())) {
-            lblnom1.setVisible(false);
-            lblprecio1.setVisible(false);
-            lblimg1.setVisible(false);
-            btn1.setVisible(false);
-            //lblimg2.revalidate();
+                  avi=3;  
+              jpanelcont1.setVisible(false);
             
-            lblnom2.setVisible(false);
-            lblprecio2.setVisible(false);
-            lblimg2.setVisible(false);
-             btn2.setVisible(false);
-            //lblimg3.revalidate();
+              jpanelcont2.setVisible(false);
+              
+              jpanelcont3.setVisible(false);
+            jpanelcont7.add(lblimg3);
+             jpanelcont7.add(lblnom3);
+            jpanelcont7.add(lblprecio3);
+            jpanelcont7.add(btn3);
+            jpanelcont7.setVisible(true);
             
-            lblnom4.setVisible(false);
-            lblprecio4.setVisible(false);
-            lblimg4.setVisible(false);
-             btn4.setVisible(false);
+              
+             jpanelcont4.setVisible(false);
             
-            lblnom5.setVisible(false);
-            lblprecio5.setVisible(false);
-            lblimg5.setVisible(false);
-             btn5.setVisible(false);
-            
-            lblnom6.setVisible(false);
-            lblprecio6.setVisible(false);
-            lblimg6.setVisible(false);
-             btn6.setVisible(false);
+//           
+              jpanelcont5.setVisible(false);            
+
+//           
+              jpanelcont6.setVisible(false);
             //lblimg4.revalidate();
         }
                 else{
                     if (txt.getText() == null ? lblnom4.getText() == null : txt.getText().equals(lblnom4.getText())) {
-            lblnom1.setVisible(false);
-            lblprecio1.setVisible(false);
-            lblimg1.setVisible(false);
-            btn1.setVisible(false);
-            //lblimg2.revalidate();
+                  avi=4;
+              jpanelcont1.setVisible(false);
             
-            lblnom3.setVisible(false);
-            lblprecio3.setVisible(false);
-            lblimg3.setVisible(false);
-             btn3.setVisible(false);
-            //lblimg3.revalidate();
+              jpanelcont3.setVisible(false);
+              
+              jpanelcont4.setVisible(false);
+            jpanelcont7.add(lblimg4);
+             jpanelcont7.add(lblnom4);
+            jpanelcont7.add(lblprecio4);
+            jpanelcont7.add(btn4);
+            jpanelcont7.setVisible(true);
             
-            lblnom2.setVisible(false);
-            lblprecio2.setVisible(false);
-            lblimg2.setVisible(false);
-             btn2.setVisible(false);
+              
+              jpanelcont2.setVisible(false);
             
-            lblnom5.setVisible(false);
-            lblprecio5.setVisible(false);
-            lblimg5.setVisible(false);
-             btn5.setVisible(false);
+//           
+              jpanelcont5.setVisible(false);
             
-            lblnom6.setVisible(false);
-            lblprecio6.setVisible(false);
-            lblimg6.setVisible(false);
-             btn6.setVisible(false);
+//           
+              jpanelcont6.setVisible(false);
             //lblimg4.revalidate();
         }
                     else{
+                        
                         if (txt.getText() == null ? lblnom5.getText() == null : txt.getText().equals(lblnom5.getText())) {
-            lblnom1.setVisible(false);
-            lblprecio1.setVisible(false);
-            lblimg1.setVisible(false);
-            btn1.setVisible(false);
-            //lblimg2.revalidate();
+                       avi=5;
+              jpanelcont1.setVisible(false);
             
-            lblnom3.setVisible(false);
-            lblprecio3.setVisible(false);
-            lblimg3.setVisible(false);
-             btn3.setVisible(false);
-            //lblimg3.revalidate();
+              jpanelcont3.setVisible(false);
             
-            lblnom4.setVisible(false);
-            lblprecio4.setVisible(false);
-            lblimg4.setVisible(false);
-             btn4.setVisible(false);
+              jpanelcont5.setVisible(false);
+            jpanelcont7.add(lblimg5);
+             jpanelcont7.add(lblnom5);
+            jpanelcont7.add(lblprecio5);
+            jpanelcont7.add(btn5);
+            jpanelcont7.setVisible(true);
             
-            lblnom2.setVisible(false);
-            lblprecio2.setVisible(false);
-            lblimg2.setVisible(false);
-             btn2.setVisible(false);
+               jpanelcont4.setVisible(false);
             
-            lblnom6.setVisible(false);
-            lblprecio6.setVisible(false);
-            lblimg6.setVisible(false);
-             btn6.setVisible(false);
+              jpanelcont2.setVisible(false);
+            
+//            
+
+              jpanelcont6.setVisible(false);
             //lblimg4.revalidate();
         }
                         else{
                             if (txt.getText() == null ? lblnom6.getText() == null : txt.getText().equals(lblnom6.getText())) {
-            lblnom1.setVisible(false);
-            lblprecio1.setVisible(false);
-            lblimg1.setVisible(false);
-            btn1.setVisible(false);
-            //lblimg2.revalidate();
+                         avi=6;
+             jpanelcont1.setVisible(false);
             
-            lblnom3.setVisible(false);
-            lblprecio3.setVisible(false);
-            lblimg3.setVisible(false);
-             btn3.setVisible(false);
-            //lblimg3.revalidate();
+              jpanelcont3.setVisible(false);
             
-            lblnom4.setVisible(false);
-            lblprecio4.setVisible(false);
-            lblimg4.setVisible(false);
-             btn4.setVisible(false);
+              jpanelcont6.setVisible(false);
+            jpanelcont7.add(lblimg6);
+             jpanelcont7.add(lblnom6);
+            jpanelcont7.add(lblprecio6);
+            jpanelcont7.add(btn6);
+            jpanelcont7.setVisible(true);
             
-            lblnom5.setVisible(false);
-            lblprecio5.setVisible(false);
-            lblimg5.setVisible(false);
-             btn5.setVisible(false);
+               jpanelcont4.setVisible(false);
             
-            lblnom2.setVisible(false);
-            lblprecio2.setVisible(false);
-            lblimg2.setVisible(false);
-             btn2.setVisible(false);
+//           
+              jpanelcont5.setVisible(false);
+            
+//           
+              jpanelcont2.setVisible(false);
             //lblimg4.revalidate();
         }
                             else{
+                                if (avi==1) {
+                                    jpanelcont1.removeAll();
+                                    jpanelcont1.add(lblimg1);
+                                    jpanelcont1.add(lblnom1);
+                                    jpanelcont1.add(lblprecio1);
+                                    jpanelcont1.add(btn1);
+                                }
+                                else{
+                                    if (avi==2) {
+                                        jpanelcont2.removeAll();
+                                        jpanelcont2.add(lblimg2);
+                                        jpanelcont2.add(lblnom2);
+                                        jpanelcont2.add(lblprecio2);
+                                        jpanelcont2.add(btn2);
+                                    }
+                                    else{
+                                        if (avi==3) {
+                                            jpanelcont3.removeAll();
+                                            jpanelcont3.add(lblimg3);
+                                            jpanelcont3.add(lblnom3);
+                                            jpanelcont3.add(lblprecio3);
+                                            jpanelcont3.add(btn3);
+                                        }
+                                        else{
+                                            if (avi==4) {
+                                                jpanelcont4.removeAll();
+                                               jpanelcont4.add(lblimg4);
+                                               jpanelcont4.add(lblnom4);
+                                               jpanelcont4.add(lblprecio4);
+                                               jpanelcont4.add(btn4);
+                                            }
+                                            else{
+                                                if (avi==5) {
+                                                    jpanelcont5.removeAll();
+                                                    jpanelcont5.add(lblimg5);
+                                                   jpanelcont5.add(lblnom5);
+                                                  jpanelcont5.add(lblprecio5);
+                                                  jpanelcont5.add(btn5);
+                                                }
+                                                else{
+                                                    if (avi==6) {
+                                                        jpanelcont6.removeAll();
+                                                        jpanelcont6.add(lblimg6);
+                                                        jpanelcont6.add(lblnom6);
+                                                        jpanelcont6.add(lblprecio6);
+                                                        jpanelcont6.add(btn6);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    
+                                }
                                 mostrar(); 
                             }
                         }
@@ -616,9 +719,62 @@ public class Principal_productos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        Nueva_lista_productos j =new Nueva_lista_productos();
-       j.show();
-        this.setVisible(false);        // TODO add your handling code here:
+        try {
+            String[]vector;
+             Nueva_lista_productos j =new Nueva_lista_productos();
+             this.setVisible(false); 
+        j.show();
+       j.lista=this.lista;
+       j.lblusuario.setText(lblusuario.getText());
+       //JOptionPane.showMessageDialog(null, id);
+       j.usuario=id;
+       Image foto=sql.getfoto(id);
+            Icon ico=new ImageIcon(foto.getScaledInstance(j.lblfoto.getWidth(),  j.lblfoto.getHeight(), Image.SCALE_DEFAULT));
+            j.lblfoto.setIcon(ico);
+            j.lblfoto.updateUI();
+       lista=sql.consultarlista(id, f2);
+         String cadena=sql.leerproductos3(lista.get(0));
+         vector=cadena.split(";");
+         j.lblpro1.setText(vector[0]);
+         j.lblprecio1.setText(vector[1]);
+         h(j.lblfoto1,vector[2]);
+         
+         cadena=sql.leerproductos3(lista.get(1));
+         vector=cadena.split(";");
+         j.lblpro2.setText(vector[0]);
+         j.lblprecio2.setText(vector[1]);
+         h(j.lblfoto2,vector[2]);
+         
+         cadena=sql.leerproductos3(lista.get(2));
+         vector=cadena.split(";");
+         j.lblpro3.setText(vector[0]);
+         j.lblprecio3.setText(vector[1]);
+         h(j.lblfoto3,vector[2]);
+         
+          cadena=sql.leerproductos3(lista.get(3));
+         vector=cadena.split(";");
+         j.lblpro4.setText(vector[0]);
+         j.lblprecio4.setText(vector[1]);
+         h(j.lblfoto4,vector[2]);
+         
+         cadena=sql.leerproductos3(lista.get(4));
+         vector=cadena.split(";");
+         j.lblpro5.setText(vector[0]);
+         j.lblprecio5.setText(vector[1]);
+         h(j.lblfoto5,vector[2]);
+         
+         cadena=sql.leerproductos3(lista.get(5));
+         vector=cadena.split(";");
+         j.lblpro6.setText(vector[0]);
+         j.lblprecio6.setText(vector[1]);
+         h(j.lblfoto6,vector[2]);
+
+       
+        
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+           // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -637,7 +793,16 @@ public class Principal_productos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtflitroKeyTyped
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        // TODO add your handling code here:
+//          lista.add(" "+id+";"+" "+lblid1+";"+" "+f2);
+         
+         try {
+             
+             int idnum2=Integer.parseInt(lblid1.getText(),16);
+            //sql.llenartablalista(Integer.parseInt(id,16), Integer.parseInt(lblid1.getText(),16),f2);
+            sql.llenartablalista(id, idnum2,f2);
+        } catch (Exception e) {
+            System.out.print(e);
+        }
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -652,6 +817,7 @@ public class Principal_productos extends javax.swing.JFrame {
         lblnom1.setText(vector[0]);
         lblprecio1.setText(vector[1]);
         h(lblimg1,vector[2]);
+        lblid1.setText(vector[2]);
         
         
         
@@ -659,26 +825,31 @@ public class Principal_productos extends javax.swing.JFrame {
         lblnom2.setText(vector[0]);
         lblprecio2.setText(vector[1]);
         h(lblimg2,vector[2]);
+        lblid2.setText(vector[2]);
         
         vector=lista.get(2).split(";");
         lblnom3.setText(vector[0]);
         lblprecio3.setText(vector[1]);
         h(lblimg3,vector[2]);
+        lblid3.setText(vector[2]);
         
         vector=lista.get(3).split(";");
         lblnom4.setText(vector[0]);
         lblprecio4.setText(vector[1]);
         h(lblimg4,vector[2]);
+        lblid4.setText(vector[2]);
         
         vector=lista.get(4).split(";");
         lblnom5.setText(vector[0]);
         lblprecio5.setText(vector[1]);
         h(lblimg5,vector[2]);
+        lblid5.setText(vector[2]);
         
         vector=lista.get(5).split(";");
         lblnom6.setText(vector[0]);
         lblprecio6.setText(vector[1]);
         h(lblimg6,vector[2]);
+        lblid6.setText(vector[2]);
         
        
 
@@ -704,69 +875,26 @@ public class Principal_productos extends javax.swing.JFrame {
     }
     
     public void ocultar(){
-        lblimg1.setVisible(false);
-        lblimg2.setVisible(false);
-        lblimg3.setVisible(false);
-        lblimg4.setVisible(false);
-        lblimg5.setVisible(false);
-        lblimg6.setVisible(false);
-        lblnom1.setVisible(false);
-        lblnom2.setVisible(false);
-        lblnom3.setVisible(false);
-        lblnom4.setVisible(false);
-        lblnom5.setVisible(false);
-        lblnom6.setVisible(false);
-        lblimg2.setVisible(false);
-        lblimg3.setVisible(false);
-        lblimg4.setVisible(false);
-        lblimg5.setVisible(false);
-        lblimg6.setVisible(false);
-        lblprecio1.setVisible(false);
-        lblprecio2.setVisible(false);
-        lblprecio3.setVisible(false);
-        lblprecio4.setVisible(false);
-        lblprecio5.setVisible(false);
-        lblprecio6.setVisible(false);
-        btn1.setVisible(false);
-        btn2.setVisible(false);
-        btn3.setVisible(false);
-        btn4.setVisible(false);
-        btn5.setVisible(false);
-        btn6.setVisible(false);
-        
+
+          jpanelcont1.setVisible(false);
+          jpanelcont2.setVisible(false);
+          jpanelcont3.setVisible(false);
+          jpanelcont4.setVisible(false);
+          jpanelcont5.setVisible(false);
+          jpanelcont6.setVisible(false);
+          jpanelcont7.setVisible(false);
     }
     
     public void mostrar(){
-        lblimg1.setVisible(true);
-        lblimg2.setVisible(true);
-        lblimg3.setVisible(true);
-        lblimg4.setVisible(true);
-        lblimg5.setVisible(true);
-        lblimg6.setVisible(true);
-        lblnom1.setVisible(true);
-        lblnom2.setVisible(true);
-        lblnom3.setVisible(true);
-        lblnom4.setVisible(true);
-        lblnom5.setVisible(true);
-        lblnom6.setVisible(true);
-        lblimg2.setVisible(true);
-        lblimg3.setVisible(true);
-        lblimg4.setVisible(true);
-        lblimg5.setVisible(true);
-        lblimg6.setVisible(true);
-        lblprecio1.setVisible(true);
-        lblprecio2.setVisible(true);
-        lblprecio3.setVisible(true);
-        lblprecio4.setVisible(true);
-        lblprecio5.setVisible(true);
-        lblprecio6.setVisible(true);
-        btn1.setVisible(true);
-        btn2.setVisible(true);
-        btn3.setVisible(true);
-        btn4.setVisible(true);
-        btn5.setVisible(true);
-        btn6.setVisible(true);
-        
+        jpanelcont7.removeAll();
+          jpanelcont7.setVisible(false);     
+          jpanelcont1.setVisible(true);
+          jpanelcont2.setVisible(true);
+          jpanelcont3.setVisible(true);
+          jpanelcont4.setVisible(true);
+          jpanelcont5.setVisible(true);
+          jpanelcont6.setVisible(true);
+          
     }
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -849,6 +977,69 @@ public class Principal_productos extends javax.swing.JFrame {
         mostrar();
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+         //lista.add(" "+id+";"+" "+lblid2+";"+" "+f2);
+         try {
+             
+             int idnum2=Integer.parseInt(lblid2.getText(),16);
+            //sql.llenartablalista(Integer.parseInt(id,16), Integer.parseInt(lblid1.getText(),16),f2);
+            sql.llenartablalista(id, idnum2,f2);
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+//        lista.add(" "+id+";"+" "+lblid3+";"+" "+f2);
+
+         try {
+             
+             int idnum2=Integer.parseInt(lblid3.getText(),16);
+            //sql.llenartablalista(Integer.parseInt(id,16), Integer.parseInt(lblid1.getText(),16),f2);
+            sql.llenartablalista(id, idnum2,f2);
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+//        lista.add(" "+id+";"+" "+lblid4+";"+" "+f2);
+
+          try {
+             
+             int idnum2=Integer.parseInt(lblid4.getText(),16);
+            //sql.llenartablalista(Integer.parseInt(id,16), Integer.parseInt(lblid1.getText(),16),f2);
+            sql.llenartablalista(id, idnum2,f2);
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+//        lista.add(" "+id+";"+" "+lblid5+";"+" "+f2);
+         try {
+             
+             int idnum2=Integer.parseInt(lblid5.getText(),16);
+            //sql.llenartablalista(Integer.parseInt(id,16), Integer.parseInt(lblid1.getText(),16),f2);
+            sql.llenartablalista(id, idnum2,f2);
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+//        lista.add(" "+id+";"+" "+lblid6+";"+" "+f2);
+
+         try {
+             
+             int idnum2=Integer.parseInt(lblid6.getText(),16);
+            //sql.llenartablalista(Integer.parseInt(id,16), Integer.parseInt(lblid1.getText(),16),f2);
+            sql.llenartablalista(id, idnum2,f2);
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+    }//GEN-LAST:event_btn6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -916,6 +1107,19 @@ public class Principal_productos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JPanel jpanelcont1;
+    private javax.swing.JPanel jpanelcont2;
+    private javax.swing.JPanel jpanelcont3;
+    private javax.swing.JPanel jpanelcont4;
+    private javax.swing.JPanel jpanelcont5;
+    private javax.swing.JPanel jpanelcont6;
+    private javax.swing.JPanel jpanelcont7;
+    private javax.swing.JLabel lblid1;
+    private javax.swing.JLabel lblid2;
+    private javax.swing.JLabel lblid3;
+    private javax.swing.JLabel lblid4;
+    private javax.swing.JLabel lblid5;
+    private javax.swing.JLabel lblid6;
     private javax.swing.JLabel lblimg1;
     private javax.swing.JLabel lblimg2;
     private javax.swing.JLabel lblimg3;

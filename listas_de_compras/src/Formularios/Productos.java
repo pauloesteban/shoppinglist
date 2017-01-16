@@ -13,6 +13,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -45,6 +46,7 @@ public class Productos extends javax.swing.JFrame {
      private FileInputStream fis;
      int codigo,num=0,canttotal=0,n1=0;
      boolean mod=false;
+//     int n=0;
         public Image geticonimage()
     {
      Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("nuevas imagenes/pp.jpg"));
@@ -56,7 +58,7 @@ public class Productos extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setResizable(false);
         setTitle("iMarket");
-        
+        txtcodigo.setEditable(false);
         jPanel2.setVisible(false);
         
         InputMap map = new InputMap();
@@ -78,7 +80,7 @@ public class Productos extends javax.swing.JFrame {
         foto(lblfoto4,lista.get(3));
         foto(lblfoto6,lista.get(4));
         foto(lblfoto7,lista.get(5));
-        setJTexFieldChanged(this.txtcodigo);
+        setJTexFieldChanged(this.txtproducto);
         //txtcodigo.setEnabled(false);
         
     }
@@ -136,32 +138,35 @@ public class Productos extends javax.swing.JFrame {
             txtprecio.setText("");
             txtcantidad.setText("");
         try {
-        String cadena=sql.consultarproducto(txt.getText(),num);
-        String[] vector=cadena.split(";");
-        if (null!=cadena) {
-            mod=true;
-            //canttotal=Integer.valueOf(vector[2])+Integer.valueOf(txtcantidad.getText());
-            btnregistrar1.setText("Modificar");
-            txtproducto.setEditable(false);
-            txtprecio.setEditable(false);
-            txtproducto.setText(vector[0]);
-            txtprecio.setText(vector[1]);
-            n1=Integer.parseInt(vector[2]);
-            txtcantidad.setText(" "+n1);
-           
-//            JOptionPane.showMessageDialog(null, " "+canttotal);
-            
-        }
-        else{
-            mod=false;
-            btnregistrar1.setText("Registrar");
-            canttotal=0;
-            txtproducto.setEditable(true);
-            txtprecio.setEditable(true);
-            txtproducto.setText("");
-            txtprecio.setText("");
-            txtcantidad.setText("");
-        }
+//            int n=generarcodigo();
+//             txtcodigo.setText(" "+n); 
+//        String cadena=sql.consultarproducto(txt.getText(),num);
+//        String[] vector=cadena.split(";");
+//        if (null!=cadena) {
+//            mod=true;
+//            //canttotal=Integer.valueOf(vector[2])+Integer.valueOf(txtcantidad.getText());
+//            btnregistrar1.setText("Modificar");
+//            txtproducto.setEditable(false);
+//            txtprecio.setEditable(false);
+//            txtproducto.setText(vector[0]);
+//            txtprecio.setText(vector[1]);
+//            n1=Integer.parseInt(vector[2]);
+//            txtcantidad.setText(" "+n1);
+//           
+////            JOptionPane.showMessageDialog(null, " "+canttotal);
+//            
+//        }
+//        else{
+//            mod=false;
+//            btnregistrar1.setText("Registrar");
+//            canttotal=0;
+//            txtproducto.setEditable(true);
+//            txtprecio.setEditable(true);
+//            txtproducto.setText("");
+//            txtprecio.setText("");
+//            txtcantidad.setText("");
+//        }
+          
         } catch (Exception e) {
         }
         
@@ -570,6 +575,7 @@ public class Productos extends javax.swing.JFrame {
     
     private void btnregistrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrar1ActionPerformed
         sql=new Adm_sql();
+        
         if (mod) {
             String sq=txtcantidad.getText();
             int m=Integer.parseInt(sq.trim(),16);
@@ -581,6 +587,7 @@ public class Productos extends javax.swing.JFrame {
              try {
             
              if (num==1111) {
+                
             sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),1111, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
             limpiar();
         }
@@ -627,7 +634,29 @@ public class Productos extends javax.swing.JFrame {
        
           
     }//GEN-LAST:event_btnregistrar1ActionPerformed
-
+    
+    int generarcodigo (){
+        int codigo=0;
+        sql=new Adm_sql();
+        try {
+            Random rdm=new Random();
+        codigo=rdm.nextInt(100);
+        int n=0;
+        ArrayList<String> lista=  sql.codigos();
+        for (int i = 0; i < lista.size(); i++) {
+            n=Integer.parseInt(lista.get(i));
+            if (codigo==n) {
+               codigo=Integer.parseInt(lista.get(lista.size()-1))+1;
+            }
+            
+        }
+        } catch (Exception e) {
+        }
+        
+        
+        return codigo;
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int resultado;
         
@@ -670,6 +699,8 @@ public class Productos extends javax.swing.JFrame {
            txtproducto.setText("");
             txtprecio.setText("");
             txtcantidad.setText("");
+             int n=generarcodigo();
+             txtcodigo.setText(" "+n); 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -681,6 +712,8 @@ public class Productos extends javax.swing.JFrame {
            txtproducto.setText("");
             txtprecio.setText("");
             txtcantidad.setText("");
+             int n=generarcodigo();
+             txtcodigo.setText(" "+n); 
           // setTabla(jTable1,"1111");
            //txtcodigo.setText("1111");
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -695,6 +728,8 @@ public class Productos extends javax.swing.JFrame {
             txtprecio.setText("");
             txtcantidad.setText("");
           //txtcodigo.setText("2222");
+           int n=generarcodigo();
+             txtcodigo.setText(" "+n); 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -707,6 +742,8 @@ public class Productos extends javax.swing.JFrame {
            txtproducto.setText("");
             txtprecio.setText("");
             txtcantidad.setText("");
+             int n=generarcodigo();
+             txtcodigo.setText(" "+n); 
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -719,6 +756,8 @@ public class Productos extends javax.swing.JFrame {
             txtprecio.setText("");
             txtcantidad.setText("");
         //txtcodigo.setText("4444");
+         int n=generarcodigo();
+             txtcodigo.setText(" "+n); 
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -731,6 +770,8 @@ public class Productos extends javax.swing.JFrame {
             txtprecio.setText("");
             txtcantidad.setText("");
         //txtcodigo.setText("5555");
+         int n=generarcodigo();
+             txtcodigo.setText(" "+n); 
     }//GEN-LAST:event_jButton8ActionPerformed
     
     private void solonumeros(java.awt.event.KeyEvent evt){

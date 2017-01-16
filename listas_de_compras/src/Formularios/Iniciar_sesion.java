@@ -23,7 +23,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
         this.setLocationRelativeTo(null);
         setResizable(false);
         setTitle("iMarket");
-        
+              
         if(v){
             lblr.setText("Datos ingresados correctamente");
         }
@@ -47,7 +47,9 @@ public class Iniciar_sesion extends javax.swing.JFrame
         this.setLocationRelativeTo(null);
         setResizable(false);
         setTitle("iMarket");
-         jButton5.setVisible(false);
+        jButton5.setVisible(false);
+        
+        
     }
 
 
@@ -57,6 +59,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
 
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         lblmensage = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -71,12 +74,14 @@ public class Iniciar_sesion extends javax.swing.JFrame
         jLabel6 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         jButton3.setText("jButton3");
 
         jButton4.setText("jButton4");
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/mar.jpg"))); // NOI18N
+        jLabel8.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(geticonimage());
@@ -91,12 +96,12 @@ public class Iniciar_sesion extends javax.swing.JFrame
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 293, 230, 30));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
-        lblmensage.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblmensage.setForeground(new java.awt.Color(255, 0, 0));
+        lblmensage.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblmensage.setForeground(new java.awt.Color(255, 51, 51));
         lblmensage.setToolTipText("");
-        getContentPane().add(lblmensage, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 230, 20));
+        getContentPane().add(lblmensage, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 160, 20));
 
         jLabel1.setBackground(java.awt.Color.red);
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
@@ -125,6 +130,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
         });
         getContentPane().add(txtusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 280, 30));
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Iniciar sesión");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,15 +142,16 @@ public class Iniciar_sesion extends javax.swing.JFrame
                 jButton1KeyPressed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 130, 30));
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Registrarse");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
         getContentPane().add(lblr, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 55, -1, -1));
 
         txtcon.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +174,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 50, 50));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 50, 50));
 
         jLabel7.setText("Ayuda");
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -176,16 +183,10 @@ public class Iniciar_sesion extends javax.swing.JFrame
                 jLabel7MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 40, 30));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 40, 30));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/mar.jpg"))); // NOI18N
-        jLabel8.setText("jLabel8");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 290, 60));
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/new.jpg"))); // NOI18N
-        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel9.setDebugGraphicsOptions(javax.swing.DebugGraphics.FLASH_OPTION);
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 340));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/new.jpg"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -212,22 +213,49 @@ public class Iniciar_sesion extends javax.swing.JFrame
             this.setVisible(false);
         }
         else{
+            Principal_productos p=new Principal_productos();
+            String[]vector=null;
+            try {
+                 
               n = sql.consultarlogin(txtusu.getText(), txtcon.getText());
               if (n==1) {
             String u=sql.leerusuarios1(txtusu.getText(), txtcon.getText());
-            Principal_productos p=new Principal_productos();
+            
             
             Image foto=sql.getfoto(txtusu.getText());
-            Icon ico=new ImageIcon(foto.getScaledInstance(p.jLabel7.getWidth(),  p.jLabel7.getHeight(), Image.SCALE_DEFAULT));
-            p.jLabel7.setIcon(ico);
-            p.jLabel7.updateUI();
-            p.show();
-            p.lblusuario.setText(u);
-            this.setVisible(false);
+                  if (foto==null) {
+//                      p.jLabel7.setIcon(null);
+//                      p.jLabel7.updateUI();
+               System.out.println("hola");
+                       vector=u.split(";");
+                      p.id=vector[1];
+                     p.lblusuario.setText(vector[0]);
+                     p.show();
+                     this.setVisible(false);
+                      
+                  }
+                  else{
+                      
+                      Icon ico=new ImageIcon(foto.getScaledInstance(p.jLabel7.getWidth(),  p.jLabel7.getHeight(), Image.SCALE_DEFAULT));
+                      p.jLabel7.setIcon(ico);
+                      p.jLabel7.updateUI();
+            
+                       vector=u.split(";");
+                      p.id=vector[1];
+                     p.lblusuario.setText(vector[0]);
+                     p.show();
+                     this.setVisible(false);
+                  }
+            
              } else {
             lblmensage.setText("Datos incorrectos");
             jButton5.setVisible(true);
            }
+            } catch (Exception e) {
+               System.out.println(e.getMessage());
+            }
+              
+              
           }
         }
         else {
@@ -364,10 +392,10 @@ public class Iniciar_sesion extends javax.swing.JFrame
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblmensage;
     private javax.swing.JLabel lblr;
     private javax.swing.JPasswordField txtcon;
