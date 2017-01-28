@@ -614,11 +614,43 @@ class Adm_sql {
          catch(SQLException e){
 //         System.out.println(e.getMessage());
     }    
-   
-      return lista;   
+      for (int i = 0; i < lista.size(); i++) {
+          System.out.println(lista.get(i));
+      }
+      return lista;
+      
  }
   
-  
+  public  ArrayList<String> buscar(String cod){
+         
+         ArrayList<String> lista=new ArrayList<String>();
+         try {
+             
+              ResultSet resultSet;
+             ConexionBD con = new ConexionBD();
+             String cadena="";
+              cn=con.conexion();
+//              String sql="CIU";
+              String sql="SELECT CODIGO, PRODUCTO, PRECIO, CANTIDAD FROM tb_productos WHERE ID_CAT=?";
+//            preparedStatement = connection.prepareStatement("SELECT id, nombre, telefono, fecha_nacimiento FROM persona WHERE clave=?");
+               PreparedStatement pst = cn.prepareStatement(sql);
+               pst.setString(1, cod);
+//               pst.setString(1, txtClave.getText());
+              resultSet = pst.executeQuery();
+            while (resultSet.next()) {
+                
+                lista.add(resultSet.getString("CODIGO")+";"+resultSet.getString("PRODUCTO")+";"+resultSet.getString("PRECIO")+";"+resultSet.getString("CANTIDAD")+";"+"Eliminar");
+            }
+//           
+
+            cn.close();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        return lista; 
+         
+     }
   public ArrayList<Image> leerimagenes(){         
      ConexionBD con = new ConexionBD();
             cn=con.conexion();

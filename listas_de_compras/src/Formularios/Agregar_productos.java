@@ -5,6 +5,7 @@
  */
 package Formularios;
 
+import help.Help;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -22,7 +23,7 @@ public class Agregar_productos extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("iMarket");
+        setTitle("iMarket - Agregar Productos");
     }
    public Image geticonimage()
     {
@@ -43,13 +44,9 @@ public class Agregar_productos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,68 +54,61 @@ public class Agregar_productos extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/mar.jpg"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 300, 50));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Bienvenido Administrador.....");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 380, 50));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 380, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/admin.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 240, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/help-37118.jpg"))); // NOI18N
+        jButton1.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
+        jButton1.setText("Ayuda");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 340, 80, 80));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 80, 30));
 
-        jLabel6.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
-        jLabel6.setText("Ayuda");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 420, 50, 20));
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/cl.jpg"))); // NOI18N
+        jButton3.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
+        jButton3.setText("Clientes");
+        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 90, 90));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 90, 30));
 
-        jLabel5.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
-        jLabel5.setText("Clientes");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 70, 20));
-
-        jLabel8.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
-        jLabel8.setText("Inicio");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 40, -1));
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/ss.jpg"))); // NOI18N
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
+        jButton2.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
+        jButton2.setText("Inicio");
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 90, 90));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 30));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/pr.png"))); // NOI18N
+        jButton4.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
+        jButton4.setText("Productos");
+        jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 80, 80));
-
-        jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
-        jLabel7.setText("Productos");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 70, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 100, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 520));
 
@@ -144,9 +134,8 @@ public class Agregar_productos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       Ayuda hola=new Ayuda();
-        hola.show();
-        this.setVisible(false); // TODO add your handling code here:
+    Help help = new Help();
+        help.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -192,10 +181,6 @@ public class Agregar_productos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

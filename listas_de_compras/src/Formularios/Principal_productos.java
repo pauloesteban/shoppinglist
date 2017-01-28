@@ -1,5 +1,6 @@
 package Formularios;
 
+import help.Help;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
@@ -49,7 +50,7 @@ public class Principal_productos extends javax.swing.JFrame {
         initComponents();
          this.setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("iMarket");
+        setTitle("iMarket - Productos");
         lblusuario.setText(usuario);
         sql=new Adm_sql();
         setJTexFieldChanged(txtflitro);
@@ -94,11 +95,6 @@ public class Principal_productos extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txtflitro = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jpanelcont1 = new javax.swing.JPanel();
@@ -107,6 +103,7 @@ public class Principal_productos extends javax.swing.JFrame {
         lblprecio1 = new javax.swing.JLabel();
         lblid1 = new javax.swing.JLabel();
         btn1 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
         jpanelcont6 = new javax.swing.JPanel();
         lblimg6 = new javax.swing.JLabel();
         lblnom6 = new javax.swing.JLabel();
@@ -126,11 +123,12 @@ public class Principal_productos extends javax.swing.JFrame {
         lblid4 = new javax.swing.JLabel();
         btn4 = new javax.swing.JButton();
         jpanelcont3 = new javax.swing.JPanel();
+        lblid3 = new javax.swing.JLabel();
         lblimg3 = new javax.swing.JLabel();
         lblnom3 = new javax.swing.JLabel();
         lblprecio3 = new javax.swing.JLabel();
-        lblid3 = new javax.swing.JLabel();
         btn3 = new javax.swing.JButton();
+        jpanelcont7 = new javax.swing.JPanel();
         jpanelcont2 = new javax.swing.JPanel();
         lblimg2 = new javax.swing.JLabel();
         lblnom2 = new javax.swing.JLabel();
@@ -139,24 +137,30 @@ public class Principal_productos extends javax.swing.JFrame {
         btn2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jpanelcont7 = new javax.swing.JPanel();
-        jButton15 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        txtflitro = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jButton14 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 204, 204));
         setIconImage(geticonimage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblusuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblusuario.setText("Usuario");
         jPanel1.add(lblusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 180, 30));
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton2.setText("Carnes y Embutidos");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -164,7 +168,9 @@ public class Principal_productos extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 123, 200, 40));
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton3.setText("Ferreteria");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -172,7 +178,9 @@ public class Principal_productos extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 200, 40));
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton4.setText("Frutas y Verduras");
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -180,7 +188,9 @@ public class Principal_productos extends javax.swing.JFrame {
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 173, 200, 40));
 
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton6.setText("Bebidas");
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -205,19 +215,197 @@ public class Principal_productos extends javax.swing.JFrame {
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 243, 10));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 253, 10));
 
-        jLabel8.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Listas de Compras ");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 203, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 270, 360));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 270, 350));
 
-        jPanel2.setBackground(java.awt.Color.orange);
+        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jpanelcont1.setForeground(new java.awt.Color(255, 255, 255));
+        jpanelcont1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblimg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/blanco.png"))); // NOI18N
+        lblimg1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpanelcont1.add(lblimg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 5, -1, -1));
+
+        lblnom1.setText("Descripcion");
+        jpanelcont1.add(lblnom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        lblprecio1.setText("Precio");
+        jpanelcont1.add(lblprecio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jpanelcont1.add(lblid1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 30, -1));
+
+        btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
+        jpanelcont1.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 30, -1));
+        jpanelcont1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, -1, -1));
+
+        jPanel3.add(jpanelcont1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 90, 130));
+
+        jpanelcont6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblimg6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/blanco.png"))); // NOI18N
+        lblimg6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpanelcont6.add(lblimg6, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 5, -1, -1));
+
+        lblnom6.setText("Descripcion");
+        jpanelcont6.add(lblnom6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+
+        lblprecio6.setText("Precio");
+        jpanelcont6.add(lblprecio6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+        jpanelcont6.add(lblid6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+
+        btn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
+        jpanelcont6.add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 30, -1));
+
+        jPanel3.add(jpanelcont6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 100, 140));
+
+        jpanelcont5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblimg5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/blanco.png"))); // NOI18N
+        lblimg5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpanelcont5.add(lblimg5, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 5, -1, -1));
+
+        lblnom5.setText("Descripcion");
+        jpanelcont5.add(lblnom5, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 51, -1, -1));
+
+        lblprecio5.setText("Precio");
+        jpanelcont5.add(lblprecio5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jpanelcont5.add(lblid5, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 70, -1, -1));
+
+        btn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
+        jpanelcont5.add(btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 30, -1));
+
+        jPanel3.add(jpanelcont5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 90, 140));
+
+        jpanelcont4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblimg4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/blanco.png"))); // NOI18N
+        lblimg4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpanelcont4.add(lblimg4, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 5, -1, -1));
+
+        lblnom4.setText("Descripcion");
+        jpanelcont4.add(lblnom4, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 51, -1, -1));
+
+        lblprecio4.setText("Precio");
+        jpanelcont4.add(lblprecio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jpanelcont4.add(lblid4, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 70, -1, -1));
+
+        btn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
+        jpanelcont4.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 30, -1));
+
+        jPanel3.add(jpanelcont4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 90, 140));
+
+        jpanelcont3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblid3.setText("jLabel12");
+        jpanelcont3.add(lblid3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
+
+        lblimg3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/blanco.png"))); // NOI18N
+        lblimg3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpanelcont3.add(lblimg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+
+        lblnom3.setText("Descripcion");
+        jpanelcont3.add(lblnom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 20));
+
+        lblprecio3.setText("Precio");
+        jpanelcont3.add(lblprecio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        btn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
+        jpanelcont3.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 30, -1));
+
+        jPanel3.add(jpanelcont3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 100, 130));
+        jPanel3.add(jpanelcont7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 100, 130));
+
+        jpanelcont2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblimg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/blanco.png"))); // NOI18N
+        lblimg2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpanelcont2.add(lblimg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 5, -1, -1));
+
+        lblnom2.setText("Descripcion");
+        jpanelcont2.add(lblnom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 51, -1, -1));
+
+        lblprecio2.setText("Precio");
+        jpanelcont2.add(lblprecio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 70, -1, -1));
+        jpanelcont2.add(lblid2, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 77, -1, -1));
+
+        btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
+        btn2.setContentAreaFilled(false);
+        btn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
+        jpanelcont2.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 30, -1));
+
+        jPanel3.add(jpanelcont2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 90, 130));
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sigui.jpg"))); // NOI18N
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 30, 30));
+
+        jLabel2.setText("Siguiente");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, -1, -1));
+
+        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 460, 350));
+
+        jButton1.setText("Ayuda");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 80, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
-        jLabel1.setText("Ferreteria");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 30));
-
+        txtflitro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtflitro.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtflitro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtflitroActionPerformed(evt);
@@ -228,193 +416,37 @@ public class Principal_productos extends javax.swing.JFrame {
                 txtflitroKeyTyped(evt);
             }
         });
-        jPanel2.add(txtflitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 270, 40));
+        jPanel2.add(txtflitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 340, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 580, 60));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 14, 140, 30));
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carr.jpg"))); // NOI18N
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 80, 60));
+        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 550, 60));
 
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/ss.jpg"))); // NOI18N
+        jButton14.setFont(new java.awt.Font("Book Antiqua", 0, 12)); // NOI18N
+        jButton14.setText("Inicio");
+        jButton14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton14ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 50));
+        jPanel4.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 60, 30));
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblimg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/taladro.jpg"))); // NOI18N
-        jpanelcont1.add(lblimg1);
-
-        lblnom1.setText("Descripcion");
-        jpanelcont1.add(lblnom1);
-
-        lblprecio1.setText("Precio");
-        jpanelcont1.add(lblprecio1);
-
-        lblid1.setText("jLabel10");
-        jpanelcont1.add(lblid1);
-
-        btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        btn1.addActionListener(new java.awt.event.ActionListener() {
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carr.jpg"))); // NOI18N
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn1ActionPerformed(evt);
+                jButton7ActionPerformed(evt);
             }
         });
-        jpanelcont1.add(btn1);
+        jPanel4.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 60, 50));
 
-        jPanel3.add(jpanelcont1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 130));
+        jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
+        jLabel1.setText("Productos");
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, 60, -1));
 
-        lblimg6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/desarmadores.jpg"))); // NOI18N
-        jpanelcont6.add(lblimg6);
-
-        lblnom6.setText("Descripcion");
-        jpanelcont6.add(lblnom6);
-
-        lblprecio6.setText("Precio");
-        jpanelcont6.add(lblprecio6);
-
-        lblid6.setText("jLabel15");
-        jpanelcont6.add(lblid6);
-
-        btn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        btn6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn6ActionPerformed(evt);
-            }
-        });
-        jpanelcont6.add(btn6);
-
-        jPanel3.add(jpanelcont6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 100, 130));
-
-        lblimg5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/martillo.jpg"))); // NOI18N
-        jpanelcont5.add(lblimg5);
-
-        lblnom5.setText("Descripcion");
-        jpanelcont5.add(lblnom5);
-
-        lblprecio5.setText("Precio");
-        jpanelcont5.add(lblprecio5);
-
-        lblid5.setText("jLabel14");
-        jpanelcont5.add(lblid5);
-
-        btn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        btn5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn5ActionPerformed(evt);
-            }
-        });
-        jpanelcont5.add(btn5);
-
-        jPanel3.add(jpanelcont5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 90, 140));
-
-        lblimg4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/foco.jpg"))); // NOI18N
-        jpanelcont4.add(lblimg4);
-
-        lblnom4.setText("Descripcion");
-        jpanelcont4.add(lblnom4);
-
-        lblprecio4.setText("Precio");
-        jpanelcont4.add(lblprecio4);
-
-        lblid4.setText("jLabel13");
-        jpanelcont4.add(lblid4);
-
-        btn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        btn4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn4ActionPerformed(evt);
-            }
-        });
-        jpanelcont4.add(btn4);
-
-        jPanel3.add(jpanelcont4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 90, 140));
-
-        lblimg3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pintura.jpg"))); // NOI18N
-        jpanelcont3.add(lblimg3);
-
-        lblnom3.setText("Descripcion");
-        jpanelcont3.add(lblnom3);
-
-        lblprecio3.setText("Precio");
-        jpanelcont3.add(lblprecio3);
-
-        lblid3.setText("jLabel12");
-        jpanelcont3.add(lblid3);
-
-        btn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        btn3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn3ActionPerformed(evt);
-            }
-        });
-        jpanelcont3.add(btn3);
-
-        jPanel3.add(jpanelcont3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 100, 130));
-
-        lblimg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/llavetubo.jpg"))); // NOI18N
-        jpanelcont2.add(lblimg2);
-
-        lblnom2.setText("Descripcion");
-        jpanelcont2.add(lblnom2);
-
-        lblprecio2.setText("Precio");
-        jpanelcont2.add(lblprecio2);
-
-        lblid2.setText("jLabel11");
-        jpanelcont2.add(lblid2);
-
-        btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.jpg"))); // NOI18N
-        btn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn2ActionPerformed(evt);
-            }
-        });
-        jpanelcont2.add(btn2);
-
-        jPanel3.add(jpanelcont2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 90, 140));
-
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sigui.jpg"))); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 40, 30));
-
-        jLabel2.setText("Siguiente");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, -1, -1));
-
-        jLabel9.setBorder(new javax.swing.border.MatteBorder(null));
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 380, 310));
-        jPanel3.add(jpanelcont7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 130));
-
-        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 460, 330));
-
-        jButton15.setText("Guardar producto a la lista");
-        jPanel4.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 450, -1));
-
-        jButton1.setText("Ayuda");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, -1, -1));
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -423,6 +455,7 @@ public class Principal_productos extends javax.swing.JFrame {
         String codigo="3333";
         ocultar();
         String[]vector;
+        jLabel10.setText("Frutas y  Verduras");
         ArrayList<String> lista= sql.leerproductos2("3333");
         ArrayList<Image> listaimg= sql.imagproductos("3333");
 
@@ -502,7 +535,8 @@ public class Principal_productos extends javax.swing.JFrame {
     int avi=0;
     private void filtro(JTextField txt){
         //mostrar();
-        if (txt.getText() == null ? lblnom1.getText() == null : txt.getText().equals(lblnom1.getText())) {
+        try {
+            if (txt.getText() == null ? lblnom1.getText() == null : txt.getText().equals(lblnom1.getText())) {
             avi=1;
             jpanelcont2.setVisible(false);
             
@@ -707,6 +741,9 @@ public class Principal_productos extends javax.swing.JFrame {
                
             }
         }
+        } catch (Exception e) {
+        }
+        
     }
     
     
@@ -722,8 +759,8 @@ public class Principal_productos extends javax.swing.JFrame {
         try {
             String[]vector;
              Nueva_lista_productos j =new Nueva_lista_productos();
-             this.setVisible(false); 
-        j.show();
+//             this.setVisible(false); 
+        j.setVisible(true);
        j.lista=this.lista;
        j.lblusuario.setText(lblusuario.getText());
        //JOptionPane.showMessageDialog(null, id);
@@ -779,6 +816,8 @@ public class Principal_productos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+            Help help = new Help();
+            help.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -809,6 +848,7 @@ public class Principal_productos extends javax.swing.JFrame {
          mostrar();
         try {
             String codigo="1111";
+        jLabel10.setText("Ferretería");
         String[]vector;
         ArrayList<String> lista= sql.leerproductos2("1111");
         ArrayList<Image> listaimg= sql.imagproductos("1111");
@@ -900,6 +940,7 @@ public class Principal_productos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         ocultar();
         String codigo="2222";
+        jLabel10.setText("Carnes y Embutidos");
         String[]vector;
         ArrayList<String> lista= sql.leerproductos2("2222");
         ArrayList<Image> listaimg= sql.imagproductos("2222");
@@ -940,7 +981,7 @@ public class Principal_productos extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         String codigo="4444";
         ocultar();
-       
+       jLabel10.setText("Bebidas");
         String[]vector;
         ArrayList<String> lista= sql.leerproductos2("4444");
         ArrayList<Image> listaimg= sql.imagproductos("4444");
@@ -1085,7 +1126,6 @@ public class Principal_productos extends javax.swing.JFrame {
     private javax.swing.JButton btn6;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1093,6 +1133,7 @@ public class Principal_productos extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1100,11 +1141,11 @@ public class Principal_productos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JPanel jpanelcont1;

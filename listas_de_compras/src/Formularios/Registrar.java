@@ -1,6 +1,7 @@
 package Formularios;
 
 
+import help.Help;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -45,12 +46,13 @@ public class Registrar extends javax.swing.JFrame {
     public Registrar() 
     {
         initComponents();
+        //cambiarIdioma("Espanol");
         this.setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("iMarket");
+        setTitle("iMarket - Registrar usuario");
         vector=new String[6];
         txtfecha.setValue(new Date());
-        
+       
     }
 
     /**
@@ -86,6 +88,8 @@ public class Registrar extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        cmbIdiomas = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -93,9 +97,10 @@ public class Registrar extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Nombres:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -111,12 +116,15 @@ public class Registrar extends javax.swing.JFrame {
         });
         jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 160, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Apellidos:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Usuario:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Sexo:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
@@ -135,6 +143,7 @@ public class Registrar extends javax.swing.JFrame {
         jPanel1.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 280, -1));
 
         rdbmujer.setText("Mujer");
+        rdbmujer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rdbmujer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdbmujerActionPerformed(evt);
@@ -143,6 +152,7 @@ public class Registrar extends javax.swing.JFrame {
         jPanel1.add(rdbmujer, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
 
         rdbhombre.setText("Hombre");
+        rdbhombre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rdbhombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdbhombreActionPerformed(evt);
@@ -150,23 +160,29 @@ public class Registrar extends javax.swing.JFrame {
         });
         jPanel1.add(rdbhombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Fecha de nacimiento:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
         jPanel1.add(txtfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 130, -1));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("Contraseña:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Confirmar contraseña:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, 20));
 
+        bntregistrar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         bntregistrar.setText("Siguiente");
+        bntregistrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bntregistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bntregistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntregistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(bntregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
+        jPanel1.add(bntregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 80, -1));
 
         txtcontraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,7 +195,10 @@ public class Registrar extends javax.swing.JFrame {
 
         jPanel1.add(hola, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 393, -1, -1));
 
+        jButton1.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jButton1.setText("Cancelar");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -188,30 +207,52 @@ public class Registrar extends javax.swing.JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 80, -1));
 
         jButton2.setText("Cargar Foto");
+        jButton2.setAutoscrolls(true);
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 110, 20));
 
         lblfoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/aaaaa.png"))); // NOI18N
         lblfoto.setText("           Foto");
         lblfoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lblfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 90, 80));
+        jPanel1.add(lblfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 80, 70));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 310, 440));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 23, -1, -1));
 
-        jPanel3.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Registro");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 110, 30));
+
+        jButton3.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        jButton3.setText("Ayuda");
+        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, 70, -1));
+
+        cmbIdiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Ingles" }));
+        cmbIdiomas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmbIdiomas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbIdiomasActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmbIdiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 100, 30));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 540));
 
@@ -284,6 +325,37 @@ public class Registrar extends javax.swing.JFrame {
               
          }
           return b;
+    }
+     public void cambiarIdioma(String nombreIdioma){
+        
+           Idioma idioma = new Idioma(nombreIdioma);
+        
+//        btnCambio.setText(idioma.getProperty("cambio"));
+       jLabel1.setText(idioma.getProperty("titulo"));
+        jLabel2.setText(idioma.getProperty("nombre"));
+        jLabel3.setText(idioma.getProperty("apellidos"));
+        jLabel4.setText(idioma.getProperty("usuario"));
+        jLabel5.setText(idioma.getProperty("sexo"));
+        jButton2.setText(idioma.getProperty("foto"));
+        rdbhombre.setText(idioma.getProperty("hombre"));
+        rdbmujer.setText(idioma.getProperty("mujer"));
+        jLabel6.setText(idioma.getProperty("nacimiento"));
+        jLabel7.setText(idioma.getProperty("contraseña"));
+        jLabel8.setText(idioma.getProperty("confirmar"));
+        bntregistrar.setText(idioma.getProperty("registrar"));
+        jButton1.setText(idioma.getProperty("cancelar"));
+        jButton3.setText(idioma.getProperty("ayuda"));
+        cmbIdiomas.removeAllItems();
+        
+        String idiomas[]={
+                          idioma.getProperty("espanol"),
+                          idioma.getProperty("ingles"),
+                          };
+        
+        for(int i=0;i<idiomas.length;i++){
+            cmbIdiomas.addItem(idiomas[i]);
+        }
+//        
     }
     
     
@@ -358,6 +430,37 @@ public class Registrar extends javax.swing.JFrame {
     private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnombreActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+            Help help = new Help();
+            help.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void cmbIdiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIdiomasActionPerformed
+        // TODO add your handling code here:
+        
+        switch(cmbIdiomas.getSelectedIndex()){
+
+            case 0:
+                cambiarIdioma("Español");
+                break;
+            case 1:
+                cambiarIdioma("Ingles");
+                break;
+        }
+        
+//        if ( cmbIdiomas.getSelectedIndex()==0) {
+////            emision = 2;
+//             cambiarIdioma("Español");
+//        }
+//        if ( cmbIdiomas.getSelectedIndex()==1) {
+////            emision = 0;
+//               cambiarIdioma("Ingles");
+//        }
+      
+              
+    }//GEN-LAST:event_cmbIdiomasActionPerformed
     
     private void sololetras(java.awt.event.KeyEvent evt){
         char c = evt.getKeyChar();
@@ -465,9 +568,11 @@ public class Registrar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntregistrar;
+    private javax.swing.JComboBox<String> cmbIdiomas;
     private javax.swing.JLabel hola;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -489,4 +594,8 @@ public class Registrar extends javax.swing.JFrame {
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtusuario;
     // End of variables declaration//GEN-END:variables
+
+    private void getProperties(String espanolproperties) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

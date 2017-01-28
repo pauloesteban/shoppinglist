@@ -8,6 +8,7 @@ package Formularios;
 import java.awt.Component;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -15,6 +16,8 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.imageio.ImageIO;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.InputMap;
@@ -57,7 +60,7 @@ public class Productos extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("iMarket");
+        setTitle("iMarket - Agregar Productos");
         txtcodigo.setEditable(false);
         jPanel2.setVisible(false);
         
@@ -91,7 +94,70 @@ public class Productos extends javax.swing.JFrame {
             l.updateUI();
     }
     
-    
+    public void llenartabla(String cod){
+      sql= new Adm_sql();
+     ArrayList<String>lista=sql.buscar(cod);
+     DefaultTableModel aModel = new DefaultTableModel();
+        
+       
+        String[] columnNames = {"COdigo", "Producto", "Precio","Cantida","Eliminar"};
+        aModel.setColumnIdentifiers(columnNames);
+        Object[] temp = new Object[5];
+        String[] cadena;
+        //System.out.println(" "+lista.size());
+        for (int i = 0; i < lista.size(); i++) {
+           //System.out.println(" "+lista.get(i));
+            cadena=lista.get(i).split(";");
+//            
+             aModel.addRow(cadena);
+       }
+//       
+        tablita.setModel(aModel);
+        
+        Action delete = new AbstractAction()
+       {
+            public void actionPerformed(ActionEvent e)
+            {
+               JTable table = (JTable)e.getSource();
+               int modelRow = Integer.valueOf( e.getActionCommand() );
+               System.out.print(modelRow );
+                if (modelRow>=0) {
+                    for (int i = 0; i < tablita.getModel().getColumnCount(); i++) {
+                        if (!tablita.getModel().getColumnClass(i).equals(JButton.class)) {
+                            //sb.append("\n").append(tablita.getModel().getColumnName(i)).append(": ").append(tablita.getModel().getValueAt(modelRow, i));
+                        }
+                    }
+                    
+                    int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar?", "Alerta!", JOptionPane.YES_NO_OPTION);
+                    if (resp==0) {
+                        DefaultTableModel tm = (DefaultTableModel) tablita.getModel();
+                        String dato=String.valueOf(tm.getValueAt(tablita.getSelectedRow(),1));
+                       String cod=String.valueOf(tm.getValueAt(tablita.getSelectedRow(),0));
+                        System.out.println(dato);
+//                        int n= sql.eliminar(cod);
+//                        if (n>0) {
+//                             
+////                              int eli=sql.eliminarfecha(cod);
+//                            ((DefaultTableModel)table.getModel()).removeRow(modelRow);
+//                              llenartabla();
+//                              
+//                        }
+                    }
+                } else {
+                    
+                }
+               
+                
+                
+                
+             }
+           
+       };
+        ButtonColumn buttonColumn = new ButtonColumn(tablita, delete, 4);
+        buttonColumn.setMnemonic(KeyEvent.VK_D);
+   
+  }
+  
     private void setJTexFieldChanged(JTextField txt){
         DocumentListener documentListener = new DocumentListener() {
  
@@ -134,7 +200,7 @@ public class Productos extends javax.swing.JFrame {
         cambiar(txt);
     }
     public void cambiar(JTextField txt){
-        txtproducto.setText("");
+//        txtproducto.setText("");
             txtprecio.setText("");
             txtcantidad.setText("");
         try {
@@ -211,9 +277,8 @@ public class Productos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablita = new javax.swing.JTable();
         lbltitulo = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -225,12 +290,14 @@ public class Productos extends javax.swing.JFrame {
         lblfoto2 = new javax.swing.JLabel();
         lblfoto3 = new javax.swing.JLabel();
         lblfoto4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         lblfoto6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 255));
@@ -240,14 +307,16 @@ public class Productos extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btncancelar.setText("Cancelar");
+        btncancelar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btncancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncancelarActionPerformed(evt);
             }
         });
-        jPanel2.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 247, -1, -1));
+        jPanel2.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 90, 20));
 
         btnregistrar1.setText("Registrar");
+        btnregistrar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnregistrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnregistrar1ActionPerformed(evt);
@@ -258,9 +327,7 @@ public class Productos extends javax.swing.JFrame {
                 btnregistrar1KeyPressed(evt);
             }
         });
-        jPanel2.add(btnregistrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 247, -1, -1));
-
-        lblmensaje.setText("jLabel11");
+        jPanel2.add(btnregistrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 80, 20));
         jPanel2.add(lblmensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 90, 10));
 
         txtcantidad.addActionListener(new java.awt.event.ActionListener() {
@@ -273,18 +340,19 @@ public class Productos extends javax.swing.JFrame {
                 txtcantidadKeyTyped(evt);
             }
         });
-        jPanel2.add(txtcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 270, -1));
+        jPanel2.add(txtcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 250, -1));
 
         jLabel10.setText("Cantidad:");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 10));
 
         jButton1.setText("buscar foto");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, -1, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 80, 20));
 
         txtprecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -296,17 +364,22 @@ public class Productos extends javax.swing.JFrame {
                 txtprecioKeyTyped(evt);
             }
         });
-        jPanel2.add(txtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 270, -1));
+        jPanel2.add(txtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 250, -1));
 
         jLabel9.setText("Precio:");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
+        txtproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtproductoActionPerformed(evt);
+            }
+        });
         txtproducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtproductoKeyTyped(evt);
             }
         });
-        jPanel2.add(txtproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 160, -1));
+        jPanel2.add(txtproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 160, 30));
 
         jLabel8.setText("Producto:");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
@@ -344,7 +417,7 @@ public class Productos extends javax.swing.JFrame {
         jLabel7.setText("Categorías");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 70, 30));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -352,22 +425,15 @@ public class Productos extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablita);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 480, 550));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 530, 530));
 
         lbltitulo.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
         getContentPane().add(lbltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 180, 20));
 
-        jButton2.setText("Regresar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, -1, -1));
-
         jButton3.setText("Tecnologia");
+        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -376,6 +442,7 @@ public class Productos extends javax.swing.JFrame {
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 160, 40));
 
         jButton4.setText("Ferreteria");
+        jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -384,6 +451,7 @@ public class Productos extends javax.swing.JFrame {
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 160, 40));
 
         jButton5.setText("Carnes & Embutidos");
+        jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -391,7 +459,8 @@ public class Productos extends javax.swing.JFrame {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 160, 40));
 
-        jButton6.setText("Furtas & Verduras");
+        jButton6.setText("Frutas & Verduras");
+        jButton6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -400,6 +469,7 @@ public class Productos extends javax.swing.JFrame {
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 160, 40));
 
         jButton7.setText("Bebidas");
+        jButton7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -408,6 +478,7 @@ public class Productos extends javax.swing.JFrame {
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 160, 40));
 
         jButton8.setText("Jugueteria");
+        jButton8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -435,23 +506,39 @@ public class Productos extends javax.swing.JFrame {
         lblfoto4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(lblfoto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 40, 40));
 
-        jLabel3.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 290, 350));
-
         lblfoto6.setText("  foto");
         lblfoto6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(lblfoto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 40, 40));
 
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 480, 50));
 
-        jPanel5.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(jLabel3);
+
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 290, 350));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 300, -1, -1));
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton2.setText("Regresar");
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, 80, 30));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 680));
+
+        jButton9.setText("jButton9");
+        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -475,7 +562,6 @@ public class Productos extends javax.swing.JFrame {
             "Producto",
             "Precio",
             "Cantidad",
-            //"Hijos",
             "Eliminar"};
 
         // Estos son los tipos de datos de cada columna de la lista
@@ -503,9 +589,7 @@ public class Productos extends javax.swing.JFrame {
        //Object [] datos = new Object[4];
 //       DefaultTableModel datos = new DefaultTableModel();
         // Defino el TableModel y le indico los datos y nombres de columnas
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                datos,
-                columnas) {
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(datos,columnas) {
             // Esta variable nos permite conocer de antemano los tipos de datos de cada columna, dentro del TableModel
             Class[] tipos = tiposColumnas;
 
@@ -584,36 +668,37 @@ public class Productos extends javax.swing.JFrame {
             limpiar();
         }
         else{
+             int n=Integer.parseInt(txtcodigo.getText().trim(),16);
              try {
             
              if (num==1111) {
-                
-            sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),1111, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
+                 
+            sql.Registrarproducto(n,1111, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
             limpiar();
         }
         else {
             if (num==2222){
-                  sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),2222, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
+                  sql.Registrarproducto(n,2222, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
                   limpiar();
             }
             else{
                 if (num==3333){
-                  sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),3333, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
+                  sql.Registrarproducto(n,3333, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
                   limpiar();
                 }
                 else{
                     if (num==4444){
-                       sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),4444, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
+                       sql.Registrarproducto(n,4444, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
                        limpiar();
                     }
                     else{
                         if (num==5555){
-                           sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),5555, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
+                           sql.Registrarproducto(n,5555, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
                            limpiar();
                        }
                         else{
                             if (num==6666) {
-                                sql.Registrarproducto(Integer.valueOf(txtcodigo.getText()),6666, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
+                                sql.Registrarproducto(n,6666, txtproducto.getText(),Double.valueOf(txtprecio.getText()), Integer.valueOf(txtcantidad.getText()) , fis, longitud);
                                 limpiar();
                             }
                             else{
@@ -638,15 +723,29 @@ public class Productos extends javax.swing.JFrame {
     int generarcodigo (){
         int codigo=0;
         sql=new Adm_sql();
+//        ArrayList<String> lista=  sql.codigos();
+//        System.out.println(lista.size());
+//        if(lista.size()==0)
+//        {
+//           codigo=1;   
+//        }
+//        else{
+//             codigo=Integer.parseInt(lista.get(lista.size()-1));
+             codigo+=1;
+//              int n=Integer.parseInt(txtcodigo.getText().trim(),16);
+              System.out.println(codigo);
+//        }
+//        codigo=Integer.parseInt(lista.get(lista.size()-1).trim())+1;
         try {
             Random rdm=new Random();
         codigo=rdm.nextInt(100);
         int n=0;
+        
         ArrayList<String> lista=  sql.codigos();
         for (int i = 0; i < lista.size(); i++) {
             n=Integer.parseInt(lista.get(i));
             if (codigo==n) {
-               codigo=Integer.parseInt(lista.get(lista.size()-1))+1;
+               codigo=Integer.parseInt(lista.get(lista.size()-1).trim())+1;
             }
             
         }
@@ -705,6 +804,7 @@ public class Productos extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
            num=1111;
+           llenartabla("1111");
            btnregistrar1.setText("Registrar");
            lbltitulo.setText("Ferreteria");
            jPanel2.setVisible(true);
@@ -713,13 +813,14 @@ public class Productos extends javax.swing.JFrame {
             txtprecio.setText("");
             txtcantidad.setText("");
              int n=generarcodigo();
-             txtcodigo.setText(" "+n); 
+             txtcodigo.setText(""+n); 
           // setTabla(jTable1,"1111");
            //txtcodigo.setText("1111");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
           num=2222;
+          llenartabla("2222");
           btnregistrar1.setText("Registrar");
           lbltitulo.setText("Carnes y enbutidos");
           jPanel2.setVisible(true);
@@ -734,6 +835,7 @@ public class Productos extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
           num=3333;
+          llenartabla("3333");
           btnregistrar1.setText("Registrar");
           lbltitulo.setText("Frutas y verduras");
           jPanel2.setVisible(true);
@@ -748,6 +850,7 @@ public class Productos extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         num=4444;
+        llenartabla("4444");
         btnregistrar1.setText("Registrar");
         lbltitulo.setText("Bebidas");
         jPanel2.setVisible(true);
@@ -762,6 +865,7 @@ public class Productos extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         num=5555;
+        llenartabla("5555");
         btnregistrar1.setText("Registrar");
         lbltitulo.setText("Jugueteria");
         jPanel2.setVisible(true);
@@ -816,6 +920,10 @@ public class Productos extends javax.swing.JFrame {
               btnregistrar1ActionPerformed(null);
           }
     }//GEN-LAST:event_btnregistrar1KeyPressed
+
+    private void txtproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtproductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtproductoActionPerformed
     
     private void sololetras(java.awt.event.KeyEvent evt){
         char c = evt.getKeyChar();
@@ -888,6 +996,7 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -902,7 +1011,6 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblfoto;
     private javax.swing.JLabel lblfoto1;
     private javax.swing.JLabel lblfoto2;
@@ -912,6 +1020,7 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JLabel lblfoto7;
     private javax.swing.JLabel lblmensaje;
     private javax.swing.JLabel lbltitulo;
+    private javax.swing.JTable tablita;
     private javax.swing.JTextField txtcantidad;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtprecio;

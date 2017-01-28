@@ -5,12 +5,14 @@
  */
 package Formularios;
 
+import help.Help;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -21,7 +23,7 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
     /**
      * Creates new form Recuperar_contraseña
      */
-          public Image geticonimage()
+    public Image geticonimage()
     {
      Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("nuevas imagenes/pp.jpg"));
     return retValue;
@@ -32,7 +34,7 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("iMarket");
+        setTitle("iMarket - Recuperar contraseña");
         sql=new Adm_sql();
     }
 
@@ -46,6 +48,7 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         txtcont1 = new javax.swing.JPasswordField();
         txtcont2 = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
@@ -59,8 +62,19 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        jButton1.setText("Ayuda");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 70, 20));
 
         txtcont1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtcont1.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +82,7 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
                 txtcont1ActionPerformed(evt);
             }
         });
-        jPanel1.add(txtcont1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 230, 20));
+        jPanel1.add(txtcont1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 230, 30));
 
         txtcont2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtcont2.addActionListener(new java.awt.event.ActionListener() {
@@ -76,19 +90,24 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
                 txtcont2ActionPerformed(evt);
             }
         });
-        jPanel1.add(txtcont2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 230, 20));
+        jPanel1.add(txtcont2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 230, 30));
 
-        jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
         jLabel1.setText("Restablecer la contraseña");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 220, 32));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 250, 32));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Nueva contraseña");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 230, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 230, 20));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Confirmar contraseña");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 220, 20));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 220, 20));
 
+        btnAceptar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         btnAceptar.setText("Aceptar");
+        btnAceptar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
@@ -99,23 +118,27 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
                 btnAceptarKeyPressed(evt);
             }
         });
-        jPanel1.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
+        jPanel1.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 70, -1));
 
+        jButton2.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jButton2.setText("Cancelar");
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 70, -1));
 
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 330, 260));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 310, 240));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 290));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 280));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -154,6 +177,12 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
        this.setVisible(false);        
 // TODO add your handling code here:
     }//GEN-LAST:event_btnAceptarKeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+            Help help = new Help();
+            help.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
     private void sololetrasnumeros(java.awt.event.KeyEvent evt){
         char c = evt.getKeyChar();
     
@@ -203,6 +232,7 @@ public class Recuperar_contraseña extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

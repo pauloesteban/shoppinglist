@@ -1,6 +1,7 @@
 package Formularios;
 
 import Formularios.Registrar;
+import help.Help;
 import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -31,7 +32,8 @@ public class Iniciar_sesion extends javax.swing.JFrame
           lblr.setText("");  
         }
     }
-    
+
+
     
       public Image geticonimage()
     {
@@ -46,7 +48,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
     initComponents();
         this.setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("iMarket");
+        setTitle("iMarket - Inicio de Sesión");
         jButton5.setVisible(false);
         
         
@@ -91,12 +93,14 @@ public class Iniciar_sesion extends javax.swing.JFrame
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 0, 0));
         jButton5.setText("¿Has olvidado tu contraseña?");
+        jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 220, -1));
 
         lblmensage.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblmensage.setForeground(new java.awt.Color(255, 51, 51));
@@ -132,6 +136,8 @@ public class Iniciar_sesion extends javax.swing.JFrame
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Iniciar sesión");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -146,12 +152,14 @@ public class Iniciar_sesion extends javax.swing.JFrame
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Registrarse");
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 100, 30));
         getContentPane().add(lblr, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 55, -1, -1));
 
         txtcon.addActionListener(new java.awt.event.ActionListener() {
@@ -168,6 +176,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 70, 30));
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/Sin título-1.jpg"))); // NOI18N
+        jButton6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,6 +194,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
         });
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 40, 30));
 
+        jLabel5.setBackground(new java.awt.Color(0, 153, 153));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevas imagenes/new.jpg"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 340));
 
@@ -270,9 +280,8 @@ public class Iniciar_sesion extends javax.swing.JFrame
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Ayuda hola=new Ayuda();
-        hola.show();
-        this.setVisible(false);
+        Help help = new Help();
+        help.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void txtconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtconActionPerformed
@@ -301,7 +310,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
        
               }
                else{
-                 name = JOptionPane.showInputDialog(this, vector[0]);
+//                 name = JOptionPane.showInputDialog(this, vector[0]);
               }
             }
             
@@ -315,9 +324,8 @@ public class Iniciar_sesion extends javax.swing.JFrame
     }//GEN-LAST:event_txtusuKeyTyped
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        Ayuda hola=new Ayuda();
-        hola.show();
-        this.setVisible(false);// TODO add your handling code here:
+         Help help = new Help();
+        help.setVisible(true);
     }//GEN-LAST:event_jLabel7MouseClicked
     private void sololetrasnumeros(java.awt.event.KeyEvent evt){
         char c = evt.getKeyChar();
