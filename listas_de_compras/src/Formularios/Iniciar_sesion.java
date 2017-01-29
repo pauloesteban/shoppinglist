@@ -32,8 +32,7 @@ public class Iniciar_sesion extends javax.swing.JFrame
           lblr.setText("");  
         }
     }
-
-
+    
     
       public Image geticonimage()
     {
