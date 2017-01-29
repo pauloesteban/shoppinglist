@@ -1,5 +1,6 @@
 package Formularios;
 
+import help.Help;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
@@ -136,6 +137,7 @@ public class Nueva_lista_productos extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -148,13 +150,12 @@ public class Nueva_lista_productos extends javax.swing.JFrame {
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
         jLabel1.setText("Lista de Compras");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 111, 34));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 34));
 
         lblfoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario.jpg"))); // NOI18N
         jPanel3.add(lblfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, 34));
-
-        lblusuario.setText("Alvaro Emiliano");
         jPanel3.add(lblusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 142, 34));
 
         jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 350, 50));
@@ -321,7 +322,7 @@ public class Nueva_lista_productos extends javax.swing.JFrame {
         jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 56, 22));
 
         jLabel25.setText("Detalles de Precios");
-        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 11, -1, -1));
+        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
         jLabel26.setText("Valor Total");
         jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 76, 31));
@@ -351,7 +352,7 @@ public class Nueva_lista_productos extends javax.swing.JFrame {
         jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 390, 440));
 
         jButton1.setFont(new java.awt.Font("Book Antiqua", 0, 12)); // NOI18N
-        jButton1.setText("Inicio");
+        jButton1.setText("Regresar");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -361,7 +362,18 @@ public class Nueva_lista_productos extends javax.swing.JFrame {
         });
         jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 70, 30));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 470));
+        jButton2.setFont(new java.awt.Font("Book Antiqua", 0, 12)); // NOI18N
+        jButton2.setText("Ayuda");
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 460, 80, -1));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -429,6 +441,12 @@ public class Nueva_lista_productos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+          Help help = new Help();
+          help.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -475,6 +493,7 @@ public class Nueva_lista_productos extends javax.swing.JFrame {
     private javax.swing.JButton btn3;
     private javax.swing.JButton btn4;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;

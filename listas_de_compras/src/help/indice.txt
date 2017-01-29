@@ -2,7 +2,6 @@
    |[Descripción General][archivo2]
       - [Cómo registrarse?][archivo3]
       - [Cómo realizar una compra?][archivo4]
-      - [Cómo eliminar un producto?][archivo5]
-   |[Adminisstrador][archivo6]
+   |[Administrador][archivo6]
       - [Cómo registrar productos?][archivo7]
    |[Créditos][archivo8]

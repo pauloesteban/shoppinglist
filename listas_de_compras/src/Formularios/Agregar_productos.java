@@ -87,7 +87,7 @@ public class Agregar_productos extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 90, 30));
 
-        jButton2.setBackground(new java.awt.Color(204, 255, 204));
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
         jButton2.setText("Inicio");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
