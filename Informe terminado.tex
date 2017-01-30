@@ -1,0 +1,354 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
+\author{J. Guillén Sánchez}
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace*{-1in}
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/LogoUteq.png} 
+\end{center}
+\end{figure}
+
+FACULTAD DE CIENCIAS DE LA INGENIERÍA \\
+\vspace*{0.15in}
+ESCUELA DE ELECTRICIDAD\\
+\vspace*{0.6in}
+\begin{large}
+PROYECTO:\\
+\end{large}
+\vspace*{0.2in}
+\begin{Large}
+\textbf{SHOPPING LIST}\\
+\end{Large}
+\vspace*{0.3in}
+\begin{large}
+DOCENTE:\\
+\end{large}
+\vspace*{0.2in}
+\begin{Large}
+\textbf{ING. PAULO CHILIGUANO TORRES}\\
+\end{Large}
+\vspace*{0.3in}
+\begin{large}
+INTEGRANTES:\\
+\end{large}
+\vspace*{0.2in}
+\begin{Large}
+\textbf{LUIS SOLORZANO}\\
+\textbf{JOSE GUILLEN}\\
+\textbf{RENZO COCHA}\\
+\textbf{JESUS SALAZAR}\\
+\textbf{JORDY ZAMBRANO}\\
+\end{Large}
+\vspace*{0.3in}
+\end{center}
+\end{titlepage}
+
+\begin{titlepage}
+TABLA DE CONTENIDOS\\
+\\1. INTRODUCCIÓN...............................................................................1
+\\2. JUSTIFICACIÓN................................................................................2
+\\3. OBJETIVOS........................................................................................3
+\\4. DESARROLLO....................................................................................4
+\\4.1.  ETAPA I. PROTOTIPO DE BAJA-FIDELIDAD............................4
+\\4.2.  ETAPA II. METODOLOGÍA SCRUM.............................................4
+\\4.2.1. EQUIPO DE TRABAJO................................................................5
+\\4.2.1.1. Cliente (Product Owner)..............................................................5
+\\4.2.1.2. Facilitador (Scrum Master)..........................................................5
+\\4.2.1.3. Equipo (Team).............................................................................5
+\\4.2.1.4. Equipo de trabajo......................6
+\\4.3.  ETAPA III. FUNCIONALIDADES Y CARACTERÍSTICAS DE LA APLICACIÓN (AYUDA)..........7
+\\4.3.1. Lista de Compras.........................7
+\\4.3.2. Descripción general......................7
+\\4.3.3. Registrarse en la Aplicación.............10
+\\4.3.4. Administrador............................13
+\\4.3.4.1. Importancia sobre la cuenta de administrador......................................13
+\\4.3.5. Paso a paso para registrar un producto...14
+\\5. CONCLUSIONES................................................................................17
+\\6. RECOMENDACIONES.......................................................................18
+
+\end{titlepage}
+
+\begin{center}
+
+\large \textbf{1. INTRODUCCIÓN}
+\end{center}
+
+La interacción humano computadora toma un rol importante en la vida diaria de
+las personas, esto se debe a diversos factores como es el avance de la
+tecnología, y la necesidad de resolver los problemas beneficiando al usuario a
+realizar sus tareas de manera eficiente.\newline\\
+En el inicio de la ciencia de la computación, los diseñadores y desarrolladores le
+prestaron mucha menor atención a la problemática de hacer que el hardware y
+los productos de software fueran utilizables, o 'amigables al usuario.'\newline\\
+Las listas de compras sirven para planificar y controlar los gastos del mercado con sensatez. Muchas veces vamos al supermercado y compramos cosas que no necesitamos. Se compra es por impulso, y lo peor, es que se da uno cuenta de que se ha olvidado comprar, varios de los artículos que realmente si se necesitaban. Por lo tanto una lista de la compra te ayudará a realizar la compra de manera más eficaz.\newline\\ 
+El objetivo del presente proyecto es el diseño de una aplicación que permita a
+los usuarios realizar un presupuesto previo a la compra. Para llevar a cabo el
+diseño del proyecto se basa en un lenguaje de programación JAVA, con el IDE
+Netbeans es una aplicación de código abierto (OpenSource).\newline\\
+Consta de dos partes principalmente el front-end y el back-end, es decir, la parte
+que ven todos los usuarios de la tienda y la parte de administración, de acuerdo
+a los estudios sobre la interacción humano máquina, este diseño trata de aplicar
+los conceptos que facilitan una buena usabilidad de la interface, diseñando una
+interface natural, intuitiva, eficiente, robusta y configurable de manera que
+cumpla con los requerimientos de los usuarios.\newpage
+\begin{center}
+\large \textbf{2. JUSTIFICACIÓN}
+\end{center}
+Al utilizar la aplicación de listas de compras se busca agilizar y modernizar el uso
+de la tecnología, se parte de las necesidades del cliente final, ya que al utilizar la
+interface de lista de compras genera un ambiente fácil de manejar y estándar
+para todos los usuarios que lo utilicen.\newline\\
+Disponer de esta aplicación, al realizar un presupuesto antes de realizar la
+compra favorece al usuario con herramientas que le permitan facilitar las tareas
+diarias que realiza, teniendo una idea previa del costo de cada producto lo llevará
+a realizar una compra que se ajuste con la economía de cada usuario.\newpage
+
+\begin{center}
+\large\textbf{3. OBJETIVOS}
+\end{center}
+
+
+\textbf{Objetivo general}\vspace{0,5cm}
+\begin{itemize}
+\item Diseñar una aplicación de escritorio de Listas de compras para fomentar el uso
+de las tecnologías, a través de una interface amigable con el usuario permitiendo
+una interacción humano máquina eficiente.\vspace{0,5cm}
+\end{itemize}
+\textbf{Objetivo Específicos}\newline\\
+\begin{itemize}
+
+ \item Desarrollar una aplicación de escritorio para listas de compras\newline\\
+
+ \item Determinar las características de la interface. \newline\\
+
+ \item Utilizar las metodologías de Usabilidad a la aplicación\newpage
+\end{itemize}
+\begin{center}
+\large\textbf{4. DESARROLLO}
+\end{center}
+
+\large\textbf{4.1.  ETAPA I. PROTOTIPO DE BAJA-FIDELIDAD
+}\newline\\
+Antes de iniciar el desarrollo de la aplicación se da a conocer de manera
+participativa de cada uno de los integrantes del grupo, un prototipo de baja
+fidelidad mostrando el aspecto real de la interfaz que se planteó en un comienzo
+dibujado en papel teniendo una visión general de la interface, una vez realizado
+se procede hacer un análisis y así proceder con las criticas constructivas por
+parte del usuario final para mejorar las distintas característica que posee la
+aplicación y así cumplir con los requerimientos del usuario.\newline\\
+De acuerdo al prototipo, se realizó la encuesta respectiva al diseño de cada una
+de las interfaces de la aplicación por lo tanto se obtuvieron las recomendaciones
+al proyecto, que se tomaron en cuenta para el diseño.
+\begin{itemize}
+
+ \item Presentar una imagen al ingresar con el nombre de la aplicación.
+ \item Que cada lista de compra nueva se almacene y la misma pueda ser utilizada
+nuevamente. 
+ \item Opción de eliminar o quitar un producto no deseado en el carrito de compras.
+\end{itemize}
+
+\large\textbf{4.2.  ETAPA II. METODOLOGÍA SCRUM
+}\newline\\
+Scrum es una metodología ágil y flexible para gestionar el desarrollo de software, cuyo principal objetivo es maximizar el retorno de la inversión para su empresa (ROI). Se basa en construir primero la funcionalidad de mayor valor para el cliente y en los principios de inspección continua, adaptación, auto-gestión e innovación.\newline\\
+Con la metodología Scrum el cliente se entusiasma y se compromete con el proyecto dado que lo ve crecer interacción a interacción. Asimismo le permite en cualquier momento realinear el software con los objetivos de negocio de su empresa, ya que puede introducir cambios funcionales o de prioridad en el inicio de cada nueva interacción sin ningún problema.\newline\\
+
+Esta metódica de trabajo promueve la innovación, motivación y compromiso del equipo que forma parte del proyecto, por lo que los profesionales encuentran un ámbito propicio para desarrollar sus capacidades.\newline\\
+\large\textbf{4.2.1. EQUIPO DE TRABAJO}\newline\\ 
+\textbf{4.2.1.1. Cliente (Product Owner)}\newline\\
+Ser el representante de todas las personas interesadas en los resultados del proyecto (internas o externas a la organización, promotores del proyecto y usuarios finales [idealmente  también debería ser un usuario clave] o consumidores finales del producto) y actuar como interlocutor único ante el equipo, con autoridad para tomar decisiones.\newline\\
+\textbf{4.2.1.2. Facilitador (Scrum Master)}\newline\\
+Velar por que todos los participantes del proyecto sigan los valores y principios ágiles, las reglas y proceso de Scrum y guiar la colaboración intraequipo y con el cliente de manera que las sinergias sean máximas. Esto implica:\newline\\
+\begin{itemize}
+
+ \item Asegurar que exista una lista de requisitos priorizada y que esté preparada antes de la siguiente interacción.
+ \item Facilitar las reuniones de Scrum (planificación de la interacción, reuniones diarias de sincronización del equipo, demostración, retrospectiva), de manera que sean productivas y consigan sus objetivos.
+ \item Enseñar al equipo a autogestionarse. No da respuestas, si no que guía al equipo con preguntas para que descubra por sí mismo una solución.\newline\\
+\end{itemize}
+\textbf{4.2.1.3. Equipo (Team)}\newline\\
+Grupo de personas que de manera conjunta desarrollan el producto del proyecto. Tienen un objetivo común, comparten la responsabilidad del trabajo que realizan (así como de su calidad) en cada interacción y en el proyecto.\newline\\
+El tamaño del equipo está entre 5 y 9 personas. Por debajo de 5 personas cualquier imprevisto o interrupción sobre un miembro del equipo compromete seriamente el compromiso que han adquirido y, por tanto, el resultado que se va a entregar al cliente al finalizar la iteración. Por encima de 9 personas, la comunicación y colaboración entre todos los miembros se hace más difícil y se forma subgrupos (ver los requisitos de Scrum).\newline\\
+\textbf{4.2.1.4. Equipo de trabajo}\newline\\
+\textbf{Luis Solórzano(Product Owner):} Es el representante del equipo en los resultados del proyecto y actúa como participante único ante el equipo, con autoridad para tomar decisiones.\newline\\
+\textbf{José Guillen(Scrum Master):} Es el encargado de velar por nuestro equipo de trabajo  de que sigamos los valores y principios ágiles, las reglas y proceso de Scrum y guiar la colaboración intraequipo y con el cliente de manera que las sinergias sean máximas.\newline\\
+\textbf{Renzo Cocha, Salazar Jesus, Zambrano Jordy (Scrum Team):}Son la parte del equipo encargada de la programación y el desarrollo del producto (Shopping List) en la cual tenemos un objetivo común, de compartir la responsabilidad del trabajo que realizan (así como de su calidad) en cada iteración y en el proyecto que realizamos.\newpage
+
+\large\textbf{4.3.  ETAPA III. FUNCIONALIDADES Y CARACTERÍSTICAS DE LA APLICACIÓN (AYUDA)}\newline\\
+\textbf{4.3.1. Lista de Compras}\newline\\
+Al utilizar la aplicación de listas de compras se busca agilizar y modernizar el uso de la tecnología, se parte de las necesidades del cliente final, ya que al utilizar la interface de lista de compras genera un ambiente fácil de manejar y estándar para todos los usuarios que lo utilicen.\newline\\
+Disponer de esta aplicación, al realizar un presupuesto antes de realizar la compra favorece al usuario con herramientas que le permitan facilitar las tareas diarias que realiza, teniendo una idea previa del costo de cada producto lo llevará a realizar una compra que se ajuste con la economía de cada usuario.\newline\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/ppp.png} 
+\end{center}
+\end{figure}
+
+\textbf{4.3.2. Descripción general}\newline\\
+La aplicación de Listas de Compras comienza con la presentación de una imagen que describe las compras por medio de dispositivos móviles o pc's, luego de la presentación se puede visualizar la pantalla principal de inicio de sesión, la cual consta de diferentes opciones que permitirán al usuario Registrarse, también cuenta con un botón de ayuda que permitirá brindar la información necesaria para poder realizar con éxito cada uno de los procesos que conforman la compra de un producto.\newline\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/presentacion.png} 
+\end{center}
+\end{figure}
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/aa.png} 
+\end{center}
+\end{figure}
+En el apartado de Registro se procede a ingresar los datos de usuario solicitados por la aplicación que concluye con una pregunta de seguridad para recuperar la cuenta, una vez registrado se puede acceder a la pantalla de inicio de sesión, con los datos previos almacenados, se ingresa con el usuario y contraseña, que en caso de ser incorrectas puedes recuperarla con la pregunta de seguridad y cambiar a una contraseña nueva.\newpage\
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/rr.png} 
+\end{center}
+\end{figure}
+
+Al ingresar  se podrá visualizar una nueva ventana que consta con los datos del usuario ingresado, las diferente categorías de los productos, así como también los productos, los cuales se van agregando de acuerdo a un botón que cumple la función de ir agregando al carrito de compras, cuanta también con un buscador de productos en específico, una vez seleccionados los productos se puede, visualizar en el apartado del carrito de compras ubicado en la parte superior derecha, donde una vez dentro se visualizan los diferentes productos seleccionados, con la opción de eliminarlos y ver el valor total en un factura.\newline\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/producto.jpg} 
+\end{center}
+\end{figure}
+
+\newpage\
+
+Prácticamente la aplicación es de un uso sencillo y de fácil aprendizaje lo cual permite una interacción amigable con el usuario dando la facilidad de ver un presupuesto previo a la compra por medio de la aplicación, sin necesidad de visitar el comisariato, facilitando en si las necesidades del usuario.\newline\\
+
+\textbf{4.3.3. Registrarse en la Aplicación}\newline\\
+
+Al momento de ingresar en la pantalla principal de la aplicación en la parte superior derecha se encuentra el botón de Registro, con un clic se puede acceder a la ventana, donde se podrá ingresar los datos del usuario.\newline\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/registrar.jpg} 
+\end{center}
+\end{figure}
+
+Una vez seleccionado se accede a la pantalla de registro el cuál cuenta con la internacionalización, de poder visualizar la información en diferentes idiomas.\newpage\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/pantalla.jpg} 
+\end{center}
+\end{figure}
+
+Una vez ingresado los datos, en la pantalla de registro se procede a dar un clic, en Siguiente para lo cual pide una pregunta de seguridad, para que el usuario pueda recuperar su contraseña.\newline\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/datos.jpg} 
+\end{center}
+\end{figure}
+
+\newpage\
+La pregunta se genera de manera automática, la cuál el usuario ingresa la información solicitada, de manera que cuando el olvide su contraseña pueda recuperarla por medio de la misma.\newline\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/pregunta.jpg} 
+\end{center}
+\end{figure}
+
+\newpage\
+Al llenar la pregunta de seguridad se procede a finalizar con el proceso de Registro, se mostrará un mensaje el cuál indica al usuario que ha sido registrado éxito.\newline\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/exito.jpg} 
+\end{center}
+\end{figure}
+
+\textbf{4.3.4. Administrador}\newline\\
+Dentro de este apartado el administrador es parte importante de la aplicación ya que el mismo tiene acceso a toda la información de los productos, clientes, códigos, programación entre otras diferentes tareas.
+El administrador del sistema es responsable de lo siguiente:
+\begin{itemize}
+\item Administración de usuarios (instalación y mantenimiento de cuentas).
+\item El mantenimiento de sistema.
+\item Instalar el software.
+\end{itemize}
+
+\textbf{4.3.4.1. Importancia sobre la cuenta de administrador}\newline\\
+La cuenta del administrador tiene acceso pleno (sin restricciones) al sistema, por lo que él / ella puede hacer cualquier cosa con el mismo. Por ejemplo, el administrador puede eliminar los productos almacenados, manipular la base de datos e inclusive resolver problemas con las cuentas de los usuarios.\newpage\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/administrador.jpg} 
+\end{center}
+\end{figure}
+
+\textbf{4.3.5. Paso a paso para registrar un producto.}\newline\\
+Para realizar el Registro de un producto se debe ingresar con un usuariio predeterminado de uso exclusivo del administrador, el cuál tendrá el acceso a información de productos y clientes.\newline\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/clave.jpg} 
+\end{center}
+\end{figure}
+
+Una vez ingresado el usuario y contraseña del administrador, se visualiza la siguiente ventana, con diferentes botones que cumplen una función en específico, en este caso damos un clic en el botón Productos.\newpage\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/administrador.jpg} 
+\end{center}
+\end{figure}
+
+La siguiente ventan muestra diferentes ambientes de información de las categorías de los productos, cantidad de productos almacenados, y la ventana de agregar productos.\newline\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/agregar.jpg} 
+\end{center}
+\end{figure}
+
+Para agregar el producto se debe seleccionar una categoría del producto que se va almacenar, una vez seleccionado se puede visualizar los productos que ya estan agregados en esa misma categoría, así como también el código del nuevo producto.\newpage\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/nuevo.jpg} 
+\end{center}
+\end{figure}
+
+Se debe llenar todos los campos del producto, teniendo en cuenta que si falta alguno, no se podrá realizar el almacenamiento, si se realiza todo de forma correcta luego damos un clic en Registrar, el programa mostrará un mensaje de registro, que indicará que ha sido registrado un nuevo producto.\newline\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm]{/Users/Usuario/Desktop/Informe/Informe/help/agg.jpg} 
+\end{center}
+\end{figure}
+
+\newpage\
+\textbf{5. CONCLUSIONES} \newline\\
+\begin{itemize}
+\item Mediante el diseño de la interfaz de usuario se logró un vínculo de inmersión del hombre en el entorno tecnológico actual.\newline\\ 
+\item El entendimiento de las funciones e intereses del usuario nos asegurara el éxito del sistema dirigido hacia él mediante una correcta representación de los objetos que interactuarán para comunicar al hombre con la máquina.\newline\\
+\item Elegir una metáfora acertada logrará que la interfaz sea liviana y manejable para el usuario logrando eliminar la frustración que generan las interfaces complejas y confusas que intentan mostrar las capacidades y gran cantidad de funciones que puedan tener un sistema aglutinando los objetos sin tomar en cuenta las necesidades del usuario. \newline\\
+\item Respetar los estándares establecidos por organizaciones que realizan un arduo estudio antes de publicarlas y pensemos siempre que nuestra interfaz puede extenderse y debe estar preparada para los cambios y los diversos usuarios que puedan utilizarla.\newpage
+\end{itemize}
+
+\textbf{6. RECOMENDACIONES}\newline\\
+\begin{itemize}
+\item La aplicación debe ser intuitiva para que el usuario no se pierda al momento de usarla.\newline\\
+\item Estudiar las interfaces de usuario debido a que en la vida profesional se desarrollan excelentes proyectos que se retrasan o en el peor de los casos fracasan debido a las pobres interfaces que presentan y generan la desaprobación de los usuarios.\newline\\
+\item Investigar más sobre este campo y ver si se puede aportar ideas que ayudarán a las interfaces del futuro.\newline\\
+\item Investigando los estándares actuales nos ayudara a visualizar los beneficios que obtendrá el usuario y que tan lejana esta la aplicación.\newpage
+\end{itemize}
+
+
+
+\end{document}
